@@ -3,108 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Profesional | [Tu Nombre]</title>
+    <meta name="description" content="José Emilio Sánchez Miñón - Ingeniero de Software especializado en desarrollo backend, sistemas distribuidos y arquitectura de software">
+    <meta name="keywords" content="Ingeniero de Software, Desarrollo Backend, Java, Python, Portafolio, José Emilio Sánchez">
+    <meta name="author" content="José Emilio Sánchez Miñón">
+    <meta property="og:title" content="José Emilio Sánchez Miñón - Portafolio Profesional">
+    <meta property="og:description" content="Ingeniero de Software & Desarrollador Backend especializado en sistemas distribuidos">
+    <meta property="og:type" content="website">
+    <title>José Emilio Sánchez Miñón | Ingeniero de Software</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Fondo animado con partículas -->
+    <div class="background-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
+    <!-- Elementos decorativos flotantes -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <!-- Navegación mejorada -->
     <nav class="navbar">
-        <div class="logo">[TuNombre].dev</div>
-        <ul class="nav-links">
-            <li><a href="#hero">Inicio</a></li>
-            <li><a href="#skills">Habilidades</a></li>
-            <li><a href="#projects">Proyectos</a></li>
-            <li><a href="#contact">Contacto</a></li>
-        </ul>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">JE</span>
+                <span class="logo-bracket">/&gt;</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> Sobre Mí</a></li>
+                <li><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Habilidades</a></li>
+                <li><a href="#projects" class="nav-link"><i class="fas fa-laptop-code"></i> Proyectos</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </nav>
 
+    <!-- Hero Section Mejorado -->
     <section id="hero" class="hero-section">
-        <div class="hero-content">
-            <h1>Hola, soy <span class="highlight">[Tu Nombre]</span></h1>
-            <h2>Ingeniero de Software & Desarrollador Backend</h2>
-            <p>Especializado en sistemas distribuidos, redes y arquitectura de software.</p>
-            <a href="#projects" class="btn">Ver Proyectos</a>
-            <a href="[Link-a-tu-CV]" class="btn btn-outline" target="_blank">Descargar CV</a>
+        <div class="hero-content fade-in">
+            <div class="hero-subtitle">Hola, soy</div>
+            <h1 class="hero-title">
+                <span class="gradient-text">José Emilio</span><br>
+                <span class="gradient-text">Sánchez Miñón</span>
+            </h1>
+            <h2 class="hero-description">
+                <span class="typing-text">Ingeniero de Software</span>
+            </h2>
+            <p class="hero-bio">
+                Especializado en <span class="highlight">desarrollo backend</span>, 
+                <span class="highlight">sistemas distribuidos</span> y 
+                <span class="highlight">arquitectura de software</span>
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-code"></i> Ver Proyectos
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Contactar
+                </a>
+            </div>
+            <div class="scroll-indicator">
+                <span class="scroll-text">Desliza hacia abajo</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </div>
     </section>
 
-    <section id="skills" class="section">
-        <h2 class="section-title">Stack Tecnológico</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Lenguajes</h3>
-                <p>Java, Python, C++, SQL</p>
-            </div>
-            <div class="skill-card">
-                <h3>Backend & Redes</h3>
-                <p>Sockets, APIs REST, Firebase, Linux</p>
-            </div>
-            <div class="skill-card">
-                <h3>Herramientas</h3>
-                <p>Git, Docker, VS Code, Android Studio</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section bg-light">
-        <h2 class="section-title">Proyectos Destacados</h2>
-        <div class="projects-grid">
-            <article class="project-card">
-                <div class="project-info">
-                    <h3>Servidor Socket Java</h3>
-                    <p>Implementación de arquitectura cliente-servidor multihilo en Java puro para transmisión de datos en tiempo real.</p>
-                    <div class="tags">
-                        <span>Java</span><span>Sockets</span><span>Concurrencia</span>
+    <!-- Nueva sección: Sobre Mí -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">01.</span> Sobre Mí
+            </h2>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <p>
+                        Soy un <strong>Ingeniero de Software</strong> apasionado por crear soluciones 
+                        tecnológicas eficientes y escalables. Mi enfoque principal está en el 
+                        <strong>desarrollo backend</strong> y la <strong>arquitectura de sistemas distribuidos</strong>.
+                    </p>
+                    <p>
+                        Me especializo en el diseño e implementación de sistemas robustos, 
+                        con experiencia en redes, concurrencia y optimización de rendimiento. 
+                        Disfruto resolver problemas complejos y aprender nuevas tecnologías constantemente.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Ingeniería de Software</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-award"></i>
+                            <span>Certificaciones Técnicas</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>+3 años de experiencia</span>
+                        </div>
                     </div>
-                    <a href="#" class="link">Ver Código en GitHub &rarr;</a>
                 </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-info">
-                    <h3>Monitor IoT con Arduino</h3>
-                    <p>Sistema de lectura de sensores DHT11 con integración a base de datos Firebase para monitoreo remoto.</p>
-                    <div class="tags">
-                        <span>C++</span><span>Arduino</span><span>Firebase</span>
+                <div class="about-image" data-aos="fade-left">
+                    <div class="image-wrapper">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
                     </div>
-                    <a href="#" class="link">Ver Código en GitHub &rarr;</a>
                 </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-info">
-                    <h3>Diseño de Red Empresarial</h3>
-                    <p>Planificación de infraestructura de red para [Nombre de Lugar], incluyendo segmentación VLAN y enrutamiento.</p>
-                    <div class="tags">
-                        <span>Cisco Packet Tracer</span><span>Redes</span>
-                    </div>
-                    <a href="#" class="link">Ver Documentación &rarr;</a>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <h2 class="section-title">Contacto</h2>
-        <div class="contact-wrapper">
-            <p>Estoy disponible para colaboraciones y nuevas oportunidades.</p>
-            <a href="mailto:tuemail@ejemplo.com" class="btn">Enviar Correo</a>
-            <div class="socials">
-                <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/tuusuario" target="_blank">LinkedIn</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 [Tu Nombre]. Todos los derechos reservados.</p>
+    <!-- Sección de Habilidades Mejorada -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">02.</span> Stack Tecnológico
+            </h2>
+            <div class="skills-container">
+                <!-- Lenguajes de Programación -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Lenguajes de Programación</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <span>Java</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-c"></i>
+                            </div>
+                            <span>C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend & Infraestructura -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Backend & Infraestructura</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <span>Sockets & APIs</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-linux"></i>
+                            </div>
+                            <span>Linux/Unix</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <span>Firebase</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <span>Redes & Protocolos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Herramientas & DevOps -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Herramientas & DevOps</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <span>Git & GitHub</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <span>VS Code</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-android"></i>
+                            </div>
+                            <span>Android Studio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Proyectos Mejorada -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">03.</span> Proyectos Destacados
+            </h2>
+            <div class="projects-grid">
+                <!-- Proyecto 1 -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-number">01</div>
+                    <div class="project-image">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Servidor Socket Multihilo Java</h3>
+                        <p class="project-description">
+                            Implementación completa de una arquitectura cliente-servidor con gestión 
+                            de múltiples conexiones concurrentes usando Java puro. Sistema optimizado 
+                            para transmisión de datos en tiempo real con manejo robusto de excepciones.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-java"></i> Java</span>
+                            <span class="tech-tag"><i class="fas fa-plug"></i> Sockets</span>
+                            <span class="tech-tag"><i class="fas fa-sync"></i> Multithreading</span>
+                            <span class="tech-tag"><i class="fas fa-shield-alt"></i> Concurrencia</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Jos3mi14" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Ver Código
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Proyecto 2 -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-number">02</div>
+                    <div class="project-image">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sistema IoT con Arduino & Firebase</h3>
+                        <p class="project-description">
+                            Desarrollo de sistema de monitoreo de temperatura y humedad con sensor DHT11. 
+                            Integración con Firebase Realtime Database para almacenamiento en la nube y 
+                            dashboard web para visualización de datos en tiempo real.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fas fa-c"></i> C++</span>
+                            <span class="tech-tag"><i class="fas fa-microchip"></i> Arduino</span>
+                            <span class="tech-tag"><i class="fas fa-fire"></i> Firebase</span>
+                            <span class="tech-tag"><i class="fas fa-wifi"></i> IoT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Jos3mi14" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Ver Código
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-book"></i> Documentación
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Proyecto 3 -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-number">03</div>
+                    <div class="project-image">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Diseño de Red Empresarial</h3>
+                        <p class="project-description">
+                            Planificación e implementación completa de infraestructura de red empresarial. 
+                            Incluye segmentación por VLANs, configuración de enrutamiento inter-VLAN, 
+                            políticas de seguridad y optimización del rendimiento de red.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fas fa-sitemap"></i> Cisco Packet Tracer</span>
+                            <span class="tech-tag"><i class="fas fa-network-wired"></i> Redes</span>
+                            <span class="tech-tag"><i class="fas fa-layer-group"></i> VLAN</span>
+                            <span class="tech-tag"><i class="fas fa-route"></i> Routing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-file-pdf"></i> Documentación
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-images"></i> Diagramas
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Botón para ver más proyectos -->
+            <div class="more-projects" data-aos="fade-up">
+                <a href="https://github.com/Jos3mi14" target="_blank" class="btn btn-outline-large">
+                    <i class="fab fa-github"></i> Ver Todos los Proyectos en GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto Mejorada -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">04.</span> Contacto
+            </h2>
+            <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-text">
+                    <h3>¿Tienes un proyecto en mente?</h3>
+                    <p>
+                        Estoy disponible para colaboraciones, proyectos freelance y nuevas oportunidades. 
+                        Si buscas un desarrollador backend comprometido con crear soluciones de calidad, 
+                        ¡hablemos!
+                    </p>
+                </div>
+                <div class="contact-info">
+                    <a href="mailto:jesanchezminon@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <span class="label">Email</span>
+                            <span class="value">jesanchezminon@gmail.com</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/Jos3mi14" target="_blank" class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <span class="label">GitHub</span>
+                            <span class="value">@Jos3mi14</span>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jesanchezminon/" target="_blank" class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <span class="label">LinkedIn</span>
+                            <span class="value">José Emilio Sánchez Miñón</span>
+                        </div>
+                    </a>
+                </div>
+                <a href="mailto:jesanchezminon@gmail.com" class="btn btn-primary-large">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Mejorado -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">JE</span>
+                    <span class="logo-bracket">/&gt;</span>
+                </div>
+                <p>Diseñado y desarrollado con <i class="fas fa-heart"></i> por José Emilio</p>
+            </div>
+            <div class="footer-links">
+                <a href="#hero">Inicio</a>
+                <a href="#about">Sobre Mí</a>
+                <a href="#skills">Habilidades</a>
+                <a href="#projects">Proyectos</a>
+                <a href="#contact">Contacto</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://github.com/Jos3mi14" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jesanchezminon/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:jesanchezminon@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 José Emilio Sánchez Miñón. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <!-- Botón Scroll to Top -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
