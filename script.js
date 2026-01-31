@@ -14,6 +14,8 @@ function initializeApp() {
     initSmoothScroll();
     initTypingEffect();
     initParallaxEffect();
+    initThemeToggle();
+    initProjectCardHover();
 }
 
 // ========================================
@@ -167,21 +169,36 @@ function initSmoothScroll() {
 // ========================================
 // ANIMACIONES AL HACER SCROLL (AOS)
 // ========================================
+// ANIMACIONES AL HACER SCROLL - Mejorado con prefers-reduced-motion
+// ========================================
 function initAnimationsOnScroll() {
+    // Detectar preferencia de movimiento reducido
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+        document.querySelectorAll('[data-aos]').forEach(element => {
+            element.classList.add('aos-animate');
+        });
+        return;
+    }
+
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('aos-animate');
+                const delay = entry.target.dataset.aosDelay || 0;
+                setTimeout(() => {
+                    entry.target.classList.add('aos-animate');
+                }, delay);
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observar todos los elementos con atributo data-aos
     document.querySelectorAll('[data-aos]').forEach(element => {
         observer.observe(element);
     });
@@ -360,6 +377,66 @@ function showNotification(message, type = 'info') {
         notification.classList.remove('show');
         setTimeout(() => notification.remove(), 300);
     }, 3000);
+}
+
+// ========================================
+// EFECTO DE HOVER EN PROJECT CARDS - Nuevo
+// ========================================
+function initProjectCardHover() {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            card.style.setProperty('--mouse-x', `${x}%`);
+            card.style.setProperty('--mouse-y', `${y}%`);
+        });
+    });
+}
+
+// ========================================
+// DARK MODE TOGGLE - Nuevo
+// ========================================
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const icon = themeToggle.querySelector('i');
+    
+    // Cargar tema guardado o usar el del sistema
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    
+    // Aplicar tema inicial
+    html.setAttribute('data-theme', initialTheme);
+    updateIcon(initialTheme);
+    
+    // Toggle al hacer clic
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcon(newTheme);
+        
+        // Animación del botón
+        themeToggle.style.transform = 'rotate(360deg)';
+        setTimeout(() => {
+            themeToggle.style.transform = 'rotate(0deg)';
+        }, 300);
+    });
+    
+    function updateIcon(theme) {
+        if (theme === 'dark') {
+            icon.className = 'fas fa-moon';
+        } else {
+            icon.className = 'fas fa-sun';
+        }
+    }
 }
 
 // ========================================
