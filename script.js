@@ -12,8 +12,6 @@ function initializeApp() {
     initActiveNavLinks();
     initAnimationsOnScroll();
     initSmoothScroll();
-    initTypingEffect();
-    initParallaxEffect();
     initThemeToggle();
     initProjectCardHover();
 }
@@ -132,11 +130,14 @@ function initActiveNavLinks() {
 
         // Agregar efecto al navbar cuando se hace scroll
         const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+
+        const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
         if (scrollY > 100) {
-            navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-            navbar.style.boxShadow = '0 4px 20px rgba(147, 51, 234, 0.3)';
+            navbar.style.background = isDark ? 'rgba(11, 18, 32, 0.95)' : 'rgba(255, 255, 255, 0.92)';
+            navbar.style.boxShadow = isDark ? '0 6px 24px rgba(0, 0, 0, 0.45)' : '0 8px 24px rgba(15, 23, 42, 0.12)';
         } else {
-            navbar.style.background = 'rgba(0, 0, 0, 0.8)';
+            navbar.style.background = isDark ? 'rgba(11, 18, 32, 0.8)' : 'rgba(255, 255, 255, 0.86)';
             navbar.style.boxShadow = 'none';
         }
     });
@@ -205,181 +206,6 @@ function initAnimationsOnScroll() {
 }
 
 // ========================================
-// ANIMACIÓN DE BARRAS DE HABILIDADES
-// ========================================
-// Función eliminada - ya no se usan barras de progreso
-
-// ========================================
-// EFECTO PARALLAX EN ELEMENTOS
-// ========================================
-function initParallaxEffect() {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const particles = document.querySelectorAll('.particle');
-        
-        particles.forEach((particle, index) => {
-            const speed = (index + 1) * 0.1;
-            particle.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-
-        // Efecto parallax en formas flotantes
-        const shapes = document.querySelectorAll('.shape');
-        shapes.forEach((shape, index) => {
-            const speed = (index + 1) * 0.05;
-            shape.style.transform = `translate(${scrolled * speed * 0.5}px, ${scrolled * speed}px)`;
-        });
-    });
-}
-
-// ========================================
-// EFECTO DE ESCRITURA (TYPING)
-// ========================================
-function initTypingEffect() {
-    const typingElement = document.querySelector('.typing-text');
-    if (!typingElement) return;
-
-    const texts = [
-        'Ingeniero de Software',
-        'Desarrollador Backend',
-        'Especialista en Redes',
-        'Arquitecto de Software'
-    ];
-    
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
-
-    function type() {
-        const currentText = texts[textIndex];
-        
-        if (isDeleting) {
-            typingElement.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
-            typingSpeed = 50;
-        } else {
-            typingElement.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
-            typingSpeed = 100;
-        }
-
-        if (!isDeleting && charIndex === currentText.length) {
-            // Pausa al final del texto
-            typingSpeed = 2000;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length;
-            typingSpeed = 500;
-        }
-
-        setTimeout(type, typingSpeed);
-    }
-
-    // Iniciar el efecto después de un breve delay
-    setTimeout(type, 1000);
-}
-
-// ========================================
-// EFECTOS DE PARTÍCULAS EN EL CURSOR (OPCIONAL)
-// ========================================
-function initCursorEffect() {
-    const cursor = document.createElement('div');
-    cursor.classList.add('cursor-effect');
-    document.body.appendChild(cursor);
-
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
-
-    document.querySelectorAll('a, button').forEach(element => {
-        element.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'scale(1.5)';
-        });
-        
-        element.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'scale(1)';
-        });
-    });
-}
-
-// ========================================
-// CONTADOR DE ESTADÍSTICAS (OPCIONAL)
-// ========================================
-function animateCounter(element, target, duration = 2000) {
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = target + '+';
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current);
-        }
-    }, 16);
-}
-
-// ========================================
-// MANEJO DE FORMULARIOS (SI SE AÑADE UNO)
-// ========================================
-function initContactForm() {
-    const form = document.querySelector('#contact-form');
-    if (!form) return;
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const formData = new FormData(form);
-        const submitBtn = form.querySelector('button[type="submit"]');
-        
-        // Cambiar estado del botón
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-        
-        try {
-            // Aquí iría la lógica de envío del formulario
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Mostrar mensaje de éxito
-            showNotification('¡Mensaje enviado con éxito!', 'success');
-            form.reset();
-        } catch (error) {
-            showNotification('Error al enviar el mensaje', 'error');
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensaje';
-        }
-    });
-}
-
-// ========================================
-// SISTEMA DE NOTIFICACIONES
-// ========================================
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-        <span>${message}</span>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animar entrada
-    setTimeout(() => notification.classList.add('show'), 100);
-    
-    // Remover después de 3 segundos
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
-
-// ========================================
 // EFECTO DE HOVER EN PROJECT CARDS - Nuevo
 // ========================================
 function initProjectCardHover() {
@@ -398,59 +224,43 @@ function initProjectCardHover() {
 }
 
 // ========================================
-// DARK MODE TOGGLE - Nuevo
+// DARK/LIGHT MODE
 // ========================================
 function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
+
     const html = document.documentElement;
     const icon = themeToggle.querySelector('i');
-    
-    // Cargar tema guardado o usar el del sistema
+
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-    
-    // Aplicar tema inicial
+
     html.setAttribute('data-theme', initialTheme);
     updateIcon(initialTheme);
-    
-    // Toggle al hacer clic
+
     themeToggle.addEventListener('click', () => {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateIcon(newTheme);
-        
-        // Animación del botón
+
         themeToggle.style.transform = 'rotate(360deg)';
         setTimeout(() => {
             themeToggle.style.transform = 'rotate(0deg)';
-        }, 300);
+        }, 280);
     });
-    
-    function updateIcon(theme) {
-        if (theme === 'dark') {
-            icon.className = 'fas fa-moon';
-        } else {
-            icon.className = 'fas fa-sun';
-        }
-    }
-}
 
-// ========================================
-// DETECCIÓN DE TEMA DEL SISTEMA (OPCIONAL)
-// ========================================
-function detectSystemTheme() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        console.log('Tema oscuro detectado');
+    function updateIcon(theme) {
+        icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
     }
 }
 
 // ========================================
 // LOG DE INICIO (CONSOLE)
 // ========================================
-console.log('%c¡Hola! 👋', 'color: #9333ea; font-size: 24px; font-weight: bold;');
-console.log('%c¿Explorando el código? Me gusta tu curiosidad 🚀', 'color: #c084fc; font-size: 14px;');
-console.log('%cPortafolio desarrollado por José Emilio Sánchez Miñón', 'color: #a1a1aa; font-size: 12px;');
+console.log('%c¡Hola! 👋', 'color: #fbbf24; font-size: 22px; font-weight: 700;');
+console.log('%cConstruyendo backend confiable y observable.', 'color: #38bdf8; font-size: 14px;');
+console.log('%cPortafolio de José Emilio Sánchez Miñón', 'color: #94a3b8; font-size: 12px;');
