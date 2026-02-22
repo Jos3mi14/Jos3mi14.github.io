@@ -134,10 +134,12 @@ function initActiveNavLinks() {
 
         const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
         if (scrollY > 100) {
-            navbar.style.background = isDark ? 'rgba(11, 18, 32, 0.95)' : 'rgba(255, 255, 255, 0.92)';
-            navbar.style.boxShadow = isDark ? '0 6px 24px rgba(0, 0, 0, 0.45)' : '0 8px 24px rgba(15, 23, 42, 0.12)';
+            navbar.style.background = isDark ? 'rgba(9, 16, 31, 0.96)' : 'rgba(245, 243, 255, 0.96)';
+            navbar.style.boxShadow = isDark
+                ? '0 6px 24px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(139, 92, 246, 0.12)'
+                : '0 8px 24px rgba(91, 33, 182, 0.1), 0 1px 0 rgba(139, 92, 246, 0.15)';
         } else {
-            navbar.style.background = isDark ? 'rgba(11, 18, 32, 0.8)' : 'rgba(255, 255, 255, 0.86)';
+            navbar.style.background = isDark ? 'rgba(9, 16, 31, 0.8)' : 'rgba(245, 243, 255, 0.88)';
             navbar.style.boxShadow = 'none';
         }
     });
@@ -261,6 +263,6 @@ function initThemeToggle() {
 // ========================================
 // LOG DE INICIO (CONSOLE)
 // ========================================
-console.log('%c¡Hola! 👋', 'color: #fbbf24; font-size: 22px; font-weight: 700;');
-console.log('%cConstruyendo backend confiable y observable.', 'color: #38bdf8; font-size: 14px;');
-console.log('%cPortafolio de José Emilio Sánchez Miñón', 'color: #94a3b8; font-size: 12px;');
+console.log('%c¡Hola! 👋', 'color: #a78bfa; font-size: 22px; font-weight: 700;');
+console.log('%cDesarrollando apps móviles con impacto real.', 'color: #c4b5fd; font-size: 14px;');
+console.log('%cPortafolio de José Emilio Sánchez Miñón', 'color: #7a8aaa; font-size: 12px;');
