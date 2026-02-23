@@ -13,6 +13,7 @@ function initializeApp() {
     initAnimationsOnScroll();
     initSmoothScroll();
     initProjectCardHover();
+    initTypewriter();
 }
 
 // ========================================
@@ -229,3 +230,40 @@ function initProjectCardHover() {
 console.log('%c¡Hola! 👋', 'color: #a78bfa; font-size: 22px; font-weight: 700;');
 console.log('%cDesarrollando apps móviles con impacto real.', 'color: #c4b5fd; font-size: 14px;');
 console.log('%cPortafolio de José Emilio Sánchez Miñón', 'color: #7a8aaa; font-size: 12px;');
+
+// ========================================
+// TYPEWRITER HERO
+// ========================================
+function initTypewriter() {
+    const el = document.getElementById('typewriter-text');
+    if (!el) return;
+
+    const words = ['Dev Móvil', 'Curioso', 'React Native Dev', 'Detallista', 'Product Thinker', 'Apasionado', 'TypeScript Dev', 'Estratégico', 'Builder de Apps', 'Versátil'];
+    let wordIndex = 0, charIndex = 0, deleting = false;
+
+    function tick() {
+        const word = words[wordIndex];
+        if (!deleting) {
+            charIndex++;
+            el.textContent = word.slice(0, charIndex);
+            if (charIndex === word.length) {
+                deleting = true;
+                setTimeout(tick, 1800);
+                return;
+            }
+            setTimeout(tick, 105);
+        } else {
+            charIndex--;
+            el.textContent = word.slice(0, charIndex);
+            if (charIndex === 0) {
+                deleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(tick, 380);
+                return;
+            }
+            setTimeout(tick, 55);
+        }
+    }
+
+    setTimeout(tick, 800);
+}

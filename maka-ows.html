@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MAKA OWS 2.0 — Sistema integral para la gestión de bodas online. Arquitectura de microservicios con NestJS, Next.js y PostgreSQL.">
+    <meta name="description" content="MAKA OWS 2.0 — Plataforma digital integral para la gestión de bodas. Del primer contacto con el cliente hasta el día del evento, todo en un solo sistema.">
     <meta name="author" content="José Emilio Sánchez Miñón">
     <meta name="theme-color" content="#00e5ff">
     <meta property="og:title" content="MAKA OWS 2.0 — Online Wedding System">
-    <meta property="og:description" content="Documentación técnica del proyecto MAKA OWS 2.0: migración a microservicios con NestJS, Next.js 14 y despliegue en AWS.">
+    <meta property="og:description" content="MAKA OWS 2.0: plataforma digital para la gestión integral de bodas. Coordinación de eventos, proveedores, inventario y notificaciones en un solo sistema.">
     <meta property="og:type" content="website">
     <title>MAKA OWS 2.0 | Online Wedding System</title>
     <link rel="stylesheet" href="styles.css">
@@ -213,18 +213,6 @@
             transform: translateY(-4px);
         }
         .service-card:hover::after { opacity: 1; }
-        .service-port {
-            font-family: 'Sora', monospace;
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--accent);
-            letter-spacing: 0.08em;
-            background: rgba(0,229,255,0.08);
-            border: 1px solid rgba(0,229,255,0.2);
-            padding: 3px 10px;
-            border-radius: 6px;
-            width: fit-content;
-        }
         .service-name {
             font-size: 17px;
             font-weight: 800;
@@ -536,18 +524,16 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html" style="display:flex;align-items:center;gap:6px;">
-                    <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">JE</span>
-                    <span class="logo-bracket">/&gt;</span>
+                <a href="index.html" class="logo">
+                    <div class="logo-monogram">JE</div>
+                    <div class="logo-label">
+                        <span class="logo-full-name">José Emilio</span>
+                        <span class="logo-tagline">dev &amp; product</span>
+                    </div>
                 </a>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html#hero" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="index.html#about" class="nav-link"><i class="fas fa-user"></i> Sobre Mí</a></li>
-                <li><a href="index.html#skills" class="nav-link"><i class="fas fa-code"></i> Habilidades</a></li>
-                <li><a href="index.html#projects" class="nav-link"><i class="fas fa-laptop-code"></i> Proyectos</a></li>
-                <li><a href="maka-ows.html" class="nav-link active"><i class="fas fa-diagram-project"></i> MAKA OWS</a></li>
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
                 <li><a href="index.html#contact" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
             </ul>
             <div class="menu-toggle" id="mobile-menu">
@@ -571,11 +557,11 @@
                 <p class="eyebrow"><i class="fas fa-diagram-project"></i> Proyecto Académico · 2025–2026</p>
                 <h1>MAKA <span class="highlight-text">OWS 2.0</span></h1>
                 <p class="lede" style="max-width:640px;margin:0;">
-                    Migración de un sistema monolítico PHP a una arquitectura de microservicios moderna. Sistema integral para la gestión completa de bodas, desde la planificación hasta la notificación en tiempo real.
+                    MAKA OWS es una plataforma digital para la gestión integral de bodas: desde la coordinación del evento y los proveedores hasta las notificaciones automáticas en tiempo real. Diseñada para ofrecer una experiencia fluida y profesional tanto a los organizadores como a los clientes.
                 </p>
                 <div class="hero-badges">
                     <span class="badge badge-success"><i class="fas fa-circle" style="font-size:8px"></i> En desarrollo activo</span>
-                    <span class="badge badge-info"><i class="fas fa-cubes"></i> 5 Microservicios</span>
+                    <span class="badge badge-info"><i class="fas fa-cubes"></i> 5 Módulos funcionales</span>
                     <span class="badge badge-neutral"><i class="fas fa-calendar"></i> 6 meses · Equipo de 5</span>
                     <span class="badge badge-neutral"><i class="fas fa-file-alt"></i> Documentado: 20 Ene 2026</span>
                 </div>
@@ -635,8 +621,8 @@
         <section class="section">
             <div class="container section-header" data-anim="fade-in">
                 <p class="eyebrow">02 · Contexto</p>
-                <h2>¿Por qué migrar a microservicios?</h2>
-                <p class="section-lede">La versión 1.0 presentaba limitaciones estructurales que dificultaban el crecimiento. La versión 2.0 resuelve cada uno de esos puntos con una arquitectura moderna y desacoplada.</p>
+                <h2>¿Cómo evolucionó la plataforma?</h2>
+                <p class="section-lede">La primera versión del sistema presentaba limitaciones que dificultaban su crecimiento y mantenimiento. MAKA OWS 2.0 resuelve cada uno de esos puntos con una plataforma moderna, modular y preparada para escalar.</p>
             </div>
             <div class="container migration-grid" data-anim="slide-up">
                 <div class="migration-card v1">
@@ -645,11 +631,11 @@
                         <span class="mc-title">Versión 1.0 — PHP Monolito</span>
                     </div>
                     <ul class="mc-list">
-                        <li>Código fuertemente acoplado, difícil de modificar sin romper otras funcionalidades</li>
-                        <li>Escalado horizontal complejo: cualquier cambio requería redesplegar todo el sistema</li>
-                        <li>Mantenimiento costoso conforme crecía la base de código</li>
-                        <li>Sin separación de responsabilidades entre módulos de negocio</li>
-                        <li>Stack desactualizado sin soporte nativo para APIs modernas</li>
+                        <li>Cualquier cambio podía romper otras partes del sistema sin previo aviso</li>
+                        <li>Añadir nuevas funcionalidades obligaba a redesplegar toda la aplicación</li>
+                        <li>El mantenimiento se volvía más costoso y arriesgado con cada mejora</li>
+                        <li>Los módulos de negocio estaban mezclados y eran difíciles de gestionar</li>
+                        <li>Tecnología desactualizada con limitaciones para integraciones modernas</li>
                     </ul>
                 </div>
                 <div class="migration-card v2">
@@ -658,11 +644,11 @@
                         <span class="mc-title">Versión 2.0 — Microservicios</span>
                     </div>
                     <ul class="mc-list">
-                        <li>Cada servicio es independiente: puede desplegarse, escalarse y actualizarse por separado</li>
-                        <li>Stack moderno con NestJS, Next.js 14 y PostgreSQL con ORM tipado</li>
-                        <li>Rendimiento mejorado gracias a SSR, caché con TanStack Query y Zustand</li>
-                        <li>Seguridad robusta con JWT, RBAC y guards por servicio</li>
-                        <li>Entorno reproducible con Docker, listo para producción en AWS</li>
+                        <li>Cada módulo es independiente: se puede actualizar o escalar sin afectar al resto</li>
+                        <li>Tecnología moderna en frontend, backend e infraestructura en la nube</li>
+                        <li>Mejor rendimiento y experiencia de usuario gracias a caché y renderizado optimizado</li>
+                        <li>Seguridad por capas con autenticación y control de acceso por roles</li>
+                        <li>Entorno preparado para producción con despliegue automático en la nube</li>
                     </ul>
                 </div>
             </div>
@@ -675,40 +661,35 @@
         ══════════════════════════════════════ -->
         <section class="section">
             <div class="container section-header" data-anim="fade-in">
-                <p class="eyebrow">03 · Arquitectura</p>
-                <h2>5 servicios independientes</h2>
-                <p class="section-lede">Cada microservicio opera de forma autónoma con su propia base de datos (schema aislado en PostgreSQL), garantizando disponibilidad y bajo acoplamiento.</p>
+                <p class="eyebrow">03 · Módulos</p>
+                <h2>5 módulos independientes</h2>
+                <p class="section-lede">La plataforma está dividida en cinco módulos funcionales especializados. Cada uno gestiona un área clave del negocio de forma autónoma, lo que facilita su evolución y garantiza la estabilidad del conjunto.</p>
             </div>
             <div class="container services-grid">
                 <div class="service-card" data-anim="fade-in">
                     <i class="fas fa-key service-icon"></i>
-                    <span class="service-port">Puerto · 3001</span>
-                    <div class="service-name">Auth Service</div>
-                    <p class="service-desc">Gestión completa de usuarios, registro, login y autenticación mediante JWT con tokens de acceso (15 min) y refresh (7 días). Implementa RBAC con roles ADMIN, STAFF y CLIENTE.</p>
+                    <div class="service-name">Acceso y Usuarios</div>
+                    <p class="service-desc">Gestiona el registro e inicio de sesión de todos los usuarios de la plataforma. Controla los permisos según el rol de cada persona: administrador, personal del evento o cliente.</p>
                 </div>
                 <div class="service-card" data-anim="fade-in" data-anim-delay="80">
                     <i class="fas fa-heart service-icon"></i>
-                    <span class="service-port">Puerto · 3003</span>
-                    <div class="service-name">Evento Service</div>
-                    <p class="service-desc">Núcleo del sistema. Gestiona la lógica central de cada boda: fechas, locaciones, lista de invitados y estados del evento (PENDIENTE, CONFIRMADO, EN_CURSO, FINALIZADO).</p>
+                    <div class="service-name">Gestión del Evento</div>
+                    <p class="service-desc">Núcleo del sistema. Centraliza toda la información de cada boda: fechas, locaciones, lista de invitados y seguimiento del estado del evento en cada etapa del proceso.</p>
                 </div>
                 <div class="service-card" data-anim="fade-in" data-anim-delay="160">
                     <i class="fas fa-boxes-stacked service-icon"></i>
-                    <span class="service-port">Puerto · 3004</span>
-                    <div class="service-name">Inventario Service</div>
-                    <p class="service-desc">Control de recursos materiales disponibles para cada evento: mobiliario, decoración, catering y cualquier producto asignable. Actualización en tiempo real del stock.</p>
+                    <div class="service-name">Inventario</div>
+                    <p class="service-desc">Controla los recursos materiales disponibles para cada evento: mobiliario, decoración, catering y cualquier elemento asignable. Permite visualizar y actualizar el stock en tiempo real.</p>
                 </div>
                 <div class="service-card" data-anim="fade-in" data-anim-delay="240">
                     <i class="fas fa-handshake service-icon"></i>
-                    <span class="service-port">Puerto · 3005</span>
-                    <div class="service-name">Servicio Service</div>
-                    <p class="service-desc">Catálogo de proveedores externos y servicios contratables para la boda: fotografía, música, catering, transporte y más. Gestión de contratos y estados de confirmación.</p>
+                    <div class="service-name">Proveedores y Servicios</div>
+                    <p class="service-desc">Catálogo de proveedores y servicios disponibles para la boda: fotografía, música, catering, transporte y mucho más. Incluye la gestión de contrataciones y el seguimiento de confirmaciones.</p>
                 </div>
                 <div class="service-card" data-anim="fade-in" data-anim-delay="320">
                     <i class="fas fa-bell service-icon"></i>
-                    <span class="service-port">Puerto · 3006</span>
-                    <div class="service-name">Notification Service</div>
-                    <p class="service-desc">Motor de alertas en tiempo real y envío de correos electrónicos. Notifica a los distintos roles sobre cambios de estado, recordatorios y actualizaciones críticas del evento.</p>
+                    <div class="service-name">Notificaciones</div>
+                    <p class="service-desc">Sistema de alertas y avisos automáticos. Envía notificaciones y correos electrónicos a los participantes del evento sobre cambios de estado, recordatorios y actualizaciones importantes.</p>
                 </div>
             </div>
         </section>
@@ -772,7 +753,7 @@
                             <i class="fab fa-node-js stack-item-icon"></i>
                             <div>
                                 <div class="stack-item-name">NestJS + TypeScript</div>
-                                <div class="stack-item-desc">Módulos, controladores, servicios, DTOs, Pipes</div>
+                                <div class="stack-item-desc">Framework de servidor para construir APIs robustas y bien estructuradas</div>
                             </div>
                         </div>
                         <div class="stack-item">
@@ -786,7 +767,7 @@
                             <i class="fas fa-circle-nodes stack-item-icon"></i>
                             <div>
                                 <div class="stack-item-name">PostgreSQL 17</div>
-                                <div class="stack-item-desc">Schemas aislados por microservicio</div>
+                                <div class="stack-item-desc">Base de datos relacional con esquemas separados por módulo</div>
                             </div>
                         </div>
                     </div>
@@ -842,10 +823,10 @@
                         <i class="fas fa-shield-halved"></i>
                     </div>
                     <ul class="security-list">
-                        <li><i class="fas fa-check-circle"></i> JWT con Access Token de 15 minutos de vida</li>
-                        <li><i class="fas fa-check-circle"></i> Refresh Token de 7 días para renovación silenciosa</li>
-                        <li><i class="fas fa-check-circle"></i> Contraseñas hasheadas con Bcrypt (salt rounds configurable)</li>
-                        <li><i class="fas fa-check-circle"></i> JWT_SECRET consistente entre todos los microservicios</li>
+                        <li><i class="fas fa-check-circle"></i> Sesiones seguras con tokens de corta duración</li>
+                        <li><i class="fas fa-check-circle"></i> Renovación automática de sesión sin interrupciones para el usuario</li>
+                        <li><i class="fas fa-check-circle"></i> Contraseñas cifradas con algoritmos de seguridad estándar del sector</li>
+                        <li><i class="fas fa-check-circle"></i> Clave secreta compartida y gestionada de forma segura entre módulos</li>
                     </ul>
                 </div>
                 <div class="security-card" data-anim="fade-in" data-anim-delay="120">
@@ -854,10 +835,10 @@
                         <i class="fas fa-user-lock"></i>
                     </div>
                     <ul class="security-list">
-                        <li><i class="fas fa-check-circle"></i> RBAC · Roles ADMIN, STAFF y CLIENTE</li>
-                        <li><i class="fas fa-check-circle"></i> Guards declarativos en NestJS por endpoint</li>
-                        <li><i class="fas fa-check-circle"></i> Cada microservicio valida permisos de forma independiente</li>
-                        <li><i class="fas fa-check-circle"></i> Decoradores de rol para separar responsabilidades</li>
+                        <li><i class="fas fa-check-circle"></i> Control de acceso por roles: Administrador, Personal y Cliente</li>
+                        <li><i class="fas fa-check-circle"></i> Cada acción de la plataforma verifica los permisos del usuario antes de ejecutarse</li>
+                        <li><i class="fas fa-check-circle"></i> Cada módulo gestiona sus propios controles de acceso de forma autónoma</li>
+                        <li><i class="fas fa-check-circle"></i> Separación clara de responsabilidades según el rol asignado</li>
                     </ul>
                 </div>
                 <div class="security-card" data-anim="fade-in" data-anim-delay="240">
@@ -866,10 +847,10 @@
                         <i class="fas fa-list-check"></i>
                     </div>
                     <ul class="security-list">
-                        <li><i class="fas fa-check-circle"></i> Variables de entorno validadas con Joi o class-validator</li>
-                        <li><i class="fas fa-check-circle"></i> DTOs con class-validator para sanitización de inputs</li>
-                        <li><i class="fas fa-check-circle"></i> Ninguna credencial hardcodeada en el repositorio</li>
-                        <li><i class="fas fa-check-circle"></i> Auditorías periódicas de dependencias con npm audit</li>
+                        <li><i class="fas fa-check-circle"></i> Configuración del sistema gestionada mediante variables de entorno seguras</li>
+                        <li><i class="fas fa-check-circle"></i> Validación estricta de todos los datos de entrada para evitar usos indebidos</li>
+                        <li><i class="fas fa-check-circle"></i> Ningún dato sensible almacenado directamente en el código fuente</li>
+                        <li><i class="fas fa-check-circle"></i> Auditorías periódicas de dependencias y librerías del proyecto</li>
                     </ul>
                 </div>
             </div>

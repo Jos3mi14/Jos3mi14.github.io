@@ -126,11 +126,80 @@ p { margin: 0; color: var(--text-2); }
     padding: 16px 0;
 }
 
-.logo { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 18px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 
-.logo-bracket { color: var(--accent); text-shadow: 0 0 12px var(--accent-glow); }
+.logo-monogram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
+    border-radius: 10px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    color: #000;
+    letter-spacing: -1px;
+    transform: rotate(-4deg);
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.3), 0 4px 12px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+.logo:hover .logo-monogram {
+    transform: rotate(0deg) scale(1.08);
+    box-shadow: 0 0 28px rgba(0, 229, 255, 0.45), 0 6px 18px rgba(0,0,0,0.35);
+}
 
-.logo-text { color: var(--text-1); font-family: 'Sora', 'Plus Jakarta Sans', sans-serif; }
+.logo-label {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    line-height: 1;
+}
+.logo-full-name {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-1);
+    letter-spacing: -0.3px;
+}
+.logo-tagline {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    opacity: 0.85;
+}
+
+/* Typewriter */
+.hero-typewriter {
+    font-size: clamp(17px, 2.2vw, 22px);
+    color: var(--text-2);
+    font-weight: 500;
+    margin: 0;
+    min-height: 1.5em;
+}
+.typewriter-word {
+    color: var(--accent);
+    font-weight: 700;
+    font-family: 'Sora', sans-serif;
+    text-shadow: 0 0 20px var(--accent-glow);
+}
+.type-cursor {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 200;
+    font-size: 1.1em;
+    line-height: 1;
+    margin-left: 2px;
+    animation: cursorBlink 0.75s step-end infinite;
+}
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
 
 .nav-links {
     list-style: none;
