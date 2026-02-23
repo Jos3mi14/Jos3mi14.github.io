@@ -12,7 +12,6 @@ function initializeApp() {
     initActiveNavLinks();
     initAnimationsOnScroll();
     initSmoothScroll();
-    initThemeToggle();
     initProjectCardHover();
 }
 
@@ -132,14 +131,11 @@ function initActiveNavLinks() {
         const navbar = document.querySelector('.navbar');
         if (!navbar) return;
 
-        const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
         if (scrollY > 100) {
-            navbar.style.background = isDark ? 'rgba(9, 16, 31, 0.96)' : 'rgba(245, 243, 255, 0.96)';
-            navbar.style.boxShadow = isDark
-                ? '0 6px 24px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(139, 92, 246, 0.12)'
-                : '0 8px 24px rgba(91, 33, 182, 0.1), 0 1px 0 rgba(139, 92, 246, 0.15)';
+            navbar.style.background = 'rgba(5, 10, 15, 0.97)';
+            navbar.style.boxShadow = '0 6px 24px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(0, 229, 255, 0.1)';
         } else {
-            navbar.style.background = isDark ? 'rgba(9, 16, 31, 0.8)' : 'rgba(245, 243, 255, 0.88)';
+            navbar.style.background = 'rgba(5, 10, 15, 0.75)';
             navbar.style.boxShadow = 'none';
         }
     });
@@ -170,40 +166,42 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// ANIMACIONES AL HACER SCROLL (AOS)
-// ========================================
-// ANIMACIONES AL HACER SCROLL - Mejorado con prefers-reduced-motion
+// ANIMACIONES AL HACER SCROLL (fade-in / slide-up + AOS)
 // ========================================
 function initAnimationsOnScroll() {
     // Detectar preferencia de movimiento reducido
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
+
     if (prefersReducedMotion) {
-        document.querySelectorAll('[data-aos]').forEach(element => {
-            element.classList.add('aos-animate');
+        document.querySelectorAll('[data-aos], [data-anim]').forEach(el => {
+            el.classList.add('aos-animate', 'is-visible');
         });
         return;
     }
 
     const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -80px 0px'
+        threshold: 0.12,
+        rootMargin: '0px 0px -60px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const delay = entry.target.dataset.aosDelay || 0;
+                const el = entry.target;
+                // Soporta tanto data-aos-delay como data-anim-delay
+                const delay = parseInt(el.dataset.aosDelay || el.dataset.animDelay || 0, 10);
                 setTimeout(() => {
-                    entry.target.classList.add('aos-animate');
+                    el.classList.add('aos-animate'); // para [data-aos]
+                    el.classList.add('is-visible');   // para [data-anim]
                 }, delay);
-                observer.unobserve(entry.target);
+                observer.unobserve(el);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('[data-aos]').forEach(element => {
-        observer.observe(element);
+    // Observar elementos [data-aos] y [data-anim]
+    document.querySelectorAll('[data-aos], [data-anim]').forEach(el => {
+        observer.observe(el);
     });
 }
 
@@ -223,41 +221,6 @@ function initProjectCardHover() {
             card.style.setProperty('--mouse-y', `${y}%`);
         });
     });
-}
-
-// ========================================
-// DARK/LIGHT MODE
-// ========================================
-function initThemeToggle() {
-    const themeToggle = document.getElementById('theme-toggle');
-    if (!themeToggle) return;
-
-    const html = document.documentElement;
-    const icon = themeToggle.querySelector('i');
-
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-
-    html.setAttribute('data-theme', initialTheme);
-    updateIcon(initialTheme);
-
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateIcon(newTheme);
-
-        themeToggle.style.transform = 'rotate(360deg)';
-        setTimeout(() => {
-            themeToggle.style.transform = 'rotate(0deg)';
-        }, 280);
-    });
-
-    function updateIcon(theme) {
-        icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-    }
 }
 
 // ========================================
