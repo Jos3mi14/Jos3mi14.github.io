@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>José Emilio Sánchez Miñón</title>
+    <script>
+      // GitHub Pages SPA redirect: store the path in sessionStorage and
+      // redirect to the root so React Router can handle it.
+      var path = window.location.pathname;
+      sessionStorage.setItem('redirect', path);
+      window.location.replace('/');
+    </script>
+  </head>
+  <body></body>
+</html>
