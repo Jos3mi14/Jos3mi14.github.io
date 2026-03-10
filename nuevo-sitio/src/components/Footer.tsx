@@ -1,3 +1,5 @@
+import Dock from './reactbits/Dock'
+
 interface FooterProps {
   minimal?: boolean
 }
@@ -34,27 +36,29 @@ export default function Footer({ minimal = false }: FooterProps) {
           )}
         </div>
 
-        <div className="footer-social">
-          <a
-            href="https://github.com/Jos3mi14"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="GitHub"
-          >
-            <i className="fab fa-github"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/jesanchezminon/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="LinkedIn"
-          >
-            <i className="fab fa-linkedin"></i>
-          </a>
-          <a href="mailto:jesanchezminon@gmail.com" title="Email">
-            <i className="fas fa-envelope"></i>
-          </a>
-        </div>
+        <Dock
+          items={[
+            {
+              icon: <i className="fab fa-github" style={{ fontSize: 18 }} />,
+              label: 'GitHub',
+              onClick: () => window.open('https://github.com/Jos3mi14', '_blank'),
+            },
+            {
+              icon: <i className="fab fa-linkedin" style={{ fontSize: 18 }} />,
+              label: 'LinkedIn',
+              onClick: () => window.open('https://www.linkedin.com/in/jesanchezminon/', '_blank'),
+            },
+            {
+              icon: <i className="fas fa-envelope" style={{ fontSize: 18 }} />,
+              label: 'Email',
+              onClick: () => { window.location.href = 'mailto:jesanchezminon@gmail.com' },
+            },
+          ]}
+          magnification={1.4}
+          distance={120}
+          panelHeight={48}
+          baseItemSize={38}
+        />
       </div>
       <div className="footer-bottom">
         <p>&copy; 2026 José Emilio Sánchez Miñón. Todos los derechos reservados.</p>
