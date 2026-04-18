@@ -20,7 +20,14 @@ export default function FadeInView({
   distance = 30,
   once = true,
 }: FadeInViewProps) {
+  const prefersReducedMotion =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   const initialOffset = (() => {
+    if (prefersReducedMotion || direction === 'none') {
+      return {}
+    }
+
     switch (direction) {
       case 'up':
         return { y: distance }
@@ -30,8 +37,6 @@ export default function FadeInView({
         return { x: distance }
       case 'right':
         return { x: -distance }
-      case 'none':
-        return {}
     }
   })()
 
@@ -41,7 +46,7 @@ export default function FadeInView({
       initial={{ opacity: 0, ...initialOffset }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once, amount: 0.12, margin: '0px 0px -60px 0px' }}
-      transition={{ duration, delay, ease: 'easeOut' }}
+      transition={{ duration: prefersReducedMotion ? 0 : duration, delay: prefersReducedMotion ? 0 : delay, ease: 'easeOut' }}
     >
       {children}
     </motion.div>

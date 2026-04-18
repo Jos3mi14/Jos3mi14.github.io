@@ -1,12 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-
-interface NavItem {
-  href: string
-  label: string
-  icon: string
-  isRoute?: boolean
-}
+import { HOME_NAV_ITEMS, MINIMAL_NAV_ITEMS, type NavItem } from '../constants/navigation'
 
 interface HeaderProps {
   minimal?: boolean
@@ -18,22 +12,8 @@ export default function Header({ minimal = false }: HeaderProps) {
   const [activeSection, setActiveSection] = useState('hero')
   const location = useLocation()
   const navRef = useRef<HTMLUListElement>(null)
-  const btnRef = useRef<HTMLDivElement>(null)
-
-  const homeNav: NavItem[] = [
-    { href: '#hero', label: 'Inicio', icon: 'fa-home' },
-    { href: '#about', label: 'Sobre Mí', icon: 'fa-user' },
-    { href: '#skills', label: 'Habilidades', icon: 'fa-code' },
-    { href: '#projects', label: 'Proyectos', icon: 'fa-laptop-code' },
-    { href: '#contact', label: 'Contacto', icon: 'fa-envelope' },
-  ]
-
-  const minimalNav: NavItem[] = [
-    { href: '/', label: 'Inicio', icon: 'fa-home', isRoute: true },
-    { href: '/#contact', label: 'Contacto', icon: 'fa-envelope' },
-  ]
-
-  const navItems = minimal ? minimalNav : homeNav
+  const btnRef = useRef<HTMLButtonElement>(null)
+  const navItems: NavItem[] = minimal ? MINIMAL_NAV_ITEMS : HOME_NAV_ITEMS
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,7 +67,7 @@ export default function Header({ minimal = false }: HeaderProps) {
   }
 
   return (
-    <nav
+    <header
       className="navbar"
       style={{
         background: scrolled ? 'rgba(5,10,15,0.97)' : 'rgba(5,10,15,0.75)',
@@ -106,7 +86,8 @@ export default function Header({ minimal = false }: HeaderProps) {
           </div>
         </div>
 
-        <ul ref={navRef} className={`nav-links${menuOpen ? ' active' : ''}`}>
+        <nav aria-label="Navegación principal">
+          <ul id="mobile-navigation" ref={navRef} className={`nav-links${menuOpen ? ' active' : ''}`}>
           {navItems.map((item) => {
             const isActive = !minimal && activeSection === item.href.slice(1)
             if (item.isRoute) {
@@ -117,7 +98,7 @@ export default function Header({ minimal = false }: HeaderProps) {
                     className={`nav-link${isActive ? ' active' : ''}`}
                     onClick={handleLinkClick}
                   >
-                    <i className={`fas ${item.icon}`}></i> {item.label}
+                    <i className={`fas ${item.icon}`} aria-hidden="true"></i> {item.label}
                   </Link>
                 </li>
               )
@@ -129,20 +110,23 @@ export default function Header({ minimal = false }: HeaderProps) {
                   className={`nav-link${isActive ? ' active' : ''}`}
                   onClick={(e) => handleSmoothScroll(e, item.href)}
                 >
-                  <i className={`fas ${item.icon}`}></i> {item.label}
+                  <i className={`fas ${item.icon}`} aria-hidden="true"></i> {item.label}
                 </a>
               </li>
             )
           })}
-        </ul>
+          </ul>
+        </nav>
 
-        <div
+        <button
           ref={btnRef}
           className={`menu-toggle${menuOpen ? ' active' : ''}`}
           id="mobile-menu"
+          type="button"
           onClick={() => setMenuOpen((v) => !v)}
-          role="button"
-          aria-label="Abrir menú"
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
           <span
             className="bar"
@@ -153,8 +137,8 @@ export default function Header({ minimal = false }: HeaderProps) {
             className="bar"
             style={menuOpen ? { transform: 'rotate(45deg) translate(-5px, -6px)' } : {}}
           />
-        </div>
+        </button>
       </div>
-    </nav>
+    </header>
   )
 }

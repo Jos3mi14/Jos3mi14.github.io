@@ -1,0 +1,20 @@
+import { lazy, Suspense } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+const Home = lazy(() => import('./pages/Home'))
+const MakaOwsPage = lazy(() => import('./pages/MakaOwsPage'))
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<div className="route-loading">Cargando contenido...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/maka-ows" element={<MakaOwsPage />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  )
+}
+
+export default App

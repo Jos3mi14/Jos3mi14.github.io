@@ -64,10 +64,10 @@ export default function Hero() {
               href="#projects"
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleScroll(e, 'projects')}
             >
-              <i className="fas fa-code"></i> Ver proyectos
+              <i className="fas fa-code" aria-hidden="true"></i> Ver proyectos
             </StarBorder>
             <a href="#contact" className="btn btn-ghost" onClick={(e) => handleScroll(e, 'contact')}>
-              <i className="fas fa-envelope"></i> Hablemos
+              <i className="fas fa-envelope" aria-hidden="true"></i> Hablemos
             </a>
             <a
               href="https://github.com/Jos3mi14"
@@ -75,7 +75,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="btn btn-link"
             >
-              GitHub <i className="fas fa-arrow-up-right-from-square"></i>
+              GitHub <i className="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
             </a>
           </div>
         </FadeInView>
@@ -83,7 +83,7 @@ export default function Hero() {
       <FadeInView direction="up" distance={10} delay={1.2}>
         <div className="hero-scroll-hint">
           <span>Scroll</span>
-          <i className="fas fa-chevron-down"></i>
+          <i className="fas fa-chevron-down" aria-hidden="true"></i>
         </div>
       </FadeInView>
     </section>

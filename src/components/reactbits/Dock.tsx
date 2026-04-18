@@ -39,7 +39,7 @@ function DockItem({
   distance: number;
   spring: { mass: number; stiffness: number; damping: number };
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLButtonElement>(null);
   const [isHovered, setIsHovered] = React.useState(false);
 
   const distFromMouse = useTransform(mouseX, (val: number) => {
@@ -57,10 +57,12 @@ function DockItem({
   const size = useSpring(sizeTransform, spring);
 
   return (
-    <motion.div
+    <motion.button
       ref={ref}
       style={{ width: size, height: size }}
       className="relative flex items-center justify-center cursor-pointer"
+      type="button"
+      aria-label={item.label}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={item.onClick}
@@ -93,7 +95,7 @@ function DockItem({
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </motion.button>
   );
 }
 

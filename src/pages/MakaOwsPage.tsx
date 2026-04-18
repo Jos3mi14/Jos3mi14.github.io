@@ -14,17 +14,18 @@ import './MakaOws.css'
 export default function MakaOwsPage() {
   return (
     <>
+      <a href="#main-content" className="skip-link">Saltar al contenido principal</a>
       <Header minimal />
-      <main>
+      <main id="main-content">
 
         {/* -- PAGE HERO -- */}
         <section className="page-hero">
           <div className="container page-hero-content">
             <Link to="/" className="back-link">
-              <i className="fas fa-arrow-left"></i> Volver al portafolio
+              <i className="fas fa-arrow-left" aria-hidden="true"></i> Volver al portafolio
             </Link>
             <p className="eyebrow">
-              <i className="fas fa-diagram-project"></i> Proyecto Académico · 2025–2026
+              <i className="fas fa-diagram-project" aria-hidden="true"></i> Proyecto Académico · 2025–2026
             </p>
             <h1>
               MAKA{' '}
@@ -47,16 +48,16 @@ export default function MakaOwsPage() {
             </FadeInView>
             <div className="hero-badges">
               <span className="badge badge-success">
-                <i className="fas fa-circle" style={{ fontSize: '8px' }}></i> En desarrollo activo
+                <i className="fas fa-circle" style={{ fontSize: '8px' }} aria-hidden="true"></i> En desarrollo activo
               </span>
               <span className="badge badge-info">
-                <i className="fas fa-cubes"></i> <CountUp to={5} duration={1.5} /> Módulos funcionales
+                <i className="fas fa-cubes" aria-hidden="true"></i> <CountUp to={5} duration={1.5} /> Módulos funcionales
               </span>
               <span className="badge badge-neutral">
-                <i className="fas fa-calendar"></i> <CountUp to={6} duration={1.5} /> meses · Equipo de <CountUp to={5} duration={1.5} />
+                <i className="fas fa-calendar" aria-hidden="true"></i> <CountUp to={6} duration={1.5} /> meses · Equipo de <CountUp to={5} duration={1.5} />
               </span>
               <span className="badge badge-neutral">
-                <i className="fas fa-file-alt"></i> Documentado: 20 Ene 2026
+                <i className="fas fa-file-alt" aria-hidden="true"></i> Documentado: 20 Ene 2026
               </span>
             </div>
           </div>

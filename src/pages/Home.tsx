@@ -18,8 +18,9 @@ export default function Home() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">Saltar al contenido principal</a>
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
 
         {/* -- 01 · Sobre mi -- */}
@@ -99,7 +100,7 @@ export default function Home() {
               <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.15)" className="skill-card">
                 <div className="card-top">
                   <span className="pill">Apps Móviles</span>
-                  <i className="fas fa-mobile-screen"></i>
+                  <i className="fas fa-mobile-screen" aria-hidden="true"></i>
                 </div>
                 <div className="tag-list">
                   {['React Native', 'Expo', 'TypeScript', 'JavaScript', 'SQLite'].map((t) => (
@@ -112,7 +113,7 @@ export default function Home() {
               <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.15)" className="skill-card">
                 <div className="card-top">
                   <span className="pill">IA &amp; Servicios</span>
-                  <i className="fas fa-brain"></i>
+                  <i className="fas fa-brain" aria-hidden="true"></i>
                 </div>
                 <div className="tag-list">
                   {['Gemini API', 'Assembly AI', 'Eleven Labs', 'Firebase', 'REST APIs'].map((t) => (
@@ -125,7 +126,7 @@ export default function Home() {
               <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.15)" className="skill-card">
                 <div className="card-top">
                   <span className="pill">Negocio &amp; Producto</span>
-                  <i className="fas fa-chart-line"></i>
+                  <i className="fas fa-chart-line" aria-hidden="true"></i>
                 </div>
                 <div className="tag-list">
                   {['Modelos de negocio', 'Lean Startup', 'Design Thinking', 'Validación de mercado', 'Product Roadmap'].map((t) => (
@@ -244,7 +245,7 @@ export default function Home() {
                 </p>
                 <div className="contact-grid">
                   <a href="mailto:jsanchezminon@gmail.com" className="contact-item">
-                    <i className="fas fa-envelope"></i>
+                    <i className="fas fa-envelope" aria-hidden="true"></i>
                     <div>
                       <span className="label">Email</span>
                       <span className="value">jsanchezminon@gmail.com</span>
@@ -256,7 +257,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="contact-item"
                   >
-                    <i className="fab fa-github"></i>
+                    <i className="fab fa-github" aria-hidden="true"></i>
                     <div>
                       <span className="label">GitHub</span>
                       <span className="value">@Jos3mi14</span>
@@ -268,7 +269,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="contact-item"
                   >
-                    <i className="fab fa-linkedin"></i>
+                    <i className="fab fa-linkedin" aria-hidden="true"></i>
                     <div>
                       <span className="label">LinkedIn</span>
                       <span className="value">José Emilio Sánchez Miñón</span>
@@ -282,7 +283,7 @@ export default function Home() {
                     speed="4s"
                     href="mailto:jsanchezminon@gmail.com"
                   >
-                    <i className="fas fa-paper-plane"></i> Enviar mensaje
+                    <i className="fas fa-paper-plane" aria-hidden="true"></i> Enviar mensaje
                   </StarBorder>
                   <a
                     href="#projects"

@@ -32,7 +32,7 @@ const springValues: SpringOptions = {
 
 const TiltedCard: React.FC<TiltedCardProps> = ({
   imageSrc,
-  altText = '',
+  altText = 'Imagen de perfil',
   captionText = '',
   containerHeight = '300px',
   containerWidth = '250px',
@@ -94,6 +94,8 @@ const TiltedCard: React.FC<TiltedCardProps> = ({
         <img
           src={imageSrc}
           alt={altText}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ borderRadius }}
         />
