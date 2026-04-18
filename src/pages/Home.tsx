@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
@@ -15,6 +16,18 @@ export default function Home() {
     e.preventDefault()
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
+
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash === '#contacto' || hash === '#contact') {
+      const target = document.getElementById('contacto') ?? document.getElementById('contact')
+      if (target) {
+        requestAnimationFrame(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        })
+      }
+    }
+  }, [])
 
   return (
     <>
@@ -173,7 +186,8 @@ export default function Home() {
                   ))}
                 </div>
                 <div className="project-links">
-                  <Link to="/maka-ows">Documentación completa →</Link>
+                  <Link to="/projects/maka-ows">Documentación completa →</Link>
+                  <Link to="/projects/maka-mobile">App Android →</Link>
                 </div>
               </SpotlightCard>
             </FadeInView>
@@ -225,6 +239,7 @@ export default function Home() {
 
         {/* -- 04 · Contacto -- */}
         <section id="contact" className="section">
+          <div id="contacto" aria-hidden="true" />
           <FadeInView direction="up">
             <div className="container contact-card">
               <div>

@@ -28,6 +28,8 @@
     --accent-2: #80ffff;
     --success: #00ff88;
     --success-dim: rgba(0, 255, 136, 0.12);
+    --warning: #ff8a3d;
+    --warning-dim: rgba(255, 138, 61, 0.16);
 
     /* Sombras y geometría */
     --shadow: 0 20px 60px rgba(0, 0, 0, 0.6);

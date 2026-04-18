@@ -1,0 +1,404 @@
+/* src/pages/MakaMobilePage.module.css */
+
+.pageHero {
+    padding: 160px 0 80px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+.pageHero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, var(--accent-dim) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 30% at 90% 50%, var(--accent-dim) 0%, transparent 60%);
+    z-index: -2;
+}
+.pageHero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--accent-dim) 1px, transparent 1px),
+        linear-gradient(90deg, var(--accent-dim) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: -1;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, var(--text-1) 20%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, var(--text-1) 20%, transparent 100%);
+}
+
+.heroContent {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--text-3);
+    font-size: 0.85rem;
+}
+.breadcrumb a {
+    color: var(--text-2);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+.breadcrumb a:hover {
+    color: var(--accent);
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-2);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    align-self: flex-start;
+}
+.backLink:hover {
+    color: var(--accent);
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.heroContent h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--text-1);
+    line-height: 1.1;
+    margin: 0;
+}
+.heroContent h1 span {
+    color: var(--accent);
+}
+
+.heroDesc {
+    color: var(--text-2);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+.badges {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+.badge {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text-2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+}
+
+.heroButtons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+.btnPrimary {
+    background: var(--accent);
+    color: var(--bg-900);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+.btnPrimary:hover {
+    background: var(--accent-light);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+.btnSecondary {
+    background: var(--card);
+    color: var(--accent);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    transition: all 0.3s ease;
+}
+.btnSecondary:hover {
+    background: var(--accent-dim);
+}
+.btnGhost {
+    background: transparent;
+    color: var(--text-2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+.btnGhost:hover {
+    color: var(--text-1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5%;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    color: var(--text-1);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.gridTwo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .gridTwo {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.gridThree {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+@media (min-width: 768px) {
+    .gridThree {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.rebootCard {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    height: 100%;
+}
+.rebootCard.old {
+    border-color: var(--warning);
+}
+.rebootCard.new {
+    border-color: var(--accent);
+}
+.iconWarning {
+    color: var(--warning);
+}
+.iconAccent {
+    color: var(--accent);
+}
+.iconList {
+    margin-top: 4px;
+}
+.rebootCard h3 {
+    color: var(--text-1);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.rebootCard ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.rebootCard li {
+    color: var(--text-2);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.5;
+}
+
+.stackCard {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    height: 100%;
+}
+.stackCard h3 {
+    color: var(--text-1);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+.stackBadges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 2rem;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+}
+.timelineItem {
+    position: relative;
+    margin-bottom: 3rem;
+}
+.timelineItem::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg-900);
+    border: 2px solid var(--accent);
+}
+.timelineMeta {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.timelineItem h3 {
+    color: var(--text-1);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+.timelineItem ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.timelineItem li {
+    color: var(--text-2);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.25rem;
+    line-height: 1.5;
+}
+.timelineItem li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--border-hover);
+}
+
+.diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 1rem;
+    background: var(--card-strong);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    max-width: 600px;
+    margin: 0 auto;
+}
+.diagramNode {
+    background: var(--card);
+    border: 1px solid var(--accent);
+    color: var(--text-1);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: var(--shadow);
+}
+.diagramArrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--accent);
+    font-size: 0.85rem;
+    text-align: center;
+    gap: 0.5rem;
+}
+.diagramArrow::after {
+    content: '↓';
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+@media (min-width: 768px) {
+    .metricsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.metricCard {
+    text-align: center;
+    padding: 2rem;
+    background: var(--card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+.metricValue {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+.metricLabel {
+    color: var(--text-2);
+    font-size: 0.95rem;
+}
+
+.ctaSection {
+    text-align: center;
+    padding: 6rem 5%;
+}
+.ctaSection h2 {
+    color: var(--text-1);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+.ctaButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
