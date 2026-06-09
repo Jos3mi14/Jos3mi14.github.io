@@ -12,7 +12,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           react: ['react', 'react-dom', 'react-router-dom'],
-          motion: ['motion', 'framer-motion'],
+          motion: ['framer-motion'],
         },
       },
     },
@@ -21,5 +21,8 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './src/test/setup.ts',
+    typecheck: {
+      tsconfig: './tsconfig.test.json',
+    },
   },
 })

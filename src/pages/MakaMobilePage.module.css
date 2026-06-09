@@ -160,7 +160,7 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 5%;
+    padding: 96px 5%;
 }
 
 .sectionTitle {
@@ -389,7 +389,7 @@
 
 .ctaSection {
     text-align: center;
-    padding: 6rem 5%;
+    padding: 96px 5%;
 }
 .ctaSection h2 {
     color: var(--text-1);

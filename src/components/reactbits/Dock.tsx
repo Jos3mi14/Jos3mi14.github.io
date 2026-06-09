@@ -6,7 +6,7 @@ import {
   useTransform,
   AnimatePresence,
   type MotionValue,
-} from 'motion/react';
+} from 'framer-motion';
 
 interface DockItemData {
   icon: React.ReactNode;

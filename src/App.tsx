@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 const Home = lazy(() => import('./pages/Home'))
 const MakaOwsPage = lazy(() => import('./pages/MakaOwsPage'))
@@ -11,7 +11,7 @@ function App() {
       <Suspense fallback={<div className="route-loading">Cargando contenido...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/maka-ows" element={<MakaOwsPage />} />
+          <Route path="/maka-ows" element={<Navigate to="/projects/maka-ows" replace />} />
           <Route path="/projects/maka-mobile" element={<MakaMobilePage />} />
           <Route path="/projects/maka-ows" element={<MakaOwsPage />} />
         </Routes>

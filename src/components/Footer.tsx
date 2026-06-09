@@ -22,7 +22,7 @@ export default function Footer({ minimal = false }: FooterProps) {
             <>
               <a href="/">Portafolio</a>
               <a href="/#projects">Proyectos</a>
-              <a href="/maka-ows">MAKA OWS</a>
+              <a href="/projects/maka-ows">MAKA OWS</a>
               <a href="/#contact">Contacto</a>
             </>
           ) : (

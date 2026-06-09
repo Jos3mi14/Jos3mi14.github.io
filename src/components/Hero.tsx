@@ -24,18 +24,16 @@ export default function Hero() {
           />
         </div>
         <h1>
-          Hola, soy{' '}
           <DecryptedText
             text="José Emilio"
             animateOn="view"
             sequential={true}
             speed={60}
             revealDirection="start"
-            className="highlight-text"
+            className="hero-name-standalone"
           />
         </h1>
         <p className="hero-typewriter">
-          Soy{' '}
           <RotatingText
             texts={[
               'Dev Móvil', 'Curioso', 'React Native Dev', 'Detallista',

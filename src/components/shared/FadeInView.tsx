@@ -1,4 +1,4 @@
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'framer-motion'
 import { type ReactNode } from 'react'
 
 interface FadeInViewProps {
@@ -20,8 +20,7 @@ export default function FadeInView({
   distance = 30,
   once = true,
 }: FadeInViewProps) {
-  const prefersReducedMotion =
-    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const prefersReducedMotion = useReducedMotion() ?? false
 
   const initialOffset = (() => {
     if (prefersReducedMotion || direction === 'none') {

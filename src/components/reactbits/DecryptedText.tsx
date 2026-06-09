@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 
 interface DecryptedTextProps {
   text: string;
@@ -29,7 +29,6 @@ const DecryptedText: React.FC<DecryptedTextProps> = ({
   animateOn = 'hover',
 }) => {
   const [displayText, setDisplayText] = useState(text);
-  const [_isHovering, setIsHovering] = useState(false);
   const [isScrambling, setIsScrambling] = useState(false);
   const [revealedIndices, setRevealedIndices] = useState<Set<number>>(new Set());
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -121,17 +120,12 @@ const DecryptedText: React.FC<DecryptedTextProps> = ({
 
   const handleHover = () => {
     if (animateOn === 'hover') {
-      setIsHovering(true);
       setRevealedIndices(new Set());
       setIsScrambling(true);
     }
   };
 
-  const handleMouseLeave = () => {
-    if (animateOn === 'hover') {
-      setIsHovering(false);
-    }
-  };
+  const handleMouseLeave = () => {};
 
   const handleClick = () => {
     if (animateOn === 'click') {

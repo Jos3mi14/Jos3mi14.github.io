@@ -5,7 +5,7 @@ import {
   useSpring,
   useTransform,
   type SpringOptions,
-} from 'motion/react';
+} from 'framer-motion';
 
 interface TiltedCardProps {
   imageSrc: string;

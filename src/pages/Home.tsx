@@ -36,11 +36,11 @@ export default function Home() {
       <main id="main-content">
         <Hero />
 
-        {/* -- 01 · Sobre mi -- */}
+        {/* -- Sobre mi -- */}
         <section id="about" className="section">
           <div className="container section-header">
             <p className="eyebrow">
-              <ShinyText text="01 · Sobre mí" speed={3} color="var(--accent)" shineColor="#80ffff" />
+              <ShinyText text="Sobre mí" speed={3} color="var(--accent)" shineColor="#80ffff" />
             </p>
             <h2>
               <BlurText
@@ -89,11 +89,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* -- 02 · Stack -- */}
+        {/* -- Stack -- */}
         <section id="skills" className="section">
           <div className="container section-header">
             <p className="eyebrow">
-              <ShinyText text="02 · Stack" speed={3} color="var(--accent)" shineColor="#80ffff" />
+              <ShinyText text="Stack" speed={3} color="var(--accent)" shineColor="#80ffff" />
             </p>
             <h2>
               <BlurText
@@ -151,11 +151,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* -- 03 · Proyectos -- */}
+        {/* -- Proyectos -- */}
         <section id="projects" className="section">
           <div className="container section-header">
             <p className="eyebrow">
-              <ShinyText text="03 · Proyectos" speed={3} color="var(--accent)" shineColor="#80ffff" />
+              <ShinyText text="Proyectos" speed={3} color="var(--accent)" shineColor="#80ffff" />
             </p>
             <h2>
               <BlurText
@@ -171,7 +171,6 @@ export default function Home() {
               <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.12)" className="project-card">
                 <div className="project-head">
                   <span className="pill">Full Stack · Microservicios</span>
-                  <span className="project-number">01</span>
                 </div>
                 <h3>MAKA OWS 2.0 — Online Wedding System</h3>
                 <p>
@@ -180,6 +179,20 @@ export default function Home() {
                   la gestión completa de bodas: eventos, inventario, proveedores y
                   notificaciones en tiempo real.
                 </p>
+                <div className="project-stats">
+                  <div className="project-stat">
+                    <span className="project-stat-value">5</span>
+                    <span className="project-stat-label">Microservicios</span>
+                  </div>
+                  <div className="project-stat">
+                    <span className="project-stat-value">24</span>
+                    <span className="project-stat-label">Semanas</span>
+                  </div>
+                  <div className="project-stat">
+                    <span className="project-stat-value">6</span>
+                    <span className="project-stat-label">Tecnologías</span>
+                  </div>
+                </div>
                 <div className="project-meta">
                   {['NestJS', 'Next.js 14', 'PostgreSQL', 'Prisma', 'Docker', 'AWS'].map((t) => (
                     <span className="tag" key={t}>{t}</span>
@@ -196,7 +209,6 @@ export default function Home() {
               <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.12)" className="project-card">
                 <div className="project-head">
                   <span className="pill">IA · Móvil</span>
-                  <span className="project-number">02</span>
                 </div>
                 <h3>Nyma — Asistente para adultos mayores</h3>
                 <p>
@@ -204,6 +216,20 @@ export default function Home() {
                   IoT y detección temprana de enfermedades neurodegenerativas para mejorar la
                   calidad de vida y la seguridad en el hogar.
                 </p>
+                <div className="project-stats">
+                  <div className="project-stat">
+                    <span className="project-stat-value">3</span>
+                    <span className="project-stat-label">APIs IA</span>
+                  </div>
+                  <div className="project-stat">
+                    <span className="project-stat-value">RN</span>
+                    <span className="project-stat-label">Expo</span>
+                  </div>
+                  <div className="project-stat">
+                    <span className="project-stat-value">IoT</span>
+                    <span className="project-stat-label">Monitoreo</span>
+                  </div>
+                </div>
                 <div className="project-meta">
                   {['React Native', 'Expo', 'Gemini API', 'Assembly AI', 'SQLite'].map((t) => (
                     <span className="tag" key={t}>{t}</span>
@@ -237,14 +263,14 @@ export default function Home() {
           </FadeInView>
         </section>
 
-        {/* -- 04 · Contacto -- */}
+        {/* -- Contacto -- */}
         <section id="contact" className="section">
           <div id="contacto" aria-hidden="true" />
           <FadeInView direction="up">
             <div className="container contact-card">
               <div>
                 <p className="eyebrow">
-                  <ShinyText text="04 · Contacto" speed={3} color="var(--accent)" shineColor="#80ffff" />
+                  <ShinyText text="Contacto" speed={3} color="var(--accent)" shineColor="#80ffff" />
                 </p>
                 <h2>
                   <GradientText
