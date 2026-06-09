@@ -6,8 +6,6 @@ import Footer from '../components/Footer'
 import ScrollToTopBtn from '../components/shared/ScrollToTopBtn'
 import FadeInView from '../components/shared/FadeInView'
 import SpotlightCard from '../components/reactbits/SpotlightCard'
-import BlurText from '../components/reactbits/BlurText'
-import ShinyText from '../components/reactbits/ShinyText'
 import GradientText from '../components/reactbits/GradientText'
 import StarBorder from '../components/reactbits/StarBorder'
 
@@ -39,16 +37,8 @@ export default function Home() {
         {/* -- Sobre mi -- */}
         <section id="about" className="section">
           <div className="container section-header">
-            <p className="eyebrow">
-              <ShinyText text="Sobre mí" speed={3} color="var(--accent)" shineColor="#80ffff" />
-            </p>
             <h2>
-              <BlurText
-                text="Desarrollo móvil con visión de negocio"
-                delay={100}
-                animateBy="words"
-                direction="bottom"
-              />
+              Desarrollo móvil con visión de negocio
             </h2>
             <p className="section-lede">
               Combino ingeniería de software con pensamiento estratégico para construir
@@ -57,34 +47,40 @@ export default function Home() {
           </div>
           <div className="container about-grid">
             <FadeInView direction="up" delay={0}>
-              <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.15)" className="about-card">
+              <div className="about-featured">
+                <div className="about-featured-stat">
+                  <span className="value">1</span>
+                  <span className="label">Año construyendo</span>
+                </div>
+                <div className="about-featured-text">
+                  <h3>Experiencia aplicada</h3>
+                  <p>
+                    Un año desarrollando apps móviles con React Native, Expo y Kotlin.
+                    Participación en equipos ágiles con entregas iterativas, validación
+                    de producto y enfoque en impacto social.
+                  </p>
+                </div>
+              </div>
+            </FadeInView>
+            <FadeInView direction="up" delay={0.1}>
+              <div className="about-card">
                 <h3>Cómo trabajo</h3>
                 <ul>
                   <li>Diseño experiencias móviles centradas en el usuario.</li>
                   <li>Valido hipótesis de negocio antes de escribir código.</li>
                   <li>Itero rápido con prototipos funcionales y feedback real.</li>
                 </ul>
-              </SpotlightCard>
+              </div>
             </FadeInView>
-            <FadeInView direction="up" delay={0.12}>
-              <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.15)" className="about-card">
+            <FadeInView direction="up" delay={0.2}>
+              <div className="about-card">
                 <h3>Intereses</h3>
                 <ul>
                   <li>Apps móviles con IA integrada y procesamiento de voz.</li>
                   <li>Identificación de modelos de negocio y estrategias de monetización.</li>
                   <li>Startups, producto digital y validación de mercado.</li>
                 </ul>
-              </SpotlightCard>
-            </FadeInView>
-            <FadeInView direction="up" delay={0.24}>
-              <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.15)" className="about-card">
-                <h3>Experiencia</h3>
-                <ul>
-                  <li>1 año desarrollando aplicaciones móviles con React Native y Expo.</li>
-                  <li>Participación en proyectos con enfoque en producto e impacto social.</li>
-                  <li>Trabajo en equipos ágiles multidisciplinares con entregas iterativas.</li>
-                </ul>
-              </SpotlightCard>
+              </div>
             </FadeInView>
           </div>
         </section>
@@ -92,17 +88,8 @@ export default function Home() {
         {/* -- Stack -- */}
         <section id="skills" className="section">
           <div className="container section-header">
-            <p className="eyebrow">
-              <ShinyText text="Stack" speed={3} color="var(--accent)" shineColor="#80ffff" />
-            </p>
-            <h2>
-              <BlurText
-                text="Herramientas con las que construyo producto"
-                delay={100}
-                animateBy="words"
-                direction="bottom"
-              />
-            </h2>
+            <p className="eyebrow">Stack</p>
+            <h2>Herramientas con las que construyo producto</h2>
             <p className="section-lede">
               Tecnologías y disciplinas que aplico para llevar ideas móviles desde la
               validación hasta producción.
@@ -110,7 +97,7 @@ export default function Home() {
           </div>
           <div className="container skills-grid">
             <FadeInView direction="up" delay={0}>
-              <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.15)" className="skill-card">
+              <div className="skill-card">
                 <div className="card-top">
                   <span className="pill">Apps Móviles</span>
                   <i className="fas fa-mobile-screen" aria-hidden="true"></i>
@@ -120,10 +107,10 @@ export default function Home() {
                     <span className="tag" key={t}>{t}</span>
                   ))}
                 </div>
-              </SpotlightCard>
+              </div>
             </FadeInView>
             <FadeInView direction="up" delay={0.12}>
-              <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.15)" className="skill-card">
+              <div className="skill-card">
                 <div className="card-top">
                   <span className="pill">IA &amp; Servicios</span>
                   <i className="fas fa-brain" aria-hidden="true"></i>
@@ -133,10 +120,10 @@ export default function Home() {
                     <span className="tag" key={t}>{t}</span>
                   ))}
                 </div>
-              </SpotlightCard>
+              </div>
             </FadeInView>
             <FadeInView direction="up" delay={0.24}>
-              <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.15)" className="skill-card">
+              <div className="skill-card">
                 <div className="card-top">
                   <span className="pill">Negocio &amp; Producto</span>
                   <i className="fas fa-chart-line" aria-hidden="true"></i>
@@ -146,7 +133,7 @@ export default function Home() {
                     <span className="tag" key={t}>{t}</span>
                   ))}
                 </div>
-              </SpotlightCard>
+              </div>
             </FadeInView>
           </div>
         </section>
@@ -154,17 +141,8 @@ export default function Home() {
         {/* -- Proyectos -- */}
         <section id="projects" className="section">
           <div className="container section-header">
-            <p className="eyebrow">
-              <ShinyText text="Proyectos" speed={3} color="var(--accent)" shineColor="#80ffff" />
-            </p>
-            <h2>
-              <BlurText
-                text="Productos que muestran cómo abordo problemas reales"
-                delay={100}
-                animateBy="words"
-                direction="bottom"
-              />
-            </h2>
+            <p className="eyebrow">Proyectos</p>
+            <h2>Proyectos con impacto real</h2>
           </div>
           <div className="container projects-grid">
             <FadeInView direction="up" delay={0}>
@@ -269,9 +247,6 @@ export default function Home() {
           <FadeInView direction="up">
             <div className="container contact-card">
               <div>
-                <p className="eyebrow">
-                  <ShinyText text="Contacto" speed={3} color="var(--accent)" shineColor="#80ffff" />
-                </p>
                 <h2>
                   <GradientText
                     colors={['#00e5ff', '#80ffff', '#ffffff', '#80ffff', '#00e5ff']}

@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import FadeInView from '../components/shared/FadeInView'
-import SpotlightCard from '../components/reactbits/SpotlightCard'
 import CountUp from '../components/reactbits/CountUp'
 import styles from './MakaMobilePage.module.css'
 
@@ -70,7 +69,6 @@ export default function MakaMobilePage() {
           <FadeInView>
             <h2 className={styles.sectionTitle}>Sprint 3: De Expo a Kotlin nativo</h2>
             <div className={styles.gridTwo}>
-              {/* Left Column - Expo */}
               <div className={`${styles.rebootCard} ${styles.old}`}>
                 <h3>
                   <i className={`fas fa-times-circle ${styles.iconWarning}`} aria-hidden="true"></i>
@@ -84,7 +82,6 @@ export default function MakaMobilePage() {
                 </ul>
               </div>
 
-              {/* Right Column - Kotlin */}
               <div className={`${styles.rebootCard} ${styles.new}`}>
                 <h3>
                   <i className={`fas fa-check-circle ${styles.iconAccent}`} aria-hidden="true"></i>
@@ -108,7 +105,7 @@ export default function MakaMobilePage() {
           <FadeInView>
             <h2 className={styles.sectionTitle}>Stack tecnológico</h2>
             <div className={styles.gridThree}>
-              <SpotlightCard className={styles.stackCard} spotlightColor="var(--accent-dim)">
+              <div className={styles.stackCard}>
                 <h3><i className="fab fa-android" aria-hidden="true"></i> Núcleo Android</h3>
                 <div className={styles.stackBadges}>
                   <span className={styles.badge}>Kotlin</span>
@@ -118,9 +115,9 @@ export default function MakaMobilePage() {
                   <span className={styles.badge}>ViewModel + StateFlow</span>
                   <span className={styles.badge}>Corutinas</span>
                 </div>
-              </SpotlightCard>
+              </div>
 
-              <SpotlightCard className={styles.stackCard} spotlightColor="var(--accent-dim)">
+              <div className={styles.stackCard}>
                 <h3><i className="fas fa-shield-halved" aria-hidden="true"></i> Red y seguridad</h3>
                 <div className={styles.stackBadges}>
                   <span className={styles.badge}>Retrofit 2 + OkHttp</span>
@@ -129,9 +126,9 @@ export default function MakaMobilePage() {
                   <span className={styles.badge}>Gson</span>
                   <span className={styles.badge}>BuildConfig por entorno</span>
                 </div>
-              </SpotlightCard>
+              </div>
 
-              <SpotlightCard className={styles.stackCard} spotlightColor="var(--accent-dim)">
+              <div className={styles.stackCard}>
                 <h3><i className="fas fa-sitemap" aria-hidden="true"></i> Arquitectura</h3>
                 <div className={styles.stackBadges}>
                   <span className={styles.badge}>MVVM</span>
@@ -140,7 +137,7 @@ export default function MakaMobilePage() {
                   <span className={styles.badge}>Result&lt;T&gt; para errores</span>
                   <span className={styles.badge}>Git Flow + commits convencionales</span>
                 </div>
-              </SpotlightCard>
+              </div>
             </div>
           </FadeInView>
         </section>

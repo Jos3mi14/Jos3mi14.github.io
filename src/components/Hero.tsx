@@ -1,6 +1,5 @@
 import DecryptedText from './reactbits/DecryptedText'
 import RotatingText from './reactbits/RotatingText'
-import ShinyText from './reactbits/ShinyText'
 import StarBorder from './reactbits/StarBorder'
 import FadeInView from './shared/FadeInView'
 
@@ -16,12 +15,7 @@ export default function Hero() {
       <div className="hero-content">
         <div className="eyebrow">
           <span className="status-dot"></span>
-          <ShinyText
-            text="Desarrollador Móvil · Modelos de Negocio"
-            speed={3}
-            color="var(--accent)"
-            shineColor="#80ffff"
-          />
+          <span>Desarrollador Móvil &middot; Modelos de Negocio</span>
         </div>
         <h1>
           <DecryptedText
@@ -36,15 +30,14 @@ export default function Hero() {
         <p className="hero-typewriter">
           <RotatingText
             texts={[
-              'Dev Móvil', 'Curioso', 'React Native Dev', 'Detallista',
-              'Product Thinker', 'Apasionado', 'TypeScript Dev', 'Estratégico',
-              'Builder de Apps', 'Versátil',
+              'React Native', 'TypeScript',
+              'Product Strategy', 'AI & Voice',
             ]}
             mainClassName="typewriter-word"
             staggerFrom="last"
             staggerDuration={0.03}
             splitBy="characters"
-            rotationInterval={2500}
+            rotationInterval={2800}
           />
         </p>
         <FadeInView direction="up" distance={20} delay={0.4}>

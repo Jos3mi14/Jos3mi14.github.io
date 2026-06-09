@@ -400,6 +400,8 @@ p { margin: 0; color: var(--text-2); }
 /* El panel lateral ya no es necesario en el hero full-screen */
 .hero-panel { display: none; }
 
+
+
 .status-dot {
     width: 10px; height: 10px;
     border-radius: 50%;
@@ -543,7 +545,11 @@ p { margin: 0; color: var(--text-2); }
 .about-grid {
     display: grid;
     gap: 18px;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; }
 }
 
 .about-card {
@@ -580,6 +586,68 @@ p { margin: 0; color: var(--text-2); }
 .about-card h3 { margin-bottom: 12px; }
 
 .about-card ul { padding-left: 18px; color: var(--text-2); display: grid; gap: 8px; margin: 0; }
+
+/* About featured block — breaks the card pattern */
+.about-featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--card) 0%, var(--card-strong) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.about-featured-stat {
+    text-align: center;
+    flex-shrink: 0;
+    width: 120px;
+}
+
+.about-featured-stat .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.3));
+}
+
+.about-featured-stat .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-3);
+    margin-top: 6px;
+    display: block;
+}
+
+.about-featured-text h3 {
+    font-size: 20px;
+    margin-bottom: 6px;
+    color: var(--text-1);
+}
+
+.about-featured-text p {
+    font-size: 14px;
+    color: var(--text-2);
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    .about-featured {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 16px;
+    }
+    .about-featured-stat {
+        width: auto;
+    }
+}
 
 /* ========================================
    Skills
@@ -671,9 +739,9 @@ p { margin: 0; color: var(--text-2); }
 
 .project-stat-value {
     font-size: 22px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--accent);
-    font-family: 'Sora', sans-serif;
+    font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', monospace;
     line-height: 1.2;
     display: block;
 }

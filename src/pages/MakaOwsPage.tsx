@@ -3,9 +3,6 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ScrollToTopBtn from '../components/shared/ScrollToTopBtn'
 import FadeInView from '../components/shared/FadeInView'
-import SpotlightCard from '../components/reactbits/SpotlightCard'
-import BlurText from '../components/reactbits/BlurText'
-import ShinyText from '../components/reactbits/ShinyText'
 import DecryptedText from '../components/reactbits/DecryptedText'
 import CountUp from '../components/reactbits/CountUp'
 import TiltedCard from '../components/reactbits/TiltedCard'
@@ -63,16 +60,12 @@ export default function MakaOwsPage() {
           </div>
         </section>
 
-        {/* -- 01 · FICHA TECNICA -- */}
+        {/* -- FICHA TECNICA -- */}
         <section className="section">
           <FadeInView direction="up">
             <div className="container section-header">
-              <p className="eyebrow">
-                <ShinyText text="01 · Ficha Técnica" speed={3} color="var(--accent)" shineColor="#80ffff" />
-              </p>
-              <h2>
-                <BlurText text="Datos del proyecto" delay={100} animateBy="words" direction="bottom" />
-              </h2>
+              <p className="eyebrow">Ficha Técnica</p>
+              <h2>Datos del proyecto</h2>
               <p className="section-lede">Referencia rápida con la información institucional y de estado del sistema.</p>
             </div>
           </FadeInView>
@@ -100,16 +93,12 @@ export default function MakaOwsPage() {
 
         <div className="section-divider" />
 
-        {/* -- 02 · CONTEXTO -- */}
+        {/* -- CONTEXTO -- */}
         <section className="section">
           <FadeInView direction="up">
             <div className="container section-header">
-              <p className="eyebrow">
-                <ShinyText text="02 · Contexto" speed={3} color="var(--accent)" shineColor="#80ffff" />
-              </p>
-              <h2>
-                <BlurText text="¿Cómo evolucionó la plataforma?" delay={100} animateBy="words" direction="bottom" />
-              </h2>
+              <p className="eyebrow">Contexto</p>
+              <h2>¿Cómo evolucionó la plataforma?</h2>
               <p className="section-lede">
                 La primera versión del sistema presentaba limitaciones que dificultaban su
                 crecimiento y mantenimiento. MAKA OWS 2.0 resuelve cada uno de esos puntos
@@ -119,7 +108,7 @@ export default function MakaOwsPage() {
           </FadeInView>
           <FadeInView direction="up" delay={0.15}>
             <div className="container migration-grid">
-              <SpotlightCard spotlightColor="rgba(239, 68, 68, 0.15)" className="migration-card v1">
+              <div className="migration-card v1">
                 <div className="mc-header">
                   <i className="fas fa-exclamation-triangle" style={{ color: '#ef4444', fontSize: '20px' }}></i>
                   <span className="mc-title">Versión 1.0 — PHP Monolito</span>
@@ -131,8 +120,8 @@ export default function MakaOwsPage() {
                   <li>Los módulos de negocio estaban mezclados y eran difíciles de gestionar</li>
                   <li>Tecnología desactualizada con limitaciones para integraciones modernas</li>
                 </ul>
-              </SpotlightCard>
-              <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.15)" className="migration-card v2">
+              </div>
+              <div className="migration-card v2">
                 <div className="mc-header">
                   <i className="fas fa-rocket" style={{ color: 'var(--accent)', fontSize: '20px' }}></i>
                   <span className="mc-title">Versión 2.0 — Microservicios</span>
@@ -144,23 +133,19 @@ export default function MakaOwsPage() {
                   <li>Seguridad por capas con autenticación y control de acceso por roles</li>
                   <li>Entorno preparado para producción con despliegue automático en la nube</li>
                 </ul>
-              </SpotlightCard>
+              </div>
             </div>
           </FadeInView>
         </section>
 
         <div className="section-divider" />
 
-        {/* -- 03 · MODULOS -- */}
+        {/* -- MODULOS -- */}
         <section className="section">
           <FadeInView direction="up">
             <div className="container section-header">
-              <p className="eyebrow">
-                <ShinyText text="03 · Módulos" speed={3} color="var(--accent)" shineColor="#80ffff" />
-              </p>
-              <h2>
-                <BlurText text="5 módulos independientes" delay={100} animateBy="words" direction="bottom" />
-              </h2>
+              <p className="eyebrow">Módulos</p>
+              <h2>5 módulos independientes</h2>
               <p className="section-lede">
                 La plataforma está dividida en cinco módulos funcionales especializados. Cada
                 uno gestiona un área clave del negocio de forma autónoma.
@@ -176,11 +161,11 @@ export default function MakaOwsPage() {
               { icon: 'fa-bell', name: 'Notificaciones', desc: 'Sistema de alertas automáticas. Envía notificaciones y correos a los participantes sobre cambios de estado, recordatorios y actualizaciones importantes.' },
             ].map((s, i) => (
               <FadeInView direction="up" delay={i * 0.08} key={s.name}>
-                <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.12)" className="service-card">
+                <div className="service-card">
                   <i className={`fas ${s.icon} service-icon`}></i>
                   <div className="service-name">{s.name}</div>
                   <p className="service-desc">{s.desc}</p>
-                </SpotlightCard>
+                </div>
               </FadeInView>
             ))}
           </div>
@@ -188,16 +173,12 @@ export default function MakaOwsPage() {
 
         <div className="section-divider" />
 
-        {/* -- 04 · STACK -- */}
+        {/* -- STACK -- */}
         <section className="section">
           <FadeInView direction="up">
             <div className="container section-header">
-              <p className="eyebrow">
-                <ShinyText text="04 · Stack Tecnológico" speed={3} color="var(--accent)" shineColor="#80ffff" />
-              </p>
-              <h2>
-                <BlurText text="Tecnologías del core" delay={100} animateBy="words" direction="bottom" />
-              </h2>
+              <p className="eyebrow">Stack Tecnológico</p>
+              <h2>Tecnologías del core</h2>
               <p className="section-lede">
                 Selección de herramientas modernas que priorizan el rendimiento, la
                 mantenibilidad y la experiencia de desarrollo.
@@ -207,7 +188,7 @@ export default function MakaOwsPage() {
           <div className="container stack-grid">
             {/* Frontend */}
             <FadeInView direction="up" delay={0}>
-              <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.12)" className="stack-card">
+              <div className="stack-card">
                 <div className="stack-top">
                   <span className="stack-category">Frontend</span>
                   <i className="fas fa-display" style={{ color: 'var(--accent)' }}></i>
@@ -228,11 +209,11 @@ export default function MakaOwsPage() {
                     </div>
                   ))}
                 </div>
-              </SpotlightCard>
+              </div>
             </FadeInView>
             {/* Backend */}
             <FadeInView direction="up" delay={0.12}>
-              <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.12)" className="stack-card">
+              <div className="stack-card">
                 <div className="stack-top">
                   <span className="stack-category">Backend</span>
                   <i className="fas fa-server" style={{ color: 'var(--accent)' }}></i>
@@ -252,11 +233,11 @@ export default function MakaOwsPage() {
                     </div>
                   ))}
                 </div>
-              </SpotlightCard>
+              </div>
             </FadeInView>
             {/* Infraestructura */}
             <FadeInView direction="up" delay={0.24}>
-              <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.12)" className="stack-card">
+              <div className="stack-card">
                 <div className="stack-top">
                   <span className="stack-category">Infraestructura</span>
                   <i className="fas fa-cloud" style={{ color: 'var(--accent)' }}></i>
@@ -276,23 +257,19 @@ export default function MakaOwsPage() {
                     </div>
                   ))}
                 </div>
-              </SpotlightCard>
+              </div>
             </FadeInView>
           </div>
         </section>
 
         <div className="section-divider" />
 
-        {/* -- 05 · SEGURIDAD -- */}
+        {/* -- SEGURIDAD -- */}
         <section className="section">
           <FadeInView direction="up">
             <div className="container section-header">
-              <p className="eyebrow">
-                <ShinyText text="05 · Seguridad" speed={3} color="var(--accent)" shineColor="#80ffff" />
-              </p>
-              <h2>
-                <BlurText text="Seguridad y control de acceso" delay={100} animateBy="words" direction="bottom" />
-              </h2>
+              <p className="eyebrow">Seguridad</p>
+              <h2>Seguridad y control de acceso</h2>
               <p className="section-lede">
                 Modelo de seguridad en capas que protege cada endpoint con autenticación,
                 autorización basada en roles y buenas prácticas de configuración.
@@ -330,7 +307,7 @@ export default function MakaOwsPage() {
               },
             ].map((card, i) => (
               <FadeInView direction="up" delay={i * 0.12} key={card.pill}>
-                <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.12)" className="security-card">
+                <div className="security-card">
                   <div className="card-top">
                     <span className="pill">{card.pill}</span>
                     <i className={`fas ${card.icon}`}></i>
@@ -342,7 +319,7 @@ export default function MakaOwsPage() {
                       </li>
                     ))}
                   </ul>
-                </SpotlightCard>
+                </div>
               </FadeInView>
             ))}
           </div>
@@ -350,16 +327,12 @@ export default function MakaOwsPage() {
 
         <div className="section-divider" />
 
-        {/* -- 06 · CRONOGRAMA -- */}
+        {/* -- CRONOGRAMA -- */}
         <section className="section">
           <FadeInView direction="up">
             <div className="container section-header">
-              <p className="eyebrow">
-                <ShinyText text="06 · Cronograma" speed={3} color="var(--accent)" shineColor="#80ffff" />
-              </p>
-              <h2>
-                <BlurText text="Hoja de ruta del proyecto" delay={100} animateBy="words" direction="bottom" />
-              </h2>
+              <p className="eyebrow">Cronograma</p>
+              <h2>Hoja de ruta del proyecto</h2>
               <p className="section-lede">
                 <CountUp to={24} duration={2} /> semanas divididas en tres fases: setup y desarrollo del core, integración
                 y testing, y despliegue en producción.
@@ -411,16 +384,12 @@ export default function MakaOwsPage() {
 
         <div className="section-divider" />
 
-        {/* -- 07 · EQUIPO -- */}
+        {/* -- EQUIPO -- */}
         <section className="section">
           <FadeInView direction="up">
             <div className="container section-header">
-              <p className="eyebrow">
-                <ShinyText text="07 · Equipo" speed={3} color="var(--accent)" shineColor="#80ffff" />
-              </p>
-              <h2>
-                <BlurText text="Las personas detrás del proyecto" delay={100} animateBy="words" direction="bottom" />
-              </h2>
+              <p className="eyebrow">Equipo</p>
+              <h2>Las personas detrás del proyecto</h2>
               <p className="section-lede">
                 Equipo multidisciplinar de 5 ingenieros trabajando con metodología ágil,
                 sprints semanales y Git Flow con Conventional Commits.
