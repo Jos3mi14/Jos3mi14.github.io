@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 import {
   motion,
   useMotionValue,
@@ -6,7 +6,7 @@ import {
   useTransform,
   AnimatePresence,
   type MotionValue,
-} from 'framer-motion';
+} from "framer-motion";
 
 interface DockItemData {
   icon: React.ReactNode;
@@ -48,11 +48,11 @@ function DockItem({
     return val - rect.left - rect.width / 2;
   });
 
-  const sizeTransform = useTransform(distFromMouse, [-distance, 0, distance], [
-    baseSize,
-    baseSize * magnification,
-    baseSize,
-  ]);
+  const sizeTransform = useTransform(
+    distFromMouse,
+    [-distance, 0, distance],
+    [baseSize, baseSize * magnification, baseSize],
+  );
 
   const size = useSpring(sizeTransform, spring);
 
@@ -70,10 +70,10 @@ function DockItem({
       <div
         className="flex items-center justify-center w-full h-full rounded-xl"
         style={{
-          background: 'var(--card, #0d1b28)',
-          border: '1px solid var(--border, #162335)',
-          color: 'var(--text-1, #f0f4ff)',
-          fontSize: '18px',
+          background: "var(--card, #0d1b28)",
+          border: "1px solid var(--border, #162335)",
+          color: "var(--text-1, #f0f4ff)",
+          fontSize: "18px",
         }}
       >
         {item.icon}
@@ -86,9 +86,9 @@ function DockItem({
             exit={{ opacity: 0, y: 10 }}
             className="absolute bottom-full mb-2 px-3 py-1 rounded-md text-xs whitespace-nowrap"
             style={{
-              background: 'var(--card, #0d1b28)',
-              border: '1px solid var(--border, #162335)',
-              color: 'var(--text-1, #f0f4ff)',
+              background: "var(--card, #0d1b28)",
+              border: "1px solid var(--border, #162335)",
+              color: "var(--text-1, #f0f4ff)",
             }}
           >
             {item.label}
@@ -101,7 +101,7 @@ function DockItem({
 
 const Dock: React.FC<DockProps> = ({
   items,
-  className = '',
+  className = "",
   magnification = 1.6,
   distance = 120,
   panelHeight = 48,
@@ -117,8 +117,8 @@ const Dock: React.FC<DockProps> = ({
       className={`flex items-end gap-3 px-4 py-2 rounded-2xl ${className}`}
       style={{
         height: panelHeight + 16,
-        background: 'var(--card, #0d1b28)',
-        border: '1px solid var(--border, #162335)',
+        background: "var(--card, #0d1b28)",
+        border: "1px solid var(--border, #162335)",
       }}
     >
       {items.map((item, i) => (

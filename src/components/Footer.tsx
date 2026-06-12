@@ -1,7 +1,7 @@
-import Dock from './reactbits/Dock'
+import Dock from "./reactbits/Dock";
 
 interface FooterProps {
-  minimal?: boolean
+  minimal?: boolean;
 }
 
 export default function Footer({ minimal = false }: FooterProps) {
@@ -14,7 +14,10 @@ export default function Footer({ minimal = false }: FooterProps) {
             <span className="logo-text">JE</span>
             <span className="logo-bracket">/&gt;</span>
           </div>
-          <p>Diseñado y desarrollado con <i className="fas fa-heart" aria-hidden="true"></i> por José Emilio</p>
+          <p>
+            Diseñado y desarrollado con{" "}
+            <i className="fas fa-heart" aria-hidden="true"></i> por José Emilio
+          </p>
         </div>
 
         <div className="footer-links">
@@ -39,19 +42,44 @@ export default function Footer({ minimal = false }: FooterProps) {
         <Dock
           items={[
             {
-              icon: <i className="fab fa-github" style={{ fontSize: 18 }} aria-hidden="true" />,
-              label: 'GitHub',
-              onClick: () => window.open('https://github.com/Jos3mi14', '_blank'),
+              icon: (
+                <i
+                  className="fab fa-github"
+                  style={{ fontSize: 18 }}
+                  aria-hidden="true"
+                />
+              ),
+              label: "GitHub",
+              onClick: () =>
+                window.open("https://github.com/Jos3mi14", "_blank"),
             },
             {
-              icon: <i className="fab fa-linkedin" style={{ fontSize: 18 }} aria-hidden="true" />,
-              label: 'LinkedIn',
-              onClick: () => window.open('https://www.linkedin.com/in/jesanchezminon/', '_blank'),
+              icon: (
+                <i
+                  className="fab fa-linkedin"
+                  style={{ fontSize: 18 }}
+                  aria-hidden="true"
+                />
+              ),
+              label: "LinkedIn",
+              onClick: () =>
+                window.open(
+                  "https://www.linkedin.com/in/jesanchezminon/",
+                  "_blank",
+                ),
             },
             {
-              icon: <i className="fas fa-envelope" style={{ fontSize: 18 }} aria-hidden="true" />,
-              label: 'Email',
-              onClick: () => { window.location.href = 'mailto:jesanchezminon@gmail.com' },
+              icon: (
+                <i
+                  className="fas fa-envelope"
+                  style={{ fontSize: 18 }}
+                  aria-hidden="true"
+                />
+              ),
+              label: "Email",
+              onClick: () => {
+                window.location.href = "mailto:jesanchezminon@gmail.com";
+              },
             },
           ]}
           magnification={1.4}
@@ -61,8 +89,10 @@ export default function Footer({ minimal = false }: FooterProps) {
         />
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2026 José Emilio Sánchez Miñón. Todos los derechos reservados.</p>
+        <p>
+          &copy; 2026 José Emilio Sánchez Miñón. Todos los derechos reservados.
+        </p>
       </div>
     </footer>
-  )
+  );
 }

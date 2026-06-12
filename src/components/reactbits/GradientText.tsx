@@ -1,5 +1,10 @@
-import { useState, useCallback, useRef, type ReactNode } from 'react';
-import { motion, useMotionValue, useAnimationFrame, useTransform } from 'framer-motion';
+import { useState, useCallback, useRef, type ReactNode } from "react";
+import {
+  motion,
+  useMotionValue,
+  useAnimationFrame,
+  useTransform,
+} from "framer-motion";
 
 interface GradientTextProps {
   children: ReactNode;
@@ -7,18 +12,18 @@ interface GradientTextProps {
   colors?: string[];
   animationSpeed?: number;
   showBorder?: boolean;
-  direction?: 'horizontal' | 'vertical' | 'diagonal';
+  direction?: "horizontal" | "vertical" | "diagonal";
   pauseOnHover?: boolean;
   yoyo?: boolean;
 }
 
 export default function GradientText({
   children,
-  className = '',
-  colors = ['#5227FF', '#FF9FFC', '#B19EEF'],
+  className = "",
+  colors = ["#5227FF", "#FF9FFC", "#B19EEF"],
   animationSpeed = 8,
   showBorder = false,
-  direction = 'horizontal',
+  direction = "horizontal",
   pauseOnHover = false,
   yoyo = true,
 }: GradientTextProps) {
@@ -47,7 +52,9 @@ export default function GradientText({
       if (cycleTime < animationDuration) {
         progress.set((cycleTime / animationDuration) * 100);
       } else {
-        progress.set(100 - ((cycleTime - animationDuration) / animationDuration) * 100);
+        progress.set(
+          100 - ((cycleTime - animationDuration) / animationDuration) * 100,
+        );
       }
     } else {
       const cycleTime = elapsedRef.current % animationDuration;
@@ -56,12 +63,19 @@ export default function GradientText({
   });
 
   const gradientAngle =
-    direction === 'horizontal' ? '90deg' : direction === 'vertical' ? '180deg' : '135deg';
+    direction === "horizontal"
+      ? "90deg"
+      : direction === "vertical"
+        ? "180deg"
+        : "135deg";
 
-  const colorStops = colors.join(', ');
+  const colorStops = colors.join(", ");
   const gradientImage = `linear-gradient(${gradientAngle}, ${colorStops})`;
 
-  const backgroundPosition = useTransform(progress, (p: number) => `${p}% center`);
+  const backgroundPosition = useTransform(
+    progress,
+    (p: number) => `${p}% center`,
+  );
 
   const handleMouseEnter = useCallback(() => {
     if (pauseOnHover) setIsPaused(true);
@@ -72,10 +86,10 @@ export default function GradientText({
 
   const textStyle: React.CSSProperties = {
     backgroundImage: gradientImage,
-    backgroundSize: '300% 100%',
-    WebkitBackgroundClip: 'text',
-    backgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
+    backgroundSize: "300% 100%",
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    WebkitTextFillColor: "transparent",
   };
 
   return (
@@ -90,12 +104,12 @@ export default function GradientText({
           className="absolute inset-0 rounded-lg pointer-events-none"
           style={{
             backgroundImage: gradientImage,
-            backgroundSize: '300% 100%',
+            backgroundSize: "300% 100%",
             backgroundPosition,
-            mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-            maskComposite: 'xor',
-            WebkitMaskComposite: 'xor',
-            padding: '2px',
+            mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            maskComposite: "xor",
+            WebkitMaskComposite: "xor",
+            padding: "2px",
           }}
         />
       )}

@@ -1,20 +1,25 @@
-import DecryptedText from "./reactbits/DecryptedText";
-import RotatingText from "./reactbits/RotatingText";
-import StarBorder from "./reactbits/StarBorder";
-import FadeInView from "./shared/FadeInView";
-import { handleSmoothScroll } from "../utils/scrollUtils";
+import DecryptedText from "../reactbits/DecryptedText";
+import RotatingText from "../reactbits/RotatingText";
+import StarBorder from "../reactbits/StarBorder";
+import FadeInView from "../shared/FadeInView";
+import { handleSmoothScroll } from "../../utils/scrollUtils";
+import type { HeroData } from "../../data/portfolioData";
 
-export default function Hero() {
+interface HeroSectionProps {
+  data: HeroData;
+}
+
+export default function HeroSection({ data }: HeroSectionProps) {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-content">
         <div className="eyebrow">
           <span className="status-dot"></span>
-          <span>Desarrollador Móvil &middot; Modelos de Negocio</span>
+          <span>{data.title}</span>
         </div>
         <h1>
           <DecryptedText
-            text="José Emilio"
+            text={data.name}
             animateOn="view"
             sequential={true}
             speed={60}
@@ -24,12 +29,7 @@ export default function Hero() {
         </h1>
         <p className="hero-typewriter">
           <RotatingText
-            texts={[
-              "React Native",
-              "TypeScript",
-              "Product Strategy",
-              "AI & Voice",
-            ]}
+            texts={data.rotatingTexts}
             mainClassName="typewriter-word"
             staggerFrom="last"
             staggerDuration={0.03}
@@ -38,11 +38,7 @@ export default function Hero() {
           />
         </p>
         <FadeInView direction="up" distance={20} delay={0.4}>
-          <p className="lede">
-            Creo aplicaciones móviles con impacto real, combinando desarrollo
-            técnico sólido con identificación de oportunidades de negocio y
-            estrategia de producto.
-          </p>
+          <p className="lede">{data.lede}</p>
         </FadeInView>
         <FadeInView direction="up" distance={20} delay={0.6}>
           <div className="hero-actions">
@@ -50,29 +46,31 @@ export default function Hero() {
               as="a"
               color="var(--accent)"
               speed="4s"
-              href="#projects"
+              href={data.ctaPrimary.href}
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
-                handleSmoothScroll(e, "#projects", 80)
+                handleSmoothScroll(e, data.ctaPrimary.href, 80)
               }
             >
-              <i className="fas fa-code" aria-hidden="true"></i> Ver proyectos
+              <i className="fas fa-code" aria-hidden="true"></i>{" "}
+              {data.ctaPrimary.label}
             </StarBorder>
             <a
-              href="#contact"
+              href={data.ctaSecondary.href}
               className="btn btn-ghost"
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
-                handleSmoothScroll(e, "#contact", 80)
+                handleSmoothScroll(e, data.ctaSecondary.href, 80)
               }
             >
-              <i className="fas fa-envelope" aria-hidden="true"></i> Hablemos
+              <i className="fas fa-envelope" aria-hidden="true"></i>{" "}
+              {data.ctaSecondary.label}
             </a>
             <a
-              href="https://github.com/Jos3mi14"
+              href={data.ctaGithub.href}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-link"
             >
-              GitHub{" "}
+              {data.ctaGithub.label}{" "}
               <i
                 className="fas fa-arrow-up-right-from-square"
                 aria-hidden="true"

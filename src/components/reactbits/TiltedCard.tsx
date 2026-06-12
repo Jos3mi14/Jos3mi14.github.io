@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 import {
   motion,
   useMotionValue,
   useSpring,
   useTransform,
   type SpringOptions,
-} from 'framer-motion';
+} from "framer-motion";
 
 interface TiltedCardProps {
   imageSrc: string;
@@ -32,27 +32,33 @@ const springValues: SpringOptions = {
 
 const TiltedCard: React.FC<TiltedCardProps> = ({
   imageSrc,
-  altText = 'Imagen de perfil',
-  captionText = '',
-  containerHeight = '300px',
-  containerWidth = '250px',
-  imageHeight = '300px',
-  imageWidth = '250px',
+  altText = "Imagen de perfil",
+  captionText = "",
+  containerHeight = "300px",
+  containerWidth = "250px",
+  imageHeight = "300px",
+  imageWidth = "250px",
   scaleOnHover = 1.1,
   rotateAmplitude = 14,
   showTooltip = false,
   overlayContent,
   displayOverlayContent = false,
-  className = '',
-  borderRadius = '15px',
+  className = "",
+  borderRadius = "15px",
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [rotateAmplitude, -rotateAmplitude]), springValues);
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-rotateAmplitude, rotateAmplitude]), springValues);
+  const rotateX = useSpring(
+    useTransform(y, [-0.5, 0.5], [rotateAmplitude, -rotateAmplitude]),
+    springValues,
+  );
+  const rotateY = useSpring(
+    useTransform(x, [-0.5, 0.5], [-rotateAmplitude, rotateAmplitude]),
+    springValues,
+  );
 
   const scale = useSpring(isHovered ? scaleOnHover : 1, springValues);
 
@@ -73,7 +79,14 @@ const TiltedCard: React.FC<TiltedCardProps> = ({
   };
 
   return (
-    <figure className={`relative ${className}`} style={{ height: containerHeight, width: containerWidth, perspective: '800px' }}>
+    <figure
+      className={`relative ${className}`}
+      style={{
+        height: containerHeight,
+        width: containerWidth,
+        perspective: "800px",
+      }}
+    >
       <motion.div
         ref={ref}
         onMouseMove={handleMouseMove}
@@ -85,9 +98,9 @@ const TiltedCard: React.FC<TiltedCardProps> = ({
           rotateX,
           rotateY,
           scale,
-          transformStyle: 'preserve-3d',
+          transformStyle: "preserve-3d",
           borderRadius,
-          overflow: 'hidden',
+          overflow: "hidden",
         }}
         className="relative"
       >
@@ -108,7 +121,7 @@ const TiltedCard: React.FC<TiltedCardProps> = ({
           initial={{ opacity: 0, y: 10 }}
           animate={isHovered ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           className="absolute bottom-[-30px] left-0 right-0 text-center text-sm"
-          style={{ color: 'var(--text-2, #b8c8e0)' }}
+          style={{ color: "var(--text-2, #b8c8e0)" }}
         >
           {captionText}
         </motion.figcaption>

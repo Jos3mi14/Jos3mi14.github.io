@@ -1,9 +1,9 @@
 // Script temporal para generar og-image.png
 // Uso: node scripts/gen-og.mjs
-import sharp from 'sharp'
+import sharp from "sharp";
 
-const width = 1200
-const height = 630
+const width = 1200;
+const height = 630;
 
 const svg = `
 <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
@@ -15,11 +15,11 @@ const svg = `
     Desarrollador Móvil &amp; Producto
   </text>
 </svg>
-`
+`;
 
 await sharp(Buffer.from(svg))
   .resize(width, height)
   .png()
-  .toFile('public/og-image.png')
+  .toFile("public/og-image.png");
 
-console.log('✓ public/og-image.png generated (1200x630)')
+console.log("✓ public/og-image.png generated (1200x630)");

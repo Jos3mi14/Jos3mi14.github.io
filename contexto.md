@@ -1,6 +1,7 @@
 # Contexto del proyecto: Jos3mi14/Jos3mi14.github.io
 
 ## Estado actual del repositorio
+
 - **Repo:** https://github.com/Jos3mi14/Jos3mi14.github.io
 - **Rama principal:** `main` (sin protección)
 - **GitHub Pages:** activo, sirviendo desde la rama `main`
@@ -12,9 +13,11 @@
   - `styles.css` (~23 KB) — Estilos
 
 ## Objetivo de migración
+
 Migrar el sitio a **React + TypeScript + Tailwind CSS** usando **Vite** como bundler, manteniendo el hosting en **GitHub Pages** con despliegue automatizado vía **GitHub Actions**.
 
 ## Stack objetivo
+
 - **Framework:** React 18+
 - **Lenguaje:** TypeScript
 - **Estilos:** Tailwind CSS v4 (con `@tailwindcss/vite`)
@@ -24,25 +27,28 @@ Migrar el sitio a **React + TypeScript + Tailwind CSS** usando **Vite** como bun
 - **Deploy:** GitHub Actions → GitHub Pages (source: "GitHub Actions")
 
 ## Configuración clave de Vite
+
 ```ts
 // vite.config.ts
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/', // User site: Jos3mi14.github.io → base debe ser '/'
-})
+  base: "/", // User site: Jos3mi14.github.io → base debe ser '/'
+});
 ```
 
 ## CSS principal
+
 ```css
 /* src/index.css */
 @import "tailwindcss";
 ```
 
 ## Estructura de carpetas objetivo
+
 ```
 src/
 ├── components/
@@ -57,6 +63,7 @@ src/
 ```
 
 ## GitHub Actions — Deploy workflow
+
 ```yaml
 # .github/workflows/deploy.yml
 name: Deploy to GitHub Pages
@@ -75,12 +82,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
       - run: npm ci
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: "./dist"
   deploy:
     environment:
       name: github-pages
@@ -92,6 +99,7 @@ jobs:
 ```
 
 ## Comandos de setup local
+
 ```bash
 git clone https://github.com/Jos3mi14/Jos3mi14.github.io.git
 cd Jos3mi14.github.io
@@ -104,6 +112,7 @@ npm run dev
 ```
 
 ## Notas importantes
+
 - GitHub Pages solo sirve archivos **estáticos**; Vite compila React/TS a `/dist` que es 100% estático.
 - Configurar en GitHub: **Settings → Pages → Source → GitHub Actions**
 - Para rutas del cliente con React Router, puede necesitarse un `404.html` que redirija a `index.html` en GitHub Pages.

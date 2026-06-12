@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --animate-star-movement-bottom: star-movement-bottom 6s linear infinite alternate;
+  --animate-star-movement-bottom: star-movement-bottom 6s linear infinite
+    alternate;
   --animate-star-movement-top: star-movement-top 6s linear infinite alternate;
 }
 
