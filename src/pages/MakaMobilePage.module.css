@@ -1,4 +1,4 @@
-/* src/pages/MakaMobilePage.module.css */
+﻿/* src/pages/MakaMobilePage.module.css */
 
 .pageHero {
   padding: 160px 0 80px;
@@ -327,7 +327,7 @@
   line-height: 1.5;
 }
 .timelineItem li::before {
-  content: "→";
+  content: "â†’";
   position: absolute;
   left: 0;
   color: var(--border-hover);
@@ -367,7 +367,7 @@
   gap: 0.5rem;
 }
 .diagramArrow::after {
-  content: "↓";
+  content: "â†“";
   font-size: 1.25rem;
   font-weight: bold;
 }

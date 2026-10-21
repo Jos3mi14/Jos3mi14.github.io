@@ -1,0 +1,143 @@
+/* ========================================
+   Tokens de diseño — única fuente de verdad
+   Consumidos por styles.css y por las
+   paginas de proyecto (MakaOws.css,
+   MakaMobilePage.module.css).
+   ======================================== */
+:root {
+  /* ----------------------------------------
+     Color — superficies
+     ---------------------------------------- */
+  --bg-900: #050a0f;
+  --bg-850: #08111a;
+  --bg-800: #0c1824;
+  --card: #0d1b28;
+  --card-strong: #091420;
+
+  /* ----------------------------------------
+     Color — texto (AA sobre --bg-900)
+     ---------------------------------------- */
+  --text-1: #f0f4ff;
+  --text-2: #b8c8e0;
+  --text-3: #8b9cb2;
+
+  /* ----------------------------------------
+     Color — bordes
+     ---------------------------------------- */
+  --border: #162335;
+  --border-hover: rgba(0, 229, 255, 0.5);
+
+  /* ----------------------------------------
+     Color — identidad
+     ---------------------------------------- */
+  --accent: #00e5ff;
+  --accent-light: #67f3ff;
+  --accent-2: #80ffff;
+  --accent-glow: rgba(0, 229, 255, 0.35);
+
+  /* Variantes de opacidad del acento */
+  --accent-05: color-mix(in srgb, var(--accent) 5%, transparent);
+  --accent-08: color-mix(in srgb, var(--accent) 8%, transparent);
+  --accent-15: color-mix(in srgb, var(--accent) 15%, transparent);
+  --accent-25: color-mix(in srgb, var(--accent) 25%, transparent);
+  --accent-30: color-mix(in srgb, var(--accent) 30%, transparent);
+  --accent-35: color-mix(in srgb, var(--accent) 35%, transparent);
+  --accent-dim: var(--accent-08);
+
+  /* Variantes de opacidad del blanco */
+  --white-02: color-mix(in srgb, #ffffff 2%, transparent);
+  --white-04: color-mix(in srgb, #ffffff 4%, transparent);
+  --white-06: color-mix(in srgb, #ffffff 6%, transparent);
+
+  /* ----------------------------------------
+     Color — estados
+     ---------------------------------------- */
+  --success: #00ff88;
+  --success-dim: color-mix(in srgb, var(--success) 12%, transparent);
+  --warning: #ff8a3d;
+  --warning-dim: color-mix(in srgb, var(--warning) 16%, transparent);
+  --danger: #ef4444;
+
+  /* ----------------------------------------
+     Tipografia
+     ---------------------------------------- */
+  --font-display: "Sora", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system,
+    sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code", monospace;
+
+  /* Escala fluida */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --text-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --text-2xl: clamp(1.875rem, 1.5rem + 1.6vw, 2.75rem);
+  --text-3xl: clamp(2.25rem, 1.6rem + 2.8vw, 3.75rem);
+  --text-4xl: clamp(2.75rem, 1.8rem + 4vw, 5rem);
+  --text-display: clamp(3rem, 1.5rem + 6vw, 7rem);
+
+  /* Interlineado y tracking */
+  --leading-tight: 1;
+  --leading-snug: 1.15;
+  --leading-normal: 1.4;
+  --leading-relaxed: 1.7;
+  --tracking-tight: -0.02em;
+  --tracking-display: -0.035em;
+  --tracking-wide: 0.14em;
+
+  /* ----------------------------------------
+     Espaciado
+     ---------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --section-y: clamp(4rem, 8vw, 6rem);
+
+  /* ----------------------------------------
+     Radios
+     ---------------------------------------- */
+  --radius-sm: 6px;
+  --radius: 14px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* ----------------------------------------
+     Sombras
+     ---------------------------------------- */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  --shadow-accent: 0 0 30px var(--accent-glow), 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  /* ----------------------------------------
+     Movimiento
+     ---------------------------------------- */
+  --dur-fast: 0.15s;
+  --dur: 0.25s;
+  --dur-slow: 0.5s;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: var(--dur) var(--ease);
+
+  /* ----------------------------------------
+     Layout
+     ---------------------------------------- */
+  --container: 1100px;
+  --gutter: clamp(1.125rem, 4vw, 2rem);
+  --nav-h: 68px;
+  --z-base: 1;
+  --z-nav: 20;
+  --z-overlay: 40;
+  --z-skip: 999;
+}

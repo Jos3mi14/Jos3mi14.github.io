@@ -1,6 +1,6 @@
-/* ── Estilos exclusivos de maka-ows.html ── */
+﻿/* â”€â”€ Estilos exclusivos de maka-ows.html â”€â”€ */
 
-/* Hero de página interna */
+/* Hero de pÃ¡gina interna */
 .page-hero {
   padding: 160px 0 80px;
   position: relative;
@@ -14,12 +14,12 @@
   background:
     radial-gradient(
       ellipse 60% 50% at 50% 0%,
-      rgba(0, 229, 255, 0.07) 0%,
+      var(--accent-08) 0%,
       transparent 65%
     ),
     radial-gradient(
       ellipse 30% 30% at 90% 50%,
-      rgba(0, 229, 255, 0.04) 0%,
+      var(--accent-05) 0%,
       transparent 60%
     );
   z-index: -2;
@@ -29,8 +29,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(var(--accent-05) 1px, transparent 1px),
+    linear-gradient(90deg, var(--accent-05) 1px, transparent 1px);
   background-size: 60px 60px;
   z-index: -1;
   mask-image: radial-gradient(
@@ -93,22 +93,22 @@
   border: 1px solid;
 }
 .badge-info {
-  background: rgba(0, 229, 255, 0.06);
-  border-color: rgba(0, 229, 255, 0.25);
+  background: var(--accent-08);
+  border-color: var(--accent-25);
   color: var(--accent);
 }
 .badge-success {
-  background: rgba(0, 255, 136, 0.06);
-  border-color: rgba(0, 255, 136, 0.3);
+  background: var(--success-dim);
+  border-color: var(--success-dim);
   color: var(--success);
 }
 .badge-neutral {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--white-04);
   border-color: var(--border);
   color: var(--text-2);
 }
 
-/* Ficha técnica */
+/* Ficha tÃ©cnica */
 .ficha-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -158,11 +158,11 @@
   gap: 14px;
 }
 .migration-card.v1 {
-  border-left: 3px solid #ef4444;
+  border-left: 3px solid var(--danger);
 }
 .migration-card.v2 {
   border-left: 3px solid var(--accent);
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.05);
+  box-shadow: 0 0 20px var(--accent-05);
 }
 .migration-card .mc-header {
   display: flex;
@@ -190,14 +190,14 @@
   color: var(--text-2);
 }
 .migration-card.v1 .mc-list li::before {
-  content: "✕";
-  color: #ef4444;
+  content: "âœ•";
+  color: var(--danger);
   font-weight: 700;
   flex-shrink: 0;
   margin-top: 1px;
 }
 .migration-card.v2 .mc-list li::before {
-  content: "✓";
+  content: "âœ“";
   color: var(--success);
   font-weight: 700;
   flex-shrink: 0;
@@ -237,10 +237,10 @@
   transition: opacity var(--transition);
 }
 .service-card:hover {
-  border-color: rgba(0, 229, 255, 0.3);
+  border-color: var(--accent-30);
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.4),
-    0 0 16px rgba(0, 229, 255, 0.07);
+    0 0 16px var(--accent-08);
   transform: translateY(-4px);
 }
 .service-card:hover::after {
@@ -263,7 +263,7 @@
   opacity: 0.7;
 }
 
-/* Stack tecnológico */
+/* Stack tecnolÃ³gico */
 .stack-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -282,7 +282,7 @@
     transform var(--transition);
 }
 .stack-card:hover {
-  border-color: rgba(0, 229, 255, 0.28);
+  border-color: var(--accent-30);
   transform: translateY(-3px);
 }
 .stack-top {
@@ -308,7 +308,7 @@
   gap: 10px;
   padding: 8px 12px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--white-02);
   border: 1px solid var(--border);
 }
 .stack-item-name {
@@ -347,7 +347,7 @@
     transform var(--transition);
 }
 .security-card:hover {
-  border-color: rgba(0, 229, 255, 0.28);
+  border-color: var(--accent-30);
   transform: translateY(-3px);
 }
 .security-card .card-top {
@@ -396,7 +396,7 @@
   top: 14px;
   bottom: 14px;
   width: 2px;
-  background: linear-gradient(180deg, var(--accent), rgba(0, 229, 255, 0.1));
+  background: linear-gradient(180deg, var(--accent), var(--accent-15));
 }
 .timeline-item {
   position: relative;
@@ -449,7 +449,7 @@
   gap: 6px;
 }
 .timeline-details li::before {
-  content: "—";
+  content: "â€”";
   color: var(--border);
   flex-shrink: 0;
 }
@@ -489,11 +489,11 @@
   transition: opacity var(--transition);
 }
 .team-member:hover {
-  border-color: rgba(0, 229, 255, 0.3);
+  border-color: var(--accent-30);
   transform: translateY(-5px);
   box-shadow:
     0 16px 40px rgba(0, 0, 0, 0.45),
-    0 0 20px rgba(0, 229, 255, 0.07);
+    0 0 20px var(--accent-08);
 }
 .team-member:hover::before {
   opacity: 1;
@@ -540,13 +540,13 @@
   padding: 5px 12px;
   border-radius: 8px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--white-02);
   transition: var(--transition);
   text-decoration: none;
 }
 .team-github:hover {
   color: var(--accent);
-  border-color: rgba(0, 229, 255, 0.3);
+  border-color: var(--accent-30);
   background: var(--accent-dim);
 }
 

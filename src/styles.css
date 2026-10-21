@@ -1,47 +1,12 @@
-/* ========================================
-   Sistema de diseño — Neon Dark
-======================================== */
-:root {
-  /* Fondos */
-  --bg-900: #050a0f;
-  --bg-850: #08111a;
-  --bg-800: #0c1824;
-  --card: #0d1b28;
-  --card-strong: #091420;
-
-  /* Texto — los tres niveles cumplen WCAG AA (>= 4.5:1) sobre --bg-900 */
-  --text-1: #f0f4ff;
-  --text-2: #b8c8e0;
-  --text-3: #8b9cb2;
-
-  /* Bordes */
-  --border: #162335;
-  --border-hover: rgba(0, 229, 255, 0.5);
-
-  /* Identidad neon cyan */
-  --accent: #00e5ff;
-  --accent-light: #67f3ff;
-  --accent-dim: rgba(0, 229, 255, 0.08);
-  --accent-glow: rgba(0, 229, 255, 0.35);
-
-  /* Secundario */
-  --accent-2: #80ffff;
-  --success: #00ff88;
-  --success-dim: rgba(0, 255, 136, 0.12);
-  --warning: #ff8a3d;
-  --warning-dim: rgba(255, 138, 61, 0.16);
-
-  /* Sombras y geometría */
-  --shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  --shadow-accent: 0 0 30px var(--accent-glow), 0 4px 20px rgba(0, 0, 0, 0.4);
-  --radius: 14px;
-  --radius-lg: 20px;
-  --transition: 0.25s ease;
-}
+﻿/* ========================================
+   Los tokens de diseÃ±o viven en
+   src/styles/tokens.css
+   ======================================== */
 
 /* ========================================
    Reset y base
-======================================== */
+   ======================================== */
+
 * {
   box-sizing: border-box;
 }
@@ -55,7 +20,7 @@ body {
   background:
     radial-gradient(
       ellipse at 10% 5%,
-      rgba(0, 229, 255, 0.06),
+      var(--accent-08),
       transparent 30%
     ),
     radial-gradient(
@@ -133,18 +98,18 @@ img {
   outline-offset: -3px;
 }
 
-/* La navegación por ancla no debe quedar bajo la navbar fija */
+/* La navegaciÃ³n por ancla no debe quedar bajo la navbar fija */
 section[id] {
   scroll-margin-top: 96px;
 }
 
 .container {
-  width: min(1100px, 92vw);
+  width: min(var(--container), 100% - var(--gutter) * 2);
   margin: 0 auto;
 }
 
 .section {
-  padding: 96px 0;
+  padding: var(--section-y) 0;
 }
 
 .section + .section {
@@ -162,7 +127,7 @@ section[id] {
 
 .section-lede {
   margin-top: 14px;
-  font-size: 16px;
+  font-size: var(--text-md);
   max-width: 720px;
   color: var(--text-2);
   line-height: 1.7;
@@ -183,18 +148,18 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(38px, 5.5vw, 72px);
+  font-size: var(--text-4xl);
   line-height: 1;
 }
 
 h2 {
-  font-size: clamp(26px, 3.5vw, 42px);
+  font-size: var(--text-2xl);
   line-height: 1.1;
   font-weight: 800;
 }
 
 h3 {
-  font-size: 22px;
+  font-size: var(--text-lg);
   font-weight: 700;
 }
 
@@ -207,8 +172,8 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   color: var(--accent);
   font-weight: 700;
@@ -224,14 +189,14 @@ p {
   width: 100%;
   z-index: 20;
   background: rgba(5, 10, 15, 0.75);
-  border-bottom: 1px solid rgba(0, 229, 255, 0.07);
+  border-bottom: 1px solid var(--accent-08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   transition: var(--transition);
 }
 
 .nav-container {
-  width: min(1100px, 92vw);
+  width: min(var(--container), 100% - var(--gutter) * 2);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -261,7 +226,7 @@ p {
   letter-spacing: -1px;
   transform: rotate(-4deg);
   box-shadow:
-    0 0 18px rgba(0, 229, 255, 0.3),
+    0 0 18px var(--accent-30),
     0 4px 12px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
   transition:
@@ -271,7 +236,7 @@ p {
 .logo:hover .logo-monogram {
   transform: rotate(0deg) scale(1.08);
   box-shadow:
-    0 0 28px rgba(0, 229, 255, 0.45),
+    0 0 28px var(--accent-35),
     0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
@@ -340,7 +305,7 @@ p {
   background: var(--accent-dim);
   box-shadow:
     inset 0 -2px 0 var(--accent),
-    0 0 12px rgba(0, 229, 255, 0.08);
+    0 0 12px var(--accent-08);
 }
 
 .theme-toggle {
@@ -362,7 +327,7 @@ p {
 }
 
 /* ========================================
-   Hero — Pantalla completa
+   Hero â€” Pantalla completa
 ======================================== */
 .hero-section {
   position: relative;
@@ -375,7 +340,7 @@ p {
   isolation: isolate;
 }
 
-/* Fondo oscuro con gradiente y patrón neon */
+/* Fondo oscuro con gradiente y patrÃ³n neon */
 .hero-section::before {
   content: "";
   position: absolute;
@@ -383,7 +348,7 @@ p {
   background:
     radial-gradient(
       ellipse 70% 60% at 50% 50%,
-      rgba(0, 229, 255, 0.07) 0%,
+      var(--accent-08) 0%,
       transparent 70%
     ),
     radial-gradient(
@@ -400,14 +365,14 @@ p {
   z-index: -2;
 }
 
-/* Cuadrícula de fondo estilo tech */
+/* CuadrÃ­cula de fondo estilo tech */
 .hero-section::after {
   content: "";
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--accent-05) 1px, transparent 1px),
+    linear-gradient(90deg, var(--accent-05) 1px, transparent 1px);
   background-size: 60px 60px;
   z-index: -1;
   mask-image: radial-gradient(
@@ -435,8 +400,8 @@ p {
 }
 
 .hero-content .eyebrow {
-  background: rgba(0, 229, 255, 0.08);
-  border: 1px solid rgba(0, 229, 255, 0.25);
+  background: var(--accent-08);
+  border: 1px solid var(--accent-25);
   padding: 8px 18px;
   border-radius: 999px;
   font-size: 13px;
@@ -469,7 +434,7 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 40px rgba(0, 229, 255, 0.5));
+  filter: drop-shadow(0 0 40px var(--accent-35));
 }
 
 .hero-name-standalone {
@@ -485,7 +450,7 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 50px rgba(0, 229, 255, 0.5));
+  filter: drop-shadow(0 0 50px var(--accent-35));
 }
 
 .hero-content .lede {
@@ -517,8 +482,8 @@ p {
   gap: 8px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(0, 229, 255, 0.05);
-  border: 1px solid rgba(0, 229, 255, 0.18);
+  background: var(--accent-05);
+  border: 1px solid var(--accent-15);
   color: var(--text-2);
   font-size: 13px;
   transition: border-color var(--transition);
@@ -530,8 +495,8 @@ p {
 }
 
 .meta-chip:hover {
-  border-color: rgba(0, 229, 255, 0.4);
-  background: rgba(0, 229, 255, 0.08);
+  border-color: var(--accent-35);
+  background: var(--accent-08);
 }
 
 /* El panel lateral ya no es necesario en el hero full-screen */
@@ -554,7 +519,7 @@ p {
     box-shadow: 0 0 0 4px var(--success-dim);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(0, 255, 136, 0.06);
+    box-shadow: 0 0 0 8px var(--success-dim);
   }
 }
 
@@ -629,7 +594,7 @@ p {
 
 .btn-ghost {
   background: transparent;
-  border-color: rgba(0, 229, 255, 0.3);
+  border-color: var(--accent-30);
   color: var(--accent);
 }
 
@@ -670,9 +635,9 @@ p {
   align-items: center;
   padding: 5px 14px;
   border-radius: 999px;
-  background: rgba(0, 229, 255, 0.08);
+  background: var(--accent-08);
   color: var(--accent);
-  border: 1px solid rgba(0, 229, 255, 0.3);
+  border: 1px solid var(--accent-30);
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 0.04em;
@@ -686,7 +651,7 @@ p {
 }
 
 .pill-success {
-  background: rgba(0, 255, 136, 0.08);
+  background: var(--success-dim);
   border-color: rgba(0, 255, 136, 0.35);
   color: var(--success);
 }
@@ -695,9 +660,9 @@ p {
   display: inline-flex;
   padding: 5px 11px;
   border-radius: 8px;
-  background: rgba(0, 229, 255, 0.05);
+  background: var(--accent-05);
   color: var(--text-2);
-  border: 1px solid rgba(0, 229, 255, 0.15);
+  border: 1px solid var(--accent-15);
   font-size: 13px;
   transition:
     border-color var(--transition),
@@ -705,7 +670,7 @@ p {
 }
 
 .tag:hover {
-  border-color: rgba(0, 229, 255, 0.4);
+  border-color: var(--accent-35);
   color: var(--accent);
 }
 
@@ -782,7 +747,7 @@ p {
   margin: 0;
 }
 
-/* About featured block — breaks the card pattern */
+/* About featured block â€” breaks the card pattern */
 .about-featured {
   grid-column: 1 / -1;
   background: linear-gradient(135deg, var(--card) 0%, var(--card-strong) 100%);
@@ -809,7 +774,7 @@ p {
   color: var(--accent);
   display: block;
   line-height: 1;
-  filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.3));
+  filter: drop-shadow(0 0 16px var(--accent-30));
 }
 
 .about-featured-stat .label {
@@ -869,7 +834,7 @@ p {
   transform: translateY(-4px);
   box-shadow:
     var(--shadow),
-    0 0 20px rgba(0, 229, 255, 0.08);
+    0 0 20px var(--accent-08);
 }
 
 .card-top {
@@ -927,11 +892,11 @@ p {
 
 .project-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(0, 229, 255, 0.35);
+  border-color: var(--accent-35);
   box-shadow:
     0 30px 80px rgba(0, 0, 0, 0.6),
-    0 0 30px rgba(0, 229, 255, 0.1),
-    0 0 0 1px rgba(0, 229, 255, 0.15);
+    0 0 30px var(--accent-15),
+    0 0 0 1px var(--accent-15);
 }
 
 .project-card:hover::before {
@@ -959,7 +924,7 @@ p {
 }
 
 .project-stat-value {
-  font-size: 22px;
+  font-size: var(--text-lg);
   font-weight: 700;
   color: var(--accent);
   font-family: "JetBrains Mono", "Cascadia Code", "Fira Code", monospace;
@@ -999,8 +964,8 @@ p {
   gap: 4px;
   padding: 10px 12px;
   border-radius: 10px;
-  background: rgba(0, 229, 255, 0.05);
-  border: 1px solid rgba(0, 229, 255, 0.15);
+  background: var(--accent-05);
+  border: 1px solid var(--accent-15);
 }
 
 .collab-label {
@@ -1095,7 +1060,7 @@ p {
   display: inline-block;
   padding: 2px 6px;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--white-06);
   border: 1px solid var(--border);
   font-family: "Sora", "Plus Jakarta Sans", monospace;
   font-size: 13px;
@@ -1112,7 +1077,7 @@ p {
   padding: 48px;
   box-shadow:
     var(--shadow),
-    0 0 80px rgba(0, 229, 255, 0.05);
+    0 0 80px var(--accent-05);
   position: relative;
   overflow: hidden;
 }
@@ -1125,7 +1090,7 @@ p {
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.08), transparent 70%);
+  background: radial-gradient(circle, var(--accent-08), transparent 70%);
   pointer-events: none;
 }
 
@@ -1142,7 +1107,7 @@ p {
   padding: 12px;
   border-radius: 12px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--white-04);
   color: var(--text-1);
   transition: var(--transition);
 }
@@ -1151,7 +1116,7 @@ p {
   border-color: var(--accent);
   color: var(--text-1);
   background: var(--accent-dim);
-  box-shadow: 0 0 14px rgba(0, 229, 255, 0.08);
+  box-shadow: 0 0 14px var(--accent-08);
 }
 
 .contact-item .label {
@@ -1175,7 +1140,7 @@ p {
 }
 
 .footer-content {
-  width: min(1100px, 92vw);
+  width: min(var(--container), 100% - var(--gutter) * 2);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -1241,7 +1206,7 @@ p {
   color: var(--text-3);
   font-size: 16px;
   transition: var(--transition);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--white-04);
 }
 
 .footer-social a:hover {
@@ -1265,7 +1230,7 @@ p {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  border: 1px solid rgba(0, 229, 255, 0.25);
+  border: 1px solid var(--accent-25);
   background: var(--card);
   color: var(--accent);
   display: grid;
@@ -1299,14 +1264,14 @@ p {
     top: 64px;
     right: 24px;
     background: var(--card);
-    border: 1px solid rgba(0, 229, 255, 0.12);
+    border: 1px solid var(--accent-15);
     border-radius: 14px;
     padding: 12px;
     flex-direction: column;
     min-width: 190px;
     box-shadow:
       var(--shadow),
-      0 0 30px rgba(0, 229, 255, 0.07);
+      0 0 30px var(--accent-08);
   }
 
   .nav-links.active {
@@ -1433,7 +1398,7 @@ p {
 }
 
 .skeleton-header {
-  width: min(1100px, 92vw);
+  width: min(var(--container), 100% - var(--gutter) * 2);
   margin: 0 auto 48px;
   display: flex;
   align-items: center;
@@ -1442,7 +1407,7 @@ p {
 }
 
 .skeleton-main {
-  width: min(1100px, 92vw);
+  width: min(var(--container), 100% - var(--gutter) * 2);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1557,7 +1522,7 @@ p {
 }
 
 .skeleton-footer {
-  width: min(1100px, 92vw);
+  width: min(var(--container), 100% - var(--gutter) * 2);
   margin: 64px auto 0;
   padding-top: 28px;
   border-top: 1px solid var(--border);
