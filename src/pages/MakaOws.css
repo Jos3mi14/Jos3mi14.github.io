@@ -66,15 +66,7 @@
   font-size: clamp(36px, 5vw, 64px);
 }
 .page-hero-content h1 .highlight-text {
-  background: linear-gradient(
-    135deg,
-    var(--accent) 0%,
-    var(--accent-2) 60%,
-    #fff 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 .hero-badges {
   display: flex;
