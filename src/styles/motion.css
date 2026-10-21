@@ -1,0 +1,100 @@
+/* ========================================
+   Movimiento — revealed-on-scroll, carga del
+   hero y rotación de roles. Todo se desactiva
+   con prefers-reduced-motion.
+   ======================================== */
+
+/* ----------------------------------------
+   Revelado al hacer scroll
+   El estado inicial solo se aplica cuando hay
+   JS (la clase .js la añade el script inline de
+   index.html), así el contenido es visible sin
+   JavaScript y en el HTML pre-renderizado.
+   ---------------------------------------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.js .reveal[data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ----------------------------------------
+   Carga del hero — una única secuencia
+   ---------------------------------------- */
+.js .hero-animate {
+  animation: hero-in 0.7s var(--ease-out) both;
+}
+
+.js .hero-animate:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.js .hero-animate:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.js .hero-animate:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+.js .hero-animate:nth-child(4) {
+  animation-delay: 0.35s;
+}
+
+.js .hero-animate:nth-child(5) {
+  animation-delay: 0.45s;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ----------------------------------------
+   Rotación de roles
+   ---------------------------------------- */
+.role-rotator {
+  display: inline-block;
+  min-height: 1.4em;
+  position: relative;
+  vertical-align: bottom;
+}
+
+.role-rotator-track {
+  display: inline-block;
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease-out);
+}
+
+.role-rotator-track[data-swapping="true"] {
+  opacity: 0;
+  transform: translateY(-0.35em);
+}
+
+/* ----------------------------------------
+   Reduced motion
+   ---------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js .hero-animate {
+    animation: none;
+  }
+}

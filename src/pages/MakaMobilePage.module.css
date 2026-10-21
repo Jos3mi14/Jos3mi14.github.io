@@ -1,4 +1,4 @@
-﻿/* src/pages/MakaMobilePage.module.css */
+/* src/pages/MakaMobilePage.module.css */
 
 .pageHero {
   padding: 160px 0 80px;
@@ -224,12 +224,16 @@
 }
 .iconWarning {
   color: var(--warning);
+  flex-shrink: 0;
 }
 .iconAccent {
   color: var(--accent);
+  flex-shrink: 0;
 }
 .iconList {
   margin-top: 4px;
+  margin-right: 6px;
+  vertical-align: -3px;
 }
 .rebootCard h3 {
   color: var(--text-1);
@@ -327,7 +331,7 @@
   line-height: 1.5;
 }
 .timelineItem li::before {
-  content: "â†’";
+  content: "→";
   position: absolute;
   left: 0;
   color: var(--border-hover);
@@ -367,7 +371,7 @@
   gap: 0.5rem;
 }
 .diagramArrow::after {
-  content: "â†“";
+  content: "↓";
   font-size: 1.25rem;
   font-weight: bold;
 }

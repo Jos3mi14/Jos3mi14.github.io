@@ -1,6 +1,5 @@
-import FadeInView from "../shared/FadeInView";
-import StarBorder from "../reactbits/StarBorder";
-import GradientText from "../reactbits/GradientText";
+import Reveal from "../shared/Reveal";
+import Icon from "../shared/Icon";
 import type { ContactData } from "../../data/portfolioData";
 import { handleSmoothScroll } from "../../utils/scrollUtils";
 
@@ -11,46 +10,39 @@ interface ContactSectionProps {
 export default function ContactSection({ data }: ContactSectionProps) {
   return (
     <section id="contact" className="section">
-      <div id="contacto" aria-hidden="true" />
-      <FadeInView direction="up">
-        <div className="container contact-card">
-          <div>
-            <h2>
-              <GradientText
-                colors={data.titleGradientColors}
-                animationSpeed={data.titleAnimationSpeed}
-              >
-                Cuéntame tu próximo reto
-              </GradientText>
-            </h2>
+      <div className="container">
+        <div className="section-header">
+          <p className="section-index">04 — Contacto</p>
+        </div>
+
+        <Reveal>
+          <div className="contact-panel">
+            <h2 className="contact-title">{data.title}</h2>
             <p className="section-lede">{data.lede}</p>
+
             <div className="contact-grid">
-              {data.contactItems.map((item, index) => (
+              {data.contactItems.map((item) => (
                 <a
-                  key={index}
+                  key={item.label}
                   href={item.href}
                   target={item.isExternal ? "_blank" : undefined}
                   rel={item.isExternal ? "noopener noreferrer" : undefined}
                   className="contact-item"
                 >
-                  <i className={item.icon} aria-hidden="true"></i>
-                  <div>
+                  <Icon name={item.icon} size={18} />
+                  <span>
                     <span className="label">{item.label}</span>
                     <span className="value">{item.value}</span>
-                  </div>
+                  </span>
                 </a>
               ))}
             </div>
+
             <div className="contact-actions">
-              <StarBorder
-                as="a"
-                color="var(--accent)"
-                speed="4s"
-                href={data.ctaPrimary.href}
-              >
-                <i className="fas fa-paper-plane" aria-hidden="true"></i>{" "}
+              <a href={data.ctaPrimary.href} className="btn btn-primary">
                 {data.ctaPrimary.label}
-              </StarBorder>
+                <Icon name="arrow-right" size={16} />
+              </a>
               <a
                 href={data.ctaSecondary.href}
                 className="btn btn-ghost"
@@ -62,8 +54,8 @@ export default function ContactSection({ data }: ContactSectionProps) {
               </a>
             </div>
           </div>
-        </div>
-      </FadeInView>
+        </Reveal>
+      </div>
     </section>
   );
 }

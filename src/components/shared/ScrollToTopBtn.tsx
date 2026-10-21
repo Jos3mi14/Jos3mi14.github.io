@@ -1,12 +1,27 @@
 import { useEffect, useState } from "react";
+import Icon from "./Icon";
 
-export default function ScrollToTopBtn() {
+interface ScrollToTopBtnProps {
+  threshold?: number;
+}
+
+export default function ScrollToTopBtn({ threshold = 300 }: ScrollToTopBtnProps) {
   const [visible, setVisible] = useState(false);
+
   useEffect(() => {
-    const handler = () => setVisible(window.pageYOffset > 300);
+    let ticking = false;
+    const handler = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        setVisible(window.pageYOffset > threshold);
+        ticking = false;
+      });
+    };
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
-  }, []);
+  }, [threshold]);
+
   return (
     <button
       type="button"
@@ -14,7 +29,7 @@ export default function ScrollToTopBtn() {
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Volver arriba"
     >
-      <i className="fas fa-arrow-up" aria-hidden="true"></i>
+      <Icon name="arrow-up" size={18} />
     </button>
   );
 }

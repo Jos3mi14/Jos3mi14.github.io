@@ -1,39 +1,49 @@
 /* ========================================
-   Tokens de diseño — única fuente de verdad
-   Consumidos por styles.css y por las
-   paginas de proyecto (MakaOws.css,
-   MakaMobilePage.module.css).
+   Tokens de diseño — "Spec Sheet editorial"
+   Única fuente de verdad. Consumidos por
+   base.css, layout.css, home.css y por las
+   páginas de proyecto.
+
+   Paleta: grafito azulado + mostaza (producto
+   y negocio) + azul plano (solo ingeniería).
    ======================================== */
 :root {
   /* ----------------------------------------
      Color — superficies
      ---------------------------------------- */
-  --bg-900: #050a0f;
-  --bg-850: #08111a;
-  --bg-800: #0c1824;
-  --card: #0d1b28;
-  --card-strong: #091420;
+  --bg-900: #0d1117;
+  --bg-850: #111820;
+  --bg-800: #151c26;
+  --card: #151c26;
+  --card-strong: #10161e;
 
   /* ----------------------------------------
      Color — texto (AA sobre --bg-900)
+     --text-1  16.1:1 · --text-2  8.7:1
+     --text-3  5.4:1
      ---------------------------------------- */
-  --text-1: #f0f4ff;
-  --text-2: #b8c8e0;
-  --text-3: #8b9cb2;
+  --text-1: #edf1f6;
+  --text-2: #a8b4c2;
+  --text-3: #7e8b9c;
 
   /* ----------------------------------------
-     Color — bordes
+     Color — bordes y reglas
      ---------------------------------------- */
-  --border: #162335;
-  --border-hover: rgba(0, 229, 255, 0.5);
+  --border: #222b36;
+  --border-strong: #33404f;
+  --border-hover: #46566a;
 
   /* ----------------------------------------
      Color — identidad
+     mostaza = producto, estrategia y negocio
+     azul plano = ingeniería y stack técnico
      ---------------------------------------- */
-  --accent: #00e5ff;
-  --accent-light: #67f3ff;
-  --accent-2: #80ffff;
-  --accent-glow: rgba(0, 229, 255, 0.35);
+  --accent: #e0a63e;
+  --accent-light: #f0c274;
+  --accent-deep: #a87a22;
+  --accent-2: #6fa8f0;
+  --accent-2-light: #9cc3f7;
+  --accent-glow: rgba(224, 166, 62, 0.28);
 
   /* Variantes de opacidad del acento */
   --accent-05: color-mix(in srgb, var(--accent) 5%, transparent);
@@ -52,19 +62,18 @@
   /* ----------------------------------------
      Color — estados
      ---------------------------------------- */
-  --success: #00ff88;
-  --success-dim: color-mix(in srgb, var(--success) 12%, transparent);
-  --warning: #ff8a3d;
+  --success: #4fbf87;
+  --success-dim: color-mix(in srgb, var(--success) 14%, transparent);
+  --warning: #e08a3d;
   --warning-dim: color-mix(in srgb, var(--warning) 16%, transparent);
-  --danger: #ef4444;
+  --danger: #f26d6d;
 
   /* ----------------------------------------
-     Tipografia
+     Tipografía
      ---------------------------------------- */
-  --font-display: "Sora", "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-body: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system,
-    sans-serif;
-  --font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code", monospace;
+  --font-display: "Instrument Serif", "Sora", Georgia, serif;
+  --font-body: "Archivo", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", "Cascadia Code", monospace;
 
   /* Escala fluida */
   --text-xs: 0.75rem;
@@ -76,7 +85,7 @@
   --text-2xl: clamp(1.875rem, 1.5rem + 1.6vw, 2.75rem);
   --text-3xl: clamp(2.25rem, 1.6rem + 2.8vw, 3.75rem);
   --text-4xl: clamp(2.75rem, 1.8rem + 4vw, 5rem);
-  --text-display: clamp(3rem, 1.5rem + 6vw, 7rem);
+  --text-display: clamp(3rem, 1.6rem + 5vw, 5.75rem);
 
   /* Interlineado y tracking */
   --leading-tight: 1;
@@ -102,23 +111,24 @@
   --space-16: 4rem;
   --space-20: 5rem;
   --space-24: 6rem;
-  --section-y: clamp(4rem, 8vw, 6rem);
+  --section-y: clamp(4rem, 8vw, 6.5rem);
 
   /* ----------------------------------------
      Radios
      ---------------------------------------- */
-  --radius-sm: 6px;
-  --radius: 14px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
   --radius-pill: 999px;
 
   /* ----------------------------------------
      Sombras
      ---------------------------------------- */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
-  --shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  --shadow-accent: 0 0 30px var(--accent-glow), 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  --shadow-accent: 0 10px 30px rgba(0, 0, 0, 0.35),
+    0 0 0 1px var(--accent-25);
 
   /* ----------------------------------------
      Movimiento
@@ -133,8 +143,8 @@
   /* ----------------------------------------
      Layout
      ---------------------------------------- */
-  --container: 1100px;
-  --gutter: clamp(1.125rem, 4vw, 2rem);
+  --container: 1160px;
+  --gutter: clamp(1.25rem, 5vw, 3rem);
   --nav-h: 68px;
   --z-base: 1;
   --z-nav: 20;

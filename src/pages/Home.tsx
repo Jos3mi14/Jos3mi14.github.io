@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollToTopBtn from "../components/shared/ScrollToTopBtn";
@@ -15,6 +17,21 @@ import {
 } from "../data/portfolioData";
 
 export default function Home() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+    const target = document.getElementById(hash.slice(1));
+    if (!target) return;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    window.scrollTo({
+      top: target.offsetTop - 80,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  }, [hash]);
+
   return (
     <>
       <a href="#main-content" className="skip-link">

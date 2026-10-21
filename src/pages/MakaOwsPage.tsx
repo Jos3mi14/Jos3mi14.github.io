@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollToTopBtn from "../components/shared/ScrollToTopBtn";
-import FadeInView from "../components/shared/FadeInView";
-import DecryptedText from "../components/reactbits/DecryptedText";
-import CountUp from "../components/reactbits/CountUp";
-import TiltedCard from "../components/reactbits/TiltedCard";
+import Reveal from "../components/shared/Reveal";
+import Icon from "../components/shared/Icon";
 import "./MakaOws.css";
 
 export default function MakaOwsPage() {
@@ -20,25 +18,15 @@ export default function MakaOwsPage() {
         <section className="page-hero">
           <div className="container page-hero-content">
             <Link to="/" className="back-link">
-              <i className="fas fa-arrow-left" aria-hidden="true"></i> Volver al
-              portafolio
+              <Icon name="arrow-left" size={16} /> Volver al portafolio
             </Link>
             <p className="eyebrow">
-              <i className="fas fa-diagram-project" aria-hidden="true"></i>{" "}
-              Proyecto Académico · 2025–2026
+              <Icon name="diagram" size={14} /> Proyecto Académico · 2025–2026
             </p>
             <h1>
-              MAKA{" "}
-              <DecryptedText
-                text="OWS 2.0"
-                animateOn="view"
-                sequential={true}
-                speed={50}
-                revealDirection="start"
-                className="highlight-text"
-              />
+              MAKA <span className="highlight-text">OWS 2.0</span>
             </h1>
-            <FadeInView direction="up" distance={20} delay={0.3}>
+            <Reveal delay={0.3}>
               <p className="lede" style={{ maxWidth: "640px", margin: "0" }}>
                 MAKA OWS es una plataforma digital para la gestión integral de
                 bodas: desde la coordinación del evento y los proveedores hasta
@@ -46,28 +34,19 @@ export default function MakaOwsPage() {
                 ofrecer una experiencia fluida y profesional tanto a los
                 organizadores como a los clientes.
               </p>
-            </FadeInView>
+            </Reveal>
             <div className="hero-badges">
               <span className="badge badge-success">
-                <i
-                  className="fas fa-circle"
-                  style={{ fontSize: "8px" }}
-                  aria-hidden="true"
-                ></i>{" "}
-                En desarrollo activo
+                <Icon name="circle" size={8} /> En desarrollo activo
               </span>
               <span className="badge badge-info">
-                <i className="fas fa-cubes" aria-hidden="true"></i>{" "}
-                <CountUp to={5} duration={1.5} /> Módulos funcionales
+                <Icon name="cubes" size={13} /> 5 Módulos funcionales
               </span>
               <span className="badge badge-neutral">
-                <i className="fas fa-calendar" aria-hidden="true"></i>{" "}
-                <CountUp to={6} duration={1.5} /> meses · Equipo de{" "}
-                <CountUp to={5} duration={1.5} />
+                <Icon name="calendar" size={13} /> 6 meses · Equipo de 5
               </span>
               <span className="badge badge-neutral">
-                <i className="fas fa-file-alt" aria-hidden="true"></i>{" "}
-                Documentado: 20 Ene 2026
+                <Icon name="file" size={13} /> Documentado: 20 Ene 2026
               </span>
             </div>
           </div>
@@ -75,7 +54,7 @@ export default function MakaOwsPage() {
 
         {/* -- FICHA TECNICA -- */}
         <section className="section">
-          <FadeInView direction="up">
+          <Reveal>
             <div className="container section-header">
               <p className="eyebrow">Ficha Técnica</p>
               <h2>Datos del proyecto</h2>
@@ -84,8 +63,8 @@ export default function MakaOwsPage() {
                 del sistema.
               </p>
             </div>
-          </FadeInView>
-          <FadeInView direction="up" delay={0.15}>
+          </Reveal>
+          <Reveal delay={0.15}>
             <div className="container">
               <div className="ficha-grid">
                 {[
@@ -134,14 +113,14 @@ export default function MakaOwsPage() {
                 ))}
               </div>
             </div>
-          </FadeInView>
+          </Reveal>
         </section>
 
         <div className="section-divider" />
 
         {/* -- CONTEXTO -- */}
         <section className="section">
-          <FadeInView direction="up">
+          <Reveal>
             <div className="container section-header">
               <p className="eyebrow">Contexto</p>
               <h2>¿Cómo evolucionó la plataforma?</h2>
@@ -152,16 +131,12 @@ export default function MakaOwsPage() {
                 modular y preparada para escalar.
               </p>
             </div>
-          </FadeInView>
-          <FadeInView direction="up" delay={0.15}>
+          </Reveal>
+          <Reveal delay={0.15}>
             <div className="container migration-grid">
               <div className="migration-card v1">
                 <div className="mc-header">
-                  <i
-                    className="fas fa-exclamation-triangle"
-                    style={{ color: "#ef4444", fontSize: "20px" }}
-                    aria-hidden="true"
-                  ></i>
+                  <Icon name="alert" size={20} className="icon-danger" />
                   <span className="mc-title">Versión 1.0 — PHP Monolito</span>
                 </div>
                 <ul className="mc-list">
@@ -189,11 +164,7 @@ export default function MakaOwsPage() {
               </div>
               <div className="migration-card v2">
                 <div className="mc-header">
-                  <i
-                    className="fas fa-rocket"
-                    style={{ color: "var(--accent)", fontSize: "20px" }}
-                    aria-hidden="true"
-                  ></i>
+                  <Icon name="rocket" size={20} className="icon-accent" />
                   <span className="mc-title">Versión 2.0 — Microservicios</span>
                 </div>
                 <ul className="mc-list">
@@ -220,14 +191,14 @@ export default function MakaOwsPage() {
                 </ul>
               </div>
             </div>
-          </FadeInView>
+          </Reveal>
         </section>
 
         <div className="section-divider" />
 
         {/* -- MODULOS -- */}
         <section className="section">
-          <FadeInView direction="up">
+          <Reveal>
             <div className="container section-header">
               <p className="eyebrow">Módulos</p>
               <h2>5 módulos independientes</h2>
@@ -237,45 +208,42 @@ export default function MakaOwsPage() {
                 forma autónoma.
               </p>
             </div>
-          </FadeInView>
+          </Reveal>
           <div className="container services-grid">
             {[
               {
-                icon: "fa-key",
+                icon: "key" as const,
                 name: "Acceso y Usuarios",
                 desc: "Gestiona el registro e inicio de sesión de todos los usuarios. Controla los permisos según el rol: administrador, personal del evento o cliente.",
               },
               {
-                icon: "fa-heart",
+                icon: "heart" as const,
                 name: "Gestión del Evento",
                 desc: "Núcleo del sistema. Centraliza toda la información de cada boda: fechas, locaciones, lista de invitados y seguimiento del estado en cada etapa.",
               },
               {
-                icon: "fa-boxes-stacked",
+                icon: "box" as const,
                 name: "Inventario",
                 desc: "Controla los recursos materiales disponibles: mobiliario, decoración, catering y cualquier elemento asignable. Visualiza y actualiza el stock en tiempo real.",
               },
               {
-                icon: "fa-handshake",
+                icon: "users" as const,
                 name: "Proveedores y Servicios",
                 desc: "Catálogo de proveedores disponibles: fotografía, música, catering, transporte. Incluye gestión de contrataciones y seguimiento de confirmaciones.",
               },
               {
-                icon: "fa-bell",
+                icon: "bell" as const,
                 name: "Notificaciones",
                 desc: "Sistema de alertas automáticas. Envía notificaciones y correos a los participantes sobre cambios de estado, recordatorios y actualizaciones importantes.",
               },
             ].map((s, i) => (
-              <FadeInView direction="up" delay={i * 0.08} key={s.name}>
+              <Reveal delay={i * 0.08} key={s.name}>
                 <div className="service-card">
-                  <i
-                    className={`fas ${s.icon} service-icon`}
-                    aria-hidden="true"
-                  ></i>
+                  <Icon name={s.icon} size={20} className="service-icon" />
                   <div className="service-name">{s.name}</div>
                   <p className="service-desc">{s.desc}</p>
                 </div>
-              </FadeInView>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -284,7 +252,7 @@ export default function MakaOwsPage() {
 
         {/* -- STACK -- */}
         <section className="section">
-          <FadeInView direction="up">
+          <Reveal>
             <div className="container section-header">
               <p className="eyebrow">Stack Tecnológico</p>
               <h2>Tecnologías del core</h2>
@@ -293,38 +261,34 @@ export default function MakaOwsPage() {
                 la mantenibilidad y la experiencia de desarrollo.
               </p>
             </div>
-          </FadeInView>
+          </Reveal>
           <div className="container stack-grid">
             {/* Frontend */}
-            <FadeInView direction="up" delay={0}>
+            <Reveal delay={0}>
               <div className="stack-card">
                 <div className="stack-top">
                   <span className="stack-category">Frontend</span>
-                  <i
-                    className="fas fa-display"
-                    style={{ color: "var(--accent)" }}
-                    aria-hidden="true"
-                  ></i>
+                  <Icon name="monitor" size={18} className="icon-accent" />
                 </div>
                 <div className="stack-items">
                   {[
                     {
-                      icon: "fab fa-react",
+                      icon: "code",
                       name: "Next.js 14",
                       desc: "App Router, SSR, Server & Client Components",
                     },
                     {
-                      icon: "fas fa-wind",
+                      icon: "sparkle",
                       name: "Tailwind CSS",
                       desc: "Diseño responsivo utility-first",
                     },
                     {
-                      icon: "fas fa-database",
+                      icon: "server",
                       name: "TanStack Query",
                       desc: "Data fetching, caché y sincronización",
                     },
                     {
-                      icon: "fas fa-atom",
+                      icon: "chip",
                       name: "Zustand",
                       desc: "Estado global ligero y escalable",
                     },
@@ -342,32 +306,28 @@ export default function MakaOwsPage() {
                   ))}
                 </div>
               </div>
-            </FadeInView>
+            </Reveal>
             {/* Backend */}
-            <FadeInView direction="up" delay={0.12}>
+            <Reveal delay={0.12}>
               <div className="stack-card">
                 <div className="stack-top">
                   <span className="stack-category">Backend</span>
-                  <i
-                    className="fas fa-server"
-                    style={{ color: "var(--accent)" }}
-                    aria-hidden="true"
-                  ></i>
+                  <Icon name="server" size={18} className="icon-accent" />
                 </div>
                 <div className="stack-items">
                   {[
                     {
-                      icon: "fab fa-node-js",
+                      icon: "code",
                       name: "NestJS + TypeScript",
                       desc: "Framework para APIs robustas y bien estructuradas",
                     },
                     {
-                      icon: "fas fa-code-branch",
+                      icon: "git-branch",
                       name: "Prisma 7",
                       desc: "ORM, migraciones y tipado seguro",
                     },
                     {
-                      icon: "fas fa-circle-nodes",
+                      icon: "sitemap",
                       name: "PostgreSQL 17",
                       desc: "Base de datos relacional con esquemas separados por módulo",
                     },
@@ -385,32 +345,28 @@ export default function MakaOwsPage() {
                   ))}
                 </div>
               </div>
-            </FadeInView>
+            </Reveal>
             {/* Infraestructura */}
-            <FadeInView direction="up" delay={0.24}>
+            <Reveal delay={0.24}>
               <div className="stack-card">
                 <div className="stack-top">
                   <span className="stack-category">Infraestructura</span>
-                  <i
-                    className="fas fa-cloud"
-                    style={{ color: "var(--accent)" }}
-                    aria-hidden="true"
-                  ></i>
+                  <Icon name="cloud" size={18} className="icon-accent" />
                 </div>
                 <div className="stack-items">
                   {[
                     {
-                      icon: "fab fa-docker",
+                      icon: "box" as const,
                       name: "Docker & Compose",
                       desc: "Entornos reproducibles, orquestación de servicios",
                     },
                     {
-                      icon: "fab fa-aws",
+                      icon: "cloud",
                       name: "AWS EC2 + RDS",
                       desc: "Backend en EC2, base de datos en RDS",
                     },
                     {
-                      icon: "fas fa-triangle",
+                      icon: "rocket",
                       name: "Vercel + GitLab CI/CD",
                       desc: "Despliegue continuo del frontend",
                     },
@@ -428,7 +384,7 @@ export default function MakaOwsPage() {
                   ))}
                 </div>
               </div>
-            </FadeInView>
+            </Reveal>
           </div>
         </section>
 
@@ -436,7 +392,7 @@ export default function MakaOwsPage() {
 
         {/* -- SEGURIDAD -- */}
         <section className="section">
-          <FadeInView direction="up">
+          <Reveal>
             <div className="container section-header">
               <p className="eyebrow">Seguridad</p>
               <h2>Seguridad y control de acceso</h2>
@@ -446,12 +402,12 @@ export default function MakaOwsPage() {
                 de configuración.
               </p>
             </div>
-          </FadeInView>
+          </Reveal>
           <div className="container security-grid">
             {[
               {
                 pill: "Autenticación",
-                icon: "fa-shield-halved",
+                icon: "shield" as const,
                 items: [
                   "Sesiones seguras con tokens de corta duración",
                   "Renovación automática de sesión sin interrupciones",
@@ -461,7 +417,7 @@ export default function MakaOwsPage() {
               },
               {
                 pill: "Autorización",
-                icon: "fa-user-lock",
+                icon: "user-lock" as const,
                 items: [
                   "Control de acceso por roles: Administrador, Personal y Cliente",
                   "Cada acción verifica los permisos del usuario antes de ejecutarse",
@@ -471,7 +427,7 @@ export default function MakaOwsPage() {
               },
               {
                 pill: "Buenas Prácticas",
-                icon: "fa-list-check",
+                icon: "list-check" as const,
                 items: [
                   "Configuración gestionada mediante variables de entorno seguras",
                   "Validación estricta de todos los datos de entrada",
@@ -480,28 +436,27 @@ export default function MakaOwsPage() {
                 ],
               },
             ].map((card, i) => (
-              <FadeInView direction="up" delay={i * 0.12} key={card.pill}>
+              <Reveal delay={i * 0.12} key={card.pill}>
                 <div className="security-card">
                   <div className="card-top">
                     <span className="pill">{card.pill}</span>
-                    <i
-                      className={`fas ${card.icon}`}
-                      aria-hidden="true"
-                    ></i>
+                      <Icon
+                        name={card.icon}
+                        size={18}
+                        className="icon-accent"
+                      />
+
                   </div>
                   <ul className="security-list">
                     {card.items.map((item) => (
                       <li key={item}>
-                        <i
-                        className="fas fa-check-circle"
-                        aria-hidden="true"
-                      ></i>{" "}
-                      {item}
+                        <Icon name="check-circle" size={14} /> {item}
+
                       </li>
                     ))}
                   </ul>
                 </div>
-              </FadeInView>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -510,18 +465,18 @@ export default function MakaOwsPage() {
 
         {/* -- CRONOGRAMA -- */}
         <section className="section">
-          <FadeInView direction="up">
+          <Reveal>
             <div className="container section-header">
               <p className="eyebrow">Cronograma</p>
               <h2>Hoja de ruta del proyecto</h2>
               <p className="section-lede">
-                <CountUp to={24} duration={2} /> semanas divididas en tres
+                24 semanas divididas en tres
                 fases: setup y desarrollo del core, integración y testing, y
                 despliegue en producción.
               </p>
             </div>
-          </FadeInView>
-          <FadeInView direction="up" delay={0.15}>
+          </Reveal>
+          <Reveal delay={0.15}>
             <div className="container">
               <div className="timeline">
                 <div className="timeline-item active">
@@ -596,14 +551,14 @@ export default function MakaOwsPage() {
                 </div>
               </div>
             </div>
-          </FadeInView>
+          </Reveal>
         </section>
 
         <div className="section-divider" />
 
         {/* -- EQUIPO -- */}
         <section className="section">
-          <FadeInView direction="up">
+          <Reveal>
             <div className="container section-header">
               <p className="eyebrow">Equipo</p>
               <h2>Las personas detrás del proyecto</h2>
@@ -613,7 +568,7 @@ export default function MakaOwsPage() {
                 Commits.
               </p>
             </div>
-          </FadeInView>
+          </Reveal>
           <div className="container team-grid">
             {[
               {
@@ -642,22 +597,18 @@ export default function MakaOwsPage() {
                 role: "Frontend Developer",
               },
             ].map((member, i) => (
-              <FadeInView direction="up" delay={i * 0.08} key={member.gh}>
+              <Reveal delay={i * 0.08} key={member.gh}>
                 <div className="team-member">
-                  <TiltedCard
-                    imageSrc={`https://github.com/${member.gh}.png`}
-                    altText={member.name}
-                    captionText={member.role}
-                    containerHeight="140px"
-                    containerWidth="140px"
-                    imageHeight="120px"
-                    imageWidth="120px"
-                    rotateAmplitude={8}
-                    scaleOnHover={1.05}
-                    showTooltip={true}
-                    borderRadius="50%"
-                    className="mx-auto"
-                  />
+                  <div className="team-avatar">
+                    <img
+                      src={`https://github.com/${member.gh}.png`}
+                      alt={`Foto de ${member.name}`}
+                      width={72}
+                      height={72}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                   <h3>{member.name}</h3>
                   <p className="team-role">{member.role}</p>
                   <a
@@ -666,11 +617,10 @@ export default function MakaOwsPage() {
                     rel="noopener noreferrer"
                     className="team-github"
                   >
-                    <i className="fab fa-github" aria-hidden="true"></i> @
-                    {member.gh}
+                    <Icon name="github" size={14} /> @{member.gh}
                   </a>
                 </div>
-              </FadeInView>
+              </Reveal>
             ))}
           </div>
         </section>

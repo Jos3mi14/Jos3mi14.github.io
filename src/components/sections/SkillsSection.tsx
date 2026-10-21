@@ -1,4 +1,5 @@
-import FadeInView from "../shared/FadeInView";
+import Reveal from "../shared/Reveal";
+import Icon from "../shared/Icon";
 import type { SkillsData } from "../../data/portfolioData";
 
 interface SkillsSectionProps {
@@ -8,33 +9,30 @@ interface SkillsSectionProps {
 export default function SkillsSection({ data }: SkillsSectionProps) {
   return (
     <section id="skills" className="section">
-      <div className="container section-header">
-        <p className="eyebrow">{data.eyebrow}</p>
-        <h2>{data.title}</h2>
-        <p className="section-lede">{data.lede}</p>
-      </div>
-      <div className="container skills-grid">
-        {data.categories.map((category, index) => (
-          <FadeInView
-            key={category.category}
-            direction="up"
-            delay={index * 0.12}
-          >
-            <div className="skill-card">
-              <div className="card-top">
-                <span className="pill">{category.category}</span>
-                <i className={category.icon} aria-hidden="true"></i>
+      <div className="container">
+        <div className="section-header">
+          <p className="section-index">02 — {data.eyebrow}</p>
+          <h2>{data.title}</h2>
+          <p className="section-lede">{data.lede}</p>
+        </div>
+
+        <div className="skills-grid">
+          {data.categories.map((category, index) => (
+            <Reveal key={category.category} delay={index * 0.1}>
+              <div className="skill-column">
+                <div className="skill-column-head">
+                  <h3>{category.category}</h3>
+                  <Icon name={category.icon} size={20} />
+                </div>
+                <ul className="skill-list">
+                  {category.technologies.map((tech) => (
+                    <li key={tech}>{tech}</li>
+                  ))}
+                </ul>
               </div>
-              <div className="tag-list">
-                {category.technologies.map((tech) => (
-                  <span className="tag" key={tech}>
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </FadeInView>
-        ))}
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

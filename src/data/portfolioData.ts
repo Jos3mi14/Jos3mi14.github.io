@@ -1,8 +1,17 @@
+import type { IconName } from "../components/shared/Icon";
+
+export interface HeroSpecRow {
+  label: string;
+  value: string;
+}
+
 export interface HeroData {
   name: string;
+  surname: string;
   title: string;
   rotatingTexts: string[];
   lede: string;
+  spec: HeroSpecRow[];
   ctaPrimary: { label: string; href: string };
   ctaSecondary: { label: string; href: string };
   ctaGithub: { label: string; href: string };
@@ -32,7 +41,7 @@ export interface AboutData {
 
 export interface SkillCategory {
   category: string;
-  icon: string;
+  icon: IconName;
   technologies: string[];
 }
 
@@ -62,7 +71,6 @@ export interface ProjectData {
   stats: ProjectStat[];
   techStack: string[];
   links: ProjectLink[];
-  spotlightColor: string;
 }
 
 export interface ProjectsData {
@@ -79,14 +87,13 @@ export interface ContactInfo {
 }
 
 export interface ContactData {
-  titleGradientColors: string[];
-  titleAnimationSpeed: number;
+  title: string;
   lede: string;
   contactItems: Array<{
     label: string;
     value: string;
     href: string;
-    icon: string;
+    icon: IconName;
     isExternal: boolean;
   }>;
   ctaPrimary: { label: string; href: string };
@@ -95,14 +102,18 @@ export interface ContactData {
 
 export const HERO_DATA: HeroData = {
   name: "José Emilio",
+  surname: "Sánchez Miñón",
   title: "Desarrollador Móvil · Modelos de Negocio",
-  rotatingTexts: [
-    "React Native",
-    "TypeScript",
-    "Product Strategy",
-    "AI & Voice",
+  rotatingTexts: ["React Native", "TypeScript", "Product Strategy", "AI & Voice"],
+  lede:
+    "Creo aplicaciones móviles con impacto real, combinando desarrollo técnico sólido con identificación de oportunidades de negocio y estrategia de producto.",
+  spec: [
+    { label: "Rol", value: "Desarrollador de apps móviles" },
+    { label: "Stack", value: "React Native · Expo · TypeScript" },
+    { label: "Foco", value: "IA conversacional, voz e IoT" },
+    { label: "Experiencia", value: "1 año construyendo producto" },
+    { label: "Disponible", value: "Freelance y roles de móvil o producto" },
   ],
-  lede: "Creo aplicaciones móviles con impacto real, combinando desarrollo técnico sólido con identificación de oportunidades de negocio y estrategia de producto.",
   ctaPrimary: { label: "Ver proyectos", href: "#projects" },
   ctaSecondary: { label: "Hablemos", href: "#contact" },
   ctaGithub: { label: "GitHub", href: "https://github.com/Jos3mi14" },
@@ -143,7 +154,7 @@ export const SKILLS_DATA: SkillsData = {
   categories: [
     {
       category: "Apps Móviles",
-      icon: "fas fa-mobile-screen",
+      icon: "device",
       technologies: [
         "React Native",
         "Expo",
@@ -154,7 +165,7 @@ export const SKILLS_DATA: SkillsData = {
     },
     {
       category: "IA & Servicios",
-      icon: "fas fa-brain",
+      icon: "chip",
       technologies: [
         "Gemini API",
         "Assembly AI",
@@ -165,7 +176,7 @@ export const SKILLS_DATA: SkillsData = {
     },
     {
       category: "Negocio & Producto",
-      icon: "fas fa-chart-line",
+      icon: "chart",
       technologies: [
         "Modelos de negocio",
         "Lean Startup",
@@ -212,7 +223,6 @@ export const PROJECTS_DATA: ProjectsData = {
           isExternal: false,
         },
       ],
-      spotlightColor: "rgba(0, 229, 255, 0.12)",
     },
     {
       id: "nyma",
@@ -239,7 +249,6 @@ export const PROJECTS_DATA: ProjectsData = {
           isExternal: true,
         },
       ],
-      spotlightColor: "rgba(0, 229, 255, 0.12)",
     },
   ],
   githubLink: {
@@ -249,29 +258,28 @@ export const PROJECTS_DATA: ProjectsData = {
 };
 
 export const CONTACT_DATA: ContactData = {
-  titleGradientColors: ["#00e5ff", "#80ffff", "#ffffff", "#80ffff", "#00e5ff"],
-  titleAnimationSpeed: 4,
+  title: "Cuéntame tu próximo reto",
   lede: "Disponible para colaboraciones, proyectos freelance y roles de desarrollo móvil o producto.",
   contactItems: [
     {
       label: "Email",
       value: "jsanchezminon@gmail.com",
       href: "mailto:jsanchezminon@gmail.com",
-      icon: "fas fa-envelope",
+      icon: "mail",
       isExternal: false,
     },
     {
       label: "GitHub",
       value: "@Jos3mi14",
       href: "https://github.com/Jos3mi14",
-      icon: "fab fa-github",
+      icon: "github",
       isExternal: true,
     },
     {
       label: "LinkedIn",
       value: "José Emilio Sánchez Miñón",
       href: "https://www.linkedin.com/in/jesanchezminon/",
-      icon: "fab fa-linkedin",
+      icon: "linkedin",
       isExternal: true,
     },
   ],

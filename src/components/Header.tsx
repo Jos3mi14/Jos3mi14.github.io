@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   HOME_NAV_ITEMS,
@@ -7,10 +7,13 @@ import {
 } from "../constants/navigation";
 import { useSectionObserver, useScrolled } from "../hooks/useSectionObserver";
 import { handleSmoothScroll } from "../utils/scrollUtils";
+import Icon from "./shared/Icon";
 
 interface HeaderProps {
   minimal?: boolean;
 }
+
+const SECTION_IDS = ["hero", "about", "skills", "projects", "contact"];
 
 export default function Header({ minimal = false }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,10 +22,10 @@ export default function Header({ minimal = false }: HeaderProps) {
   const navItems: NavItem[] = minimal ? MINIMAL_NAV_ITEMS : HOME_NAV_ITEMS;
   const { pathname } = useLocation();
 
-  const activeSection = useSectionObserver(
-    ["hero", "about", "skills", "projects", "contact"],
-    { rootMargin: "-200px 0px -60% 0px" },
-  );
+  const sectionIds = useMemo(() => SECTION_IDS, []);
+  const activeSection = useSectionObserver(sectionIds, {
+    rootMargin: "-200px 0px -60% 0px",
+  });
   const scrolled = useScrolled(100);
 
   useEffect(() => {
@@ -62,24 +65,17 @@ export default function Header({ minimal = false }: HeaderProps) {
   };
 
   return (
-    <header
-      className="navbar"
-      style={{
-        background: scrolled ? "rgba(5,10,15,0.97)" : "rgba(5,10,15,0.75)",
-        boxShadow: scrolled
-          ? "0 6px 24px rgba(0,0,0,0.6), 0 1px 0 rgba(0,229,255,0.1)"
-          : "none",
-        transition: "background 0.3s, box-shadow 0.3s",
-      }}
-    >
+    <header className={`navbar${scrolled ? " scrolled" : ""}`}>
       <div className="nav-container">
-        <div className="logo">
-          <div className="logo-monogram">JE</div>
-          <div className="logo-label">
-            <span className="logo-full-name">José Emilio</span>
-            <span className="logo-tagline">dev &amp; product</span>
-          </div>
-        </div>
+        <Link to="/" className="logo" onClick={handleLinkClick}>
+          <span className="logo-monogram" aria-hidden="true">
+            JE
+          </span>
+          <span className="logo-label">
+            <span className="logo-full-name">José Emilio Sánchez Miñón</span>
+            <span className="logo-tagline">Dev &amp; producto</span>
+          </span>
+        </Link>
 
         <nav aria-label="Navegación principal">
           <ul
@@ -88,11 +84,13 @@ export default function Header({ minimal = false }: HeaderProps) {
             className={`nav-links${menuOpen ? " active" : ""}`}
           >
             {navItems.map((item) => {
-              const isRouteActive =
-                item.isRoute && pathname === item.href;
+              const isRouteActive = item.isRoute && pathname === item.href;
               const isSectionActive =
-                !minimal && !item.isRoute && activeSection === item.href.slice(1);
+                !minimal &&
+                !item.isRoute &&
+                activeSection === item.href.slice(1);
               const isActive = isRouteActive || isSectionActive;
+
               if (item.isRoute) {
                 return (
                   <li key={item.href}>
@@ -102,12 +100,12 @@ export default function Header({ minimal = false }: HeaderProps) {
                       aria-current={isRouteActive ? "page" : undefined}
                       onClick={handleLinkClick}
                     >
-                      <i className={`fas ${item.icon}`} aria-hidden="true"></i>{" "}
                       {item.label}
                     </Link>
                   </li>
                 );
               }
+
               return (
                 <li key={item.href}>
                   <a
@@ -116,7 +114,6 @@ export default function Header({ minimal = false }: HeaderProps) {
                     aria-current={isSectionActive ? "true" : undefined}
                     onClick={(e) => handleNavClick(e, item.href)}
                   >
-                    <i className={`fas ${item.icon}`} aria-hidden="true"></i>{" "}
                     {item.label}
                   </a>
                 </li>
@@ -127,31 +124,14 @@ export default function Header({ minimal = false }: HeaderProps) {
 
         <button
           ref={btnRef}
-          className={`menu-toggle${menuOpen ? " active" : ""}`}
-          id="mobile-menu"
+          className="menu-toggle"
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
           aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
         >
-          <span
-            className="bar"
-            style={
-              menuOpen
-                ? { transform: "rotate(-45deg) translate(-5px, 6px)" }
-                : {}
-            }
-          />
-          <span className="bar" style={menuOpen ? { opacity: "0" } : {}} />
-          <span
-            className="bar"
-            style={
-              menuOpen
-                ? { transform: "rotate(45deg) translate(-5px, -6px)" }
-                : {}
-            }
-          />
+          <Icon name={menuOpen ? "close" : "menu"} size={20} />
         </button>
       </div>
     </header>

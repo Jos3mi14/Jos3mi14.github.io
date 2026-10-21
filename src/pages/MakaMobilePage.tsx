@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import FadeInView from "../components/shared/FadeInView";
-import CountUp from "../components/reactbits/CountUp";
+import Reveal from "../components/shared/Reveal";
+import Icon from "../components/shared/Icon";
 import styles from "./MakaMobilePage.module.css";
 
 export default function MakaMobilePage() {
@@ -25,13 +25,11 @@ export default function MakaMobilePage() {
             </nav>
 
             <Link to="/" className={styles.backLink}>
-              <i className="fas fa-arrow-left" aria-hidden="true"></i> Volver al
-              portafolio
+              <Icon name="arrow-left" size={16} /> Volver al portafolio
             </Link>
 
             <p className={styles.eyebrow}>
-              <i className="fas fa-mobile-screen" aria-hidden="true"></i>{" "}
-              PROYECTO ACADÉMICO · 2025–2026
+              <Icon name="device" size={14} /> PROYECTO ACADÉMICO · 2025–2026
             </p>
 
             <h1>
@@ -74,7 +72,7 @@ export default function MakaMobilePage() {
 
         {/* -- SECTION 2: REBOOT -- */}
         <section className={styles.container}>
-          <FadeInView>
+          <Reveal>
             <h2 className={styles.sectionTitle}>
               Sprint 3: De Expo a Kotlin nativo
             </h2>
@@ -82,7 +80,7 @@ export default function MakaMobilePage() {
               <div className={`${styles.rebootCard} ${styles.old}`}>
                 <h3>
                   <i
-                    className={`fas fa-times-circle ${styles.iconWarning}`}
+                    className={styles.iconWarning}
                     aria-hidden="true"
                   ></i>
                   Expo / React Native (Sprints 1–2)
@@ -90,28 +88,28 @@ export default function MakaMobilePage() {
                 <ul>
                   <li>
                     <i
-                      className={`fas fa-times ${styles.iconWarning} ${styles.iconList}`}
+                      className={`${styles.iconWarning} ${styles.iconList}`}
                       aria-hidden="true"
                     ></i>{" "}
                     Limitaciones de acceso a APIs nativas de Android
                   </li>
                   <li>
                     <i
-                      className={`fas fa-times ${styles.iconWarning} ${styles.iconList}`}
+                      className={`${styles.iconWarning} ${styles.iconList}`}
                       aria-hidden="true"
                     ></i>{" "}
                     Dependencia del runtime de Expo
                   </li>
                   <li>
                     <i
-                      className={`fas fa-times ${styles.iconWarning} ${styles.iconList}`}
+                      className={`${styles.iconWarning} ${styles.iconList}`}
                       aria-hidden="true"
                     ></i>{" "}
                     Rendimiento subóptimo en gama media
                   </li>
                   <li>
                     <i
-                      className={`fas fa-times ${styles.iconWarning} ${styles.iconList}`}
+                      className={`${styles.iconWarning} ${styles.iconList}`}
                       aria-hidden="true"
                     ></i>{" "}
                     Abstracción alejada del ecosistema Android
@@ -122,7 +120,7 @@ export default function MakaMobilePage() {
               <div className={`${styles.rebootCard} ${styles.new}`}>
                 <h3>
                   <i
-                    className={`fas fa-check-circle ${styles.iconAccent}`}
+                    className={styles.iconAccent}
                     aria-hidden="true"
                   ></i>
                   Kotlin nativo + Jetpack Compose (Sprint 3+)
@@ -130,42 +128,42 @@ export default function MakaMobilePage() {
                 <ul>
                   <li>
                     <i
-                      className={`fas fa-check ${styles.iconAccent} ${styles.iconList}`}
+                      className={`${styles.iconAccent} ${styles.iconList}`}
                       aria-hidden="true"
                     ></i>{" "}
                     Acceso completo a APIs nativas
                   </li>
                   <li>
                     <i
-                      className={`fas fa-check ${styles.iconAccent} ${styles.iconList}`}
+                      className={`${styles.iconAccent} ${styles.iconList}`}
                       aria-hidden="true"
                     ></i>{" "}
                     Jetpack Compose + Material Design 3
                   </li>
                   <li>
                     <i
-                      className={`fas fa-check ${styles.iconAccent} ${styles.iconList}`}
+                      className={`${styles.iconAccent} ${styles.iconList}`}
                       aria-hidden="true"
                     ></i>{" "}
                     EncryptedSharedPreferences (AES256-GCM)
                   </li>
                   <li>
                     <i
-                      className={`fas fa-check ${styles.iconAccent} ${styles.iconList}`}
+                      className={`${styles.iconAccent} ${styles.iconList}`}
                       aria-hidden="true"
                     ></i>{" "}
                     TokenAuthenticator con renovación automática en 401
                   </li>
                   <li>
                     <i
-                      className={`fas fa-check ${styles.iconAccent} ${styles.iconList}`}
+                      className={`${styles.iconAccent} ${styles.iconList}`}
                       aria-hidden="true"
                     ></i>{" "}
                     MVVM + StateFlow + corutinas
                   </li>
                   <li>
                     <i
-                      className={`fas fa-check ${styles.iconAccent} ${styles.iconList}`}
+                      className={`${styles.iconAccent} ${styles.iconList}`}
                       aria-hidden="true"
                     ></i>{" "}
                     BuildConfig para entornos de depuración y producción
@@ -173,18 +171,17 @@ export default function MakaMobilePage() {
                 </ul>
               </div>
             </div>
-          </FadeInView>
+          </Reveal>
         </section>
 
         {/* -- SECTION 3: STACK -- */}
         <section className={styles.container}>
-          <FadeInView>
+          <Reveal>
             <h2 className={styles.sectionTitle}>Stack tecnológico</h2>
             <div className={styles.gridThree}>
               <div className={styles.stackCard}>
                 <h3>
-                  <i className="fab fa-android" aria-hidden="true"></i> Núcleo
-                  Android
+                  <Icon name="android" size={18} /> Núcleo Android
                 </h3>
                 <div className={styles.stackBadges}>
                   <span className={styles.badge}>Kotlin</span>
@@ -198,8 +195,7 @@ export default function MakaMobilePage() {
 
               <div className={styles.stackCard}>
                 <h3>
-                  <i className="fas fa-shield-halved" aria-hidden="true"></i>{" "}
-                  Red y seguridad
+                  <Icon name="shield" size={18} /> Red y seguridad
                 </h3>
                 <div className={styles.stackBadges}>
                   <span className={styles.badge}>Retrofit 2 + OkHttp</span>
@@ -216,8 +212,7 @@ export default function MakaMobilePage() {
 
               <div className={styles.stackCard}>
                 <h3>
-                  <i className="fas fa-sitemap" aria-hidden="true"></i>{" "}
-                  Arquitectura
+                  <Icon name="sitemap" size={18} /> Arquitectura
                 </h3>
                 <div className={styles.stackBadges}>
                   <span className={styles.badge}>MVVM</span>
@@ -236,14 +231,14 @@ export default function MakaMobilePage() {
                 </div>
               </div>
             </div>
-          </FadeInView>
+          </Reveal>
         </section>
 
         {/* -- SECTION 4: TIMELINE -- */}
         <section className={styles.container}>
           <h2 className={styles.sectionTitle}>Timeline de sprints</h2>
           <div className={styles.timeline}>
-            <FadeInView delay={0}>
+            <Reveal delay={0}>
               <div className={styles.timelineItem}>
                 <div className={styles.timelineMeta}>Sprint 1 · Feb 2025</div>
                 <h3>Configuración + autenticación (Expo)</h3>
@@ -257,9 +252,9 @@ export default function MakaMobilePage() {
                   <li>Probado en iOS y Android</li>
                 </ul>
               </div>
-            </FadeInView>
+            </Reveal>
 
-            <FadeInView delay={0.1}>
+            <Reveal delay={0.1}>
               <div className={styles.timelineItem}>
                 <div className={styles.timelineMeta}>
                   Sprint 1 Android · Mar 2025
@@ -275,9 +270,9 @@ export default function MakaMobilePage() {
                   <li>Pruebas contra backend local y producción</li>
                 </ul>
               </div>
-            </FadeInView>
+            </Reveal>
 
-            <FadeInView delay={0.2}>
+            <Reveal delay={0.2}>
               <div className={styles.timelineItem}>
                 <div className={styles.timelineMeta}>Sprint 4 · Abr 2025</div>
                 <h3>Módulo de Eventos</h3>
@@ -308,13 +303,13 @@ export default function MakaMobilePage() {
                   </li>
                 </ul>
               </div>
-            </FadeInView>
+            </Reveal>
           </div>
         </section>
 
         {/* -- SECTION 5: DIAGRAM -- */}
         <section className={styles.container}>
-          <FadeInView>
+          <Reveal>
             <h2 className={styles.sectionTitle}>Diagrama de autenticación</h2>
             <div className={styles.diagram}>
               <div className={styles.diagramNode}>LoginScreen</div>
@@ -354,37 +349,19 @@ export default function MakaMobilePage() {
                 <br />→ nuevo AccessToken
               </div>
             </div>
-          </FadeInView>
+          </Reveal>
         </section>
 
         {/* -- SECTION 6: METRICS -- */}
         <section className={styles.container}>
-          <FadeInView>
+          <Reveal>
             <div className={styles.metricsGrid}>
               <div className={styles.metricCard}>
-                <div className={styles.metricValue}>
-                  <CountUp
-                    from={0}
-                    to={4}
-                    separator=","
-                    direction="up"
-                    duration={1}
-                    className="count-up-text"
-                  />
-                </div>
+                <div className={styles.metricValue}>4</div>
                 <div className={styles.metricLabel}>Sprints completados</div>
               </div>
               <div className={styles.metricCard}>
-                <div className={styles.metricValue}>
-                  <CountUp
-                    from={0}
-                    to={5}
-                    separator=","
-                    direction="up"
-                    duration={1}
-                    className="count-up-text"
-                  />
-                </div>
+                <div className={styles.metricValue}>5</div>
                 <div className={styles.metricLabel}>
                   Microservicios consumidos
                 </div>
@@ -396,27 +373,18 @@ export default function MakaMobilePage() {
                 </div>
               </div>
               <div className={styles.metricCard}>
-                <div className={styles.metricValue}>
-                  <CountUp
-                    from={0}
-                    to={2}
-                    separator=","
-                    direction="up"
-                    duration={1}
-                    className="count-up-text"
-                  />
-                </div>
+                <div className={styles.metricValue}>2</div>
                 <div className={styles.metricLabel}>
                   Entornos (local + producción)
                 </div>
               </div>
             </div>
-          </FadeInView>
+          </Reveal>
         </section>
 
         {/* -- SECTION 7: CTA -- */}
         <section className={styles.ctaSection}>
-          <FadeInView>
+          <Reveal>
             <h2>¿Quieres ver la arquitectura completa del sistema?</h2>
             <div className={styles.ctaButtons}>
               <Link to="/projects/maka-ows" className={styles.btnPrimary}>
@@ -426,7 +394,7 @@ export default function MakaMobilePage() {
                 Hablemos
               </Link>
             </div>
-          </FadeInView>
+          </Reveal>
         </section>
       </main>
       <Footer />

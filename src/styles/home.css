@@ -1,0 +1,549 @@
+/* ========================================
+   Home — hero, sobre mí, stack, proyectos
+   y contacto
+   ======================================== */
+
+/* ----------------------------------------
+   Hero
+   ---------------------------------------- */
+.hero-section {
+  position: relative;
+  padding-top: calc(var(--nav-h) + var(--space-16));
+  padding-bottom: var(--space-16);
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 60% 50% at 20% 0%,
+      var(--accent-05) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 45% 45% at 90% 20%,
+      color-mix(in srgb, var(--accent-2) 6%, transparent) 0%,
+      transparent 60%
+    );
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.5;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black, transparent);
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 60% at 50% 30%,
+    black,
+    transparent
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.hero-main {
+  display: grid;
+  gap: var(--space-6);
+  max-width: 40rem;
+}
+
+.hero-eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.hero-eyebrow .status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 3px var(--success-dim);
+}
+
+.hero-eyebrow-sep {
+  color: var(--border-strong);
+}
+
+.hero-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  color: var(--text-1);
+  max-width: 12ch;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-role {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+  color: var(--text-2);
+}
+
+.hero-role .role-rotator {
+  color: var(--accent-2);
+}
+
+.hero-lede {
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--text-2);
+  max-width: 44ch;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Panel de datos — la pieza firma del sitio */
+.spec-panel {  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+  overflow: hidden;
+}
+
+.spec-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border);
+  background: var(--white-02);
+}
+
+.spec-panel-head .label {
+  margin: 0;
+}
+
+.spec-list {
+  margin: 0;
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: var(--space-4);
+  align-items: baseline;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border);
+}
+
+.spec-row:last-child {
+  border-bottom: 0;
+}
+
+.spec-row dt {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.spec-row dd {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-1);
+  font-weight: 500;
+}
+
+.spec-row dd .mono {
+  color: var(--accent-2);
+}
+
+/* ----------------------------------------
+   Sobre mí
+   ---------------------------------------- */
+.about-band {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-10);
+  align-items: center;
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-band-stat {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 8rem;
+}
+
+.about-band-stat .value {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  line-height: 1;
+  color: var(--accent);
+}
+
+.about-band-text h3 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xl);
+}
+
+.about-band-text p {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  max-width: 62ch;
+}
+
+.about-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-10);
+  margin-top: var(--space-12);
+}
+
+.about-column h3 {
+  margin: 0 0 var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-lg);
+}
+
+.about-list {
+  list-style: none;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.about-list li {
+  position: relative;
+  padding-left: var(--space-6);
+  color: var(--text-2);
+  font-size: var(--text-sm);
+}
+
+.about-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 12px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ----------------------------------------
+   Stack
+   ---------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-8);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-8);
+}
+
+.skill-column {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+}
+
+.skill-column-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-column-head h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-1);
+}
+
+.skill-column-head svg {
+  color: var(--accent-2);
+  flex-shrink: 0;
+}
+
+.skill-list {
+  list-style: none;
+  display: grid;
+}
+
+.skill-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-2);
+}
+
+.skill-list li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--accent-2);
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------
+   Proyectos
+   ---------------------------------------- */
+.projects-list {
+  border-top: 1px solid var(--border);
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: var(--space-10);
+  padding: var(--space-10) 0;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--dur) var(--ease);
+}
+
+.project-row:hover {
+  background: var(--white-02);
+}
+
+.project-head {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  justify-items: start;
+}
+
+.project-title {
+  margin: 0;
+  font-size: var(--text-2xl);
+}
+
+.project-body {
+  display: grid;
+  gap: var(--space-6);
+  align-content: start;
+}
+
+.project-body p {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+}
+
+.project-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.project-stat {
+  display: grid;
+  gap: 2px;
+}
+
+.project-stat-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.project-stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  transition: color var(--transition);
+}
+
+.project-links a:hover {
+  color: var(--accent-light);
+}
+
+.projects-cta {
+  margin-top: var(--space-10);
+  display: flex;
+  justify-content: center;
+}
+
+/* ----------------------------------------
+   Contacto
+   ---------------------------------------- */
+.contact-panel {
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  padding: var(--space-12);
+  display: grid;
+  gap: var(--space-8);
+}
+
+.contact-title {
+  margin: 0;
+  font-size: var(--text-3xl);
+  max-width: 20ch;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-8);
+}
+
+.contact-item {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border);
+  transition: border-color var(--transition);
+}
+
+.contact-item:hover {
+  border-color: var(--accent-30);
+}
+
+.contact-item svg {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-item .label {
+  margin-bottom: 2px;
+}
+
+.contact-item .value {
+  font-size: var(--text-sm);
+  word-break: break-word;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* ----------------------------------------
+   Responsive
+   ---------------------------------------- */
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: var(--space-16);
+  }
+}
+
+@media (max-width: 1023px) {
+  .spec-panel {
+    max-width: 34rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .project-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .about-columns {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+}
+
+@media (max-width: 700px) {
+  .about-band {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .about-band-stat {
+    min-width: 0;
+  }
+
+  .contact-panel {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .hero-actions .btn {
+    flex: 1 1 auto;
+  }
+}
