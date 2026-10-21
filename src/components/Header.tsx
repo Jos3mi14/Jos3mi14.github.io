@@ -68,9 +68,7 @@ export default function Header({ minimal = false }: HeaderProps) {
     <header className={`navbar${scrolled ? " scrolled" : ""}`}>
       <div className="nav-container">
         <Link to="/" className="logo" onClick={handleLinkClick}>
-          <span className="logo-monogram" aria-hidden="true">
-            JE
-          </span>
+          <span className="logo-monogram">JE</span>
           <span className="logo-label">
             <span className="logo-full-name">José Emilio Sánchez Miñón</span>
             <span className="logo-tagline">Dev &amp; producto</span>
