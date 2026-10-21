@@ -77,7 +77,6 @@ body {
     -apple-system,
     sans-serif;
   line-height: 1.7;
-  overflow-x: hidden;
   transition:
     background 0.35s ease,
     color 0.35s ease;
@@ -442,6 +441,15 @@ p {
   border-radius: 999px;
   font-size: 13px;
   letter-spacing: 0.12em;
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content .eyebrow span {
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .hero-content h1 {
