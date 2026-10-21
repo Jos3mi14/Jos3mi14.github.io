@@ -1,73 +1,111 @@
-# React + TypeScript + Vite
+# Portafolio — José Emilio Sánchez Miñón
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portafolio profesional de José Emilio Sánchez Miñón, desarrollador de
+aplicaciones móviles. Está desplegado en GitHub Pages:
+**<https://jos3mi14.github.io/>**
 
-Currently, two official plugins are available:
+- **Qué es:** una SPA con pre-renderizado estático. El contenido real de cada
+  ruta viaja en el HTML inicial (SEO y funcionamiento sin JavaScript) y luego
+  React hidrata la página.
+- **Audiencia:** recrutadores de desarrollo móvil y personas que buscan
+  colaboración freelance en producto.
+- **Objetivo de la página:** en cinco segundos debe quedar claro quién es, qué
+  construye y cómo contactarle.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## React Compiler
+| Herramienta | Versión | Para qué |
+| --- | --- | --- |
+| React | 19 | interfaz |
+| TypeScript | 5.9 (`strict`) | tipado estricto, sin `any` |
+| Vite | 7 | desarrollo y build |
+| Tailwind CSS | 4 | reset, utilidades puntuales y preflight |
+| React Router | 7 | enrutado de las 3 rutas |
+| Vitest + Testing Library | 3 / 16 | tests de componentes |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**No hay dependencias de animación ni de iconos:** las animaciones son CSS
+nativo y los iconos son SVG en línea (`src/components/shared/Icon.tsx`). Las
+fuentes están autoalojadas en `public/fonts` (subconjunto latin, 105 KB).
 
-## Expanding the ESLint configuration
+## Scripts
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm install        # dependencias
+npm run dev        # servidor de desarrollo
+npm run build      # tsc + build cliente + build SSR + pre-render de las 3 rutas
+npm run preview    # sirve dist/ como lo hará GitHub Pages
+npm run lint       # ESLint (typescript-eslint con reglas type-aware)
+npm run test       # Vitest en modo watch
+npm run test:run   # Vitest en una sola pasada
+npm run format     # Prettier
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Estructura
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
 ```
+src/
+├── components/
+│   ├── sections/       # HeroSection, AboutSection, SkillsSection, ProjectsSection, ContactSection
+│   ├── shared/         # Icon, Reveal, RoleRotator, ScrollToTopBtn
+│   ├── Header.tsx      # navegación (normal y mínima)
+│   └── Footer.tsx
+├── data/
+│   ├── portfolioData.ts  # contenido del portafolio (única fuente)
+│   └── routeMeta.ts      # title, description y JSON-LD por ruta
+├── hooks/              # useDocumentMeta, usePrefersReducedMotion, useSectionObserver, useScrolled
+├── pages/              # Home, MakaOwsPage, MakaMobilePage
+├── styles/
+│   ├── tokens.css      # color, tipografía, espaciado, radios, sombras, movimiento
+│   ├── fonts.css       # @font-face de las fuentes autoalojadas
+│   ├── base.css        # reset, tipografía, botones, foco
+│   ├── layout.css      # navbar, footer, secciones, skeleton
+│   ├── home.css        # hero y secciones de la portada
+│   └── motion.css      # revelados y secuencia de carga
+├── entry-server.tsx    # render para el pre-renderizado
+├── App.tsx             # rutas
+└── main.tsx            # hidratación o montaje
+scripts/
+└── prerender.mjs      # genera dist/**/index.html por ruta
+```
+
+## Rutas
+
+| Ruta | Contenido |
+| --- | --- |
+| `/` | portafolio: hero, sobre mí, stack, proyectos y contacto |
+| `/projects/maka-ows` | documentación técnica de MAKA OWS 2.0 |
+| `/projects/maka-mobile` | app Android nativa de MAKA OWS |
+
+## Sistema de diseño
+
+Todos los valores visuales salen de `src/styles/tokens.css`:
+
+- **Color:** grafito azulado (`#0d1117`) como base, mostaza (`#e0a63e`) para lo
+  relacionado con producto y negocio, azul plano (`#6fa8f0`) reservado para lo
+  técnico (stack, código). Los tres niveles de texto cumplen WCAG AA.
+- **Tipografía:** *Instrument Serif* para display, *Archivo* para texto e
+  *IBM Plex Mono* para etiquetas y cifras.
+- **Movimiento:** una única secuencia de carga en el hero y revelados al hacer
+  scroll, ambos desactivados con `prefers-reduced-motion`.
+
+## Accesibilidad
+
+- HTML semántico, jerarquía de encabezados y enlace de salto al contenido.
+- Foco visible en todos los elementos interactivos.
+- El contenido nunca depende de JavaScript para ser visible: los revelados solo
+  se ocultan cuando la clase `.js` está presente.
+
+## Despliegue
+
+`main` dispara `.github/workflows/deploy.yml`: valida (lint, tipos, tests),
+compila y publica en GitHub Pages. `.github/workflows/ci.yml` ejecuta las
+mismas validaciones en cada pull request.
+
+El repositorio es un *user site*, por eso `base` es `/`. El `404.html` de
+`public/` redirige las rutas desconocidas a la portada para que React Router
+resuelva la ruta original.
+
+## Licencia y créditos
+
+Código propio. Las tipografías (Instrument Serif, Archivo, IBM Plex Mono) se
+sirven desde el repositorio bajo sus respectivas licencias open source.
