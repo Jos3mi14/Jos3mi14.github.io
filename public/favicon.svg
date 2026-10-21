@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="JE">
+  <rect width="64" height="64" rx="12" fill="#0d1117" />
+  <rect x="3" y="3" width="58" height="58" rx="10" fill="none" stroke="#e0a63e" stroke-width="2" />
+  <text
+    x="32"
+    y="43"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="28"
+    font-weight="700"
+    fill="#e0a63e"
+    text-anchor="middle"
+    letter-spacing="1"
+  >JE</text>
+</svg>
