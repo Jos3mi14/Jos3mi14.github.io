@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
@@ -80,3 +80,6 @@ for (const meta of ROUTE_META) {
 }
 
 console.log(`\n${written} rutas pre-renderizadas.`);
+
+// El bundle de SSR no se publica en GitHub Pages.
+await rm(path.join(DIST, "server"), { recursive: true, force: true });
