@@ -160,6 +160,7 @@ export default function MakaOwsPage() {
                   <i
                     className="fas fa-exclamation-triangle"
                     style={{ color: "#ef4444", fontSize: "20px" }}
+                    aria-hidden="true"
                   ></i>
                   <span className="mc-title">Versión 1.0 — PHP Monolito</span>
                 </div>
@@ -191,6 +192,7 @@ export default function MakaOwsPage() {
                   <i
                     className="fas fa-rocket"
                     style={{ color: "var(--accent)", fontSize: "20px" }}
+                    aria-hidden="true"
                   ></i>
                   <span className="mc-title">Versión 2.0 — Microservicios</span>
                 </div>
@@ -266,7 +268,10 @@ export default function MakaOwsPage() {
             ].map((s, i) => (
               <FadeInView direction="up" delay={i * 0.08} key={s.name}>
                 <div className="service-card">
-                  <i className={`fas ${s.icon} service-icon`}></i>
+                  <i
+                    className={`fas ${s.icon} service-icon`}
+                    aria-hidden="true"
+                  ></i>
                   <div className="service-name">{s.name}</div>
                   <p className="service-desc">{s.desc}</p>
                 </div>
@@ -298,6 +303,7 @@ export default function MakaOwsPage() {
                   <i
                     className="fas fa-display"
                     style={{ color: "var(--accent)" }}
+                    aria-hidden="true"
                   ></i>
                 </div>
                 <div className="stack-items">
@@ -324,7 +330,10 @@ export default function MakaOwsPage() {
                     },
                   ].map((item) => (
                     <div className="stack-item" key={item.name}>
-                      <i className={`${item.icon} stack-item-icon`}></i>
+                      <i
+                        className={`${item.icon} stack-item-icon`}
+                        aria-hidden="true"
+                      ></i>
                       <div>
                         <div className="stack-item-name">{item.name}</div>
                         <div className="stack-item-desc">{item.desc}</div>
@@ -342,6 +351,7 @@ export default function MakaOwsPage() {
                   <i
                     className="fas fa-server"
                     style={{ color: "var(--accent)" }}
+                    aria-hidden="true"
                   ></i>
                 </div>
                 <div className="stack-items">
@@ -363,7 +373,10 @@ export default function MakaOwsPage() {
                     },
                   ].map((item) => (
                     <div className="stack-item" key={item.name}>
-                      <i className={`${item.icon} stack-item-icon`}></i>
+                      <i
+                        className={`${item.icon} stack-item-icon`}
+                        aria-hidden="true"
+                      ></i>
                       <div>
                         <div className="stack-item-name">{item.name}</div>
                         <div className="stack-item-desc">{item.desc}</div>
@@ -381,6 +394,7 @@ export default function MakaOwsPage() {
                   <i
                     className="fas fa-cloud"
                     style={{ color: "var(--accent)" }}
+                    aria-hidden="true"
                   ></i>
                 </div>
                 <div className="stack-items">
@@ -402,7 +416,10 @@ export default function MakaOwsPage() {
                     },
                   ].map((item) => (
                     <div className="stack-item" key={item.name}>
-                      <i className={`${item.icon} stack-item-icon`}></i>
+                      <i
+                        className={`${item.icon} stack-item-icon`}
+                        aria-hidden="true"
+                      ></i>
                       <div>
                         <div className="stack-item-name">{item.name}</div>
                         <div className="stack-item-desc">{item.desc}</div>
@@ -467,12 +484,19 @@ export default function MakaOwsPage() {
                 <div className="security-card">
                   <div className="card-top">
                     <span className="pill">{card.pill}</span>
-                    <i className={`fas ${card.icon}`}></i>
+                    <i
+                      className={`fas ${card.icon}`}
+                      aria-hidden="true"
+                    ></i>
                   </div>
                   <ul className="security-list">
                     {card.items.map((item) => (
                       <li key={item}>
-                        <i className="fas fa-check-circle"></i> {item}
+                        <i
+                        className="fas fa-check-circle"
+                        aria-hidden="true"
+                      ></i>{" "}
+                      {item}
                       </li>
                     ))}
                   </ul>
@@ -642,7 +666,8 @@ export default function MakaOwsPage() {
                     rel="noopener noreferrer"
                     className="team-github"
                   >
-                    <i className="fab fa-github"></i> @{member.gh}
+                    <i className="fab fa-github" aria-hidden="true"></i> @
+                    {member.gh}
                   </a>
                 </div>
               </FadeInView>

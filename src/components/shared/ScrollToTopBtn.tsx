@@ -9,11 +9,12 @@ export default function ScrollToTopBtn() {
   }, []);
   return (
     <button
+      type="button"
       className={`scroll-to-top${visible ? " visible" : ""}`}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Volver arriba"
     >
-      <i className="fas fa-arrow-up"></i>
+      <i className="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
   );
 }

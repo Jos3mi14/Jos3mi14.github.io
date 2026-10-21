@@ -51,7 +51,11 @@ export default function Footer({ minimal = false }: FooterProps) {
               ),
               label: "GitHub",
               onClick: () =>
-                window.open("https://github.com/Jos3mi14", "_blank"),
+                window.open(
+                  "https://github.com/Jos3mi14",
+                  "_blank",
+                  "noopener,noreferrer",
+                ),
             },
             {
               icon: (
@@ -66,6 +70,7 @@ export default function Footer({ minimal = false }: FooterProps) {
                 window.open(
                   "https://www.linkedin.com/in/jesanchezminon/",
                   "_blank",
+                  "noopener,noreferrer",
                 ),
             },
             {

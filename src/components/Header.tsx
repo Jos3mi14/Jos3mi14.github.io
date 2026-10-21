@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   HOME_NAV_ITEMS,
   MINIMAL_NAV_ITEMS,
@@ -17,6 +17,7 @@ export default function Header({ minimal = false }: HeaderProps) {
   const navRef = useRef<HTMLUListElement>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
   const navItems: NavItem[] = minimal ? MINIMAL_NAV_ITEMS : HOME_NAV_ITEMS;
+  const { pathname } = useLocation();
 
   const activeSection = useSectionObserver(
     ["hero", "about", "skills", "projects", "contact"],
@@ -36,6 +37,18 @@ export default function Header({ minimal = false }: HeaderProps) {
     };
     document.addEventListener("click", handleClickOut);
     return () => document.removeEventListener("click", handleClickOut);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        btnRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [menuOpen]);
 
   const handleLinkClick = () => setMenuOpen(false);
@@ -75,13 +88,18 @@ export default function Header({ minimal = false }: HeaderProps) {
             className={`nav-links${menuOpen ? " active" : ""}`}
           >
             {navItems.map((item) => {
-              const isActive = !minimal && activeSection === item.href.slice(1);
+              const isRouteActive =
+                item.isRoute && pathname === item.href;
+              const isSectionActive =
+                !minimal && !item.isRoute && activeSection === item.href.slice(1);
+              const isActive = isRouteActive || isSectionActive;
               if (item.isRoute) {
                 return (
                   <li key={item.href}>
                     <Link
                       to={item.href}
                       className={`nav-link${isActive ? " active" : ""}`}
+                      aria-current={isRouteActive ? "page" : undefined}
                       onClick={handleLinkClick}
                     >
                       <i className={`fas ${item.icon}`} aria-hidden="true"></i>{" "}
@@ -95,6 +113,7 @@ export default function Header({ minimal = false }: HeaderProps) {
                   <a
                     href={item.href}
                     className={`nav-link${isActive ? " active" : ""}`}
+                    aria-current={isSectionActive ? "true" : undefined}
                     onClick={(e) => handleNavClick(e, item.href)}
                   >
                     <i className={`fas ${item.icon}`} aria-hidden="true"></i>{" "}

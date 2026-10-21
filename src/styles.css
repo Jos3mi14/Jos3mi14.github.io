@@ -9,10 +9,10 @@
   --card: #0d1b28;
   --card-strong: #091420;
 
-  /* Texto */
+  /* Texto — los tres niveles cumplen WCAG AA (>= 4.5:1) sobre --bg-900 */
   --text-1: #f0f4ff;
   --text-2: #b8c8e0;
-  --text-3: #5a7090;
+  --text-3: #8b9cb2;
 
   /* Bordes */
   --border: #162335;
@@ -117,6 +117,26 @@ a {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* ========================================
+   Foco visible (WCAG 2.4.7)
+   ======================================== */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Dentro de contenedores con overflow:hidden el anillo exterior se recorta */
+.project-card :where(a, button):focus-visible,
+.about-card :where(a, button):focus-visible,
+.contact-card :where(a, button):focus-visible {
+  outline-offset: -3px;
+}
+
+/* La navegación por ancla no debe quedar bajo la navbar fija */
+section[id] {
+  scroll-margin-top: 96px;
 }
 
 .container {
