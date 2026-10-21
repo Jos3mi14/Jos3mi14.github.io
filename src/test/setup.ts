@@ -21,8 +21,8 @@ class MockIntersectionObserver {
   }
 }
 
-global.IntersectionObserver =
+globalThis.IntersectionObserver =
   MockIntersectionObserver as unknown as typeof IntersectionObserver;
 
-global.requestAnimationFrame = (cb: FrameRequestCallback) => setTimeout(cb, 16);
-global.cancelAnimationFrame = (id: number) => clearTimeout(id);
+globalThis.requestAnimationFrame = (cb: FrameRequestCallback) => setTimeout(cb, 16);
+globalThis.cancelAnimationFrame = (id: number) => clearTimeout(id);
