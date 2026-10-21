@@ -103,6 +103,9 @@ export interface ContactData {
 export const HERO_DATA: HeroData = {
   name: "José Emilio",
   surname: "Sánchez Miñón",
+  // TODO: el hero no tiene retrato. Si el autor aporta una foto, puede
+  // colocarse junto al panel de ficha tecnica (aun sin usar, el hueco
+  // se resuelve con la retícula actual).
   title: "Desarrollador Móvil · Modelos de Negocio",
   rotatingTexts: ["React Native", "TypeScript", "Product Strategy", "AI & Voice"],
   lede:
@@ -248,6 +251,7 @@ export const PROJECTS_DATA: ProjectsData = {
           href: "https://github.com/MemoLuche/Nyma-Project",
           isExternal: true,
         },
+        // TODO: si Nyma tiene demo pública, su enlace va aquí.
       ],
     },
   ],
@@ -291,4 +295,7 @@ export const CONTACT_DATA: ContactData = {
     label: "Ver trabajo",
     href: "#projects",
   },
+  // TODO: el contacto usa mailto, que falla si la persona no tiene
+  // cliente de correo configurado. La alternativa es un formulario
+  // (Formspree o similar): requiere una cuenta y una decision del autor.
 };
