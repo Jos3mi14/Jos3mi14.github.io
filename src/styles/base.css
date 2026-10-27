@@ -63,6 +63,7 @@ p {
   margin: 0;
   color: var(--text-2);
   max-width: 68ch;
+  text-wrap: pretty;
 }
 
 strong {
@@ -143,7 +144,10 @@ hr {
   outline-offset: 2px;
 }
 
-:where(.card, .project-row, .spec-panel, .contact-panel):where(a, button):focus-visible {
+:where(.card, .project-row, .spec-panel, .contact-panel):where(
+    a,
+    button
+  ):focus-visible {
   outline-offset: -3px;
 }
 

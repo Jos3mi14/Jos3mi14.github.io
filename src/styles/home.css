@@ -133,7 +133,8 @@
 }
 
 /* Panel de datos — la pieza firma del sitio */
-.spec-panel {  border: 1px solid var(--border-strong);
+.spec-panel {
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
   background: color-mix(in srgb, var(--card) 70%, transparent);
   overflow: hidden;
