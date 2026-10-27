@@ -107,9 +107,13 @@ export const HERO_DATA: HeroData = {
   // colocarse junto al panel de ficha tecnica (aun sin usar, el hueco
   // se resuelve con la retícula actual).
   title: "Desarrollador Móvil · Modelos de Negocio",
-  rotatingTexts: ["React Native", "TypeScript", "Product Strategy", "AI & Voice"],
-  lede:
-    "Creo aplicaciones móviles con impacto real, combinando desarrollo técnico sólido con identificación de oportunidades de negocio y estrategia de producto.",
+  rotatingTexts: [
+    "React Native",
+    "TypeScript",
+    "Product Strategy",
+    "AI & Voice",
+  ],
+  lede: "Creo aplicaciones móviles con impacto real, combinando desarrollo técnico sólido con identificación de oportunidades de negocio y estrategia de producto.",
   spec: [
     { label: "Rol", value: "Desarrollador de apps móviles" },
     { label: "Stack", value: "React Native · Expo · TypeScript" },
@@ -214,18 +218,7 @@ export const PROJECTS_DATA: ProjectsData = {
         "Docker",
         "AWS",
       ],
-      links: [
-        {
-          label: "Documentación completa →",
-          href: "/projects/maka-ows",
-          isExternal: false,
-        },
-        {
-          label: "App Android →",
-          href: "/projects/maka-mobile",
-          isExternal: false,
-        },
-      ],
+      links: [],
     },
     {
       id: "nyma",

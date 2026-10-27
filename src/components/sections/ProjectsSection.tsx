@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Reveal from "../shared/Reveal";
 import Icon from "../shared/Icon";
 import type { ProjectsData } from "../../data/portfolioData";
@@ -23,25 +22,27 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
                 <div className="project-head">
                   <span className="pill">{project.tag}</span>
                   <h3 className="project-title">{project.title}</h3>
-                  <div className="project-links">
-                    {project.links.map((link) =>
-                      link.isExternal ? (
-                        <a
-                          key={link.label}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {link.label}
-                          <Icon name="arrow-up-right" size={13} />
-                        </a>
-                      ) : (
-                        <Link key={link.label} to={link.href}>
-                          {link.label}
-                        </Link>
-                      ),
-                    )}
-                  </div>
+                  {project.links.length > 0 && (
+                    <div className="project-links">
+                      {project.links.map((link) =>
+                        link.isExternal ? (
+                          <a
+                            key={link.label}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {link.label}
+                            <Icon name="arrow-up-right" size={13} />
+                          </a>
+                        ) : (
+                          <a key={link.label} href={link.href}>
+                            {link.label}
+                          </a>
+                        ),
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 <div className="project-body">

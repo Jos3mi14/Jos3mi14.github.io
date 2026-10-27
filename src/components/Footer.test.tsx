@@ -5,7 +5,9 @@ describe("Footer", () => {
   it("renderiza enlaces de la vista principal", () => {
     render(<Footer />);
 
-    expect(screen.getByText(/2026 José Emilio Sánchez Miñón/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/2026 José Emilio Sánchez Miñón/i),
+    ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /inicio/i })).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /proyectos/i }),
@@ -15,7 +17,9 @@ describe("Footer", () => {
   it("renderiza enlaces minimos cuando minimal es true", () => {
     render(<Footer minimal />);
 
-    expect(screen.getByRole("link", { name: /maka ows/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /portafolio/i }),
+    ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /contacto/i })).toBeInTheDocument();
   });
 

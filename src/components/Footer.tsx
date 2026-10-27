@@ -46,7 +46,6 @@ export default function Footer({ minimal = false }: FooterProps) {
               <>
                 <a href="/">Portafolio</a>
                 <a href="/#projects">Proyectos</a>
-                <a href="/projects/maka-ows">MAKA OWS</a>
                 <a href="/#contact">Contacto</a>
               </>
             ) : (
@@ -68,7 +67,9 @@ export default function Footer({ minimal = false }: FooterProps) {
                 href={link.href}
                 target={link.href.startsWith("http") ? "_blank" : undefined}
                 rel={
-                  link.href.startsWith("http") ? "noopener noreferrer" : undefined
+                  link.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
                 }
               >
                 <Icon name={link.icon} size={14} /> {link.label}

@@ -16,13 +16,13 @@ Pages, rama `main`).
   React Router 7.
 - **Sin dependencias de animación ni de iconos:** el movimiento es CSS nativo
   y los iconos son SVG en línea. Las fuentes están autoalojadas.
-- **Pre-renderizado:** `npm run build` genera un HTML estático por ruta
-  (`/`, `/projects/maka-ows`, `/projects/maka-mobile`) con `react-dom/server`;
-  el cliente hidrata ese HTML.
-- **Rutas:** `/`, `/projects/maka-ows`, `/projects/maka-mobile`. La ruta antigua
-  `/maka-ows` redirige a `/projects/maka-ows`.
+- **Pre-renderizado:** `npm run build` genera el HTML estático de la portada
+  (`/`) con `react-dom/server`; el cliente hidrata ese HTML.
+- **Rutas:** solo `/`. Cualquier ruta desconocida redirige a la portada.
 - **Contenido:** `src/data/portfolioData.ts` es la única fuente de los datos
-  del portafolio; `src/data/routeMeta.ts` contiene los metadatos por ruta.
+  del portafolio; `src/data/routeMeta.ts` contiene los metadatos del sitio.
+- **Proyectos:** las fichas viven en la portada (`ProjectsSection`); no hay
+  páginas individuales por proyecto.
 
 ## Objetivo de la interfaz
 
@@ -47,7 +47,7 @@ Estos datos vienen del autor y no se cambian por iniciativa propia:
 
 ## Reglas de despliegue
 
-- Es un *user site* (`Jos3mi14.github.io`), por lo que `base` es `/`.
+- Es un _user site_ (`Jos3mi14.github.io`), por lo que `base` es `/`.
 - `public/404.html` guarda la ruta desconocida en `sessionStorage` y vuelve a
   la raíz para que React Router la resuelva.
 - `main` dispara el despliegue; cada pull request ejecuta las validaciones.

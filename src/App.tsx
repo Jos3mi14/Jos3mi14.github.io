@@ -2,8 +2,6 @@ import { Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import SkeletonLoader from "./components/ui/SkeletonLoader";
 import Home from "./pages/Home";
-import MakaOwsPage from "./pages/MakaOwsPage";
-import MakaMobilePage from "./pages/MakaMobilePage";
 import { useDocumentMeta } from "./hooks/useDocumentMeta";
 
 export function AppRoutes() {
@@ -12,12 +10,6 @@ export function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route
-        path="/maka-ows"
-        element={<Navigate to="/projects/maka-ows" replace />}
-      />
-      <Route path="/projects/maka-mobile" element={<MakaMobilePage />} />
-      <Route path="/projects/maka-ows" element={<MakaOwsPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
